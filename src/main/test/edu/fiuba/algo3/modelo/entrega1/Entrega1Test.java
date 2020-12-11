@@ -1,17 +1,18 @@
 package edu.fiuba.algo3.modelo.entrega1;
 
+import edu.fiuba.algo3.modelo.Personaje;
 import org.junit.jupiter.api.Test;
 
 import java.util.Vector;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class Entrega1Test {
 
     @Test
-    public void testSeCreaPersonajeConElLapizArriba() {
+    public void testSeCreaPersonajeConElLapizLevantado() {
         Personaje personaje = new Personaje();
-        assert(!personaje.estaPintando());
+        assertFalse(personaje.estaPintando());
     }
 
     @Test
@@ -19,7 +20,7 @@ public class Entrega1Test {
         Personaje personaje = new Personaje();
         BloqueLapizArriba bloque = new BloqueLapizArriba();
         bloque.ejecutar(personaje);
-        assert(!personaje.estaPintando());
+        assertFalse(personaje.estaPintando());
     }
 
     @Test
@@ -27,7 +28,7 @@ public class Entrega1Test {
         Personaje personaje = new Personaje();
         BloqueLapizAbajo bloque = new BloqueLapizAbajo();
         bloque.ejecutar(personaje);
-        assert(personaje.estaPintando());
+        assertTrue(personaje.estaPintando());
     }
 
     @Test
@@ -38,7 +39,7 @@ public class Entrega1Test {
         Vector<Integer> coordenadas = new Vector<>();
         coordenadas.add(-1);
         coordenadas.add(0);
-        assertEquals(personaje.posicionActual(),coordenadas);
+        assertEquals(personaje.posicionActual(), coordenadas);
     }
 
     @Test
@@ -49,7 +50,7 @@ public class Entrega1Test {
         Vector<Integer> coordenadas = new Vector<>();
         coordenadas.add(1);
         coordenadas.add(0);
-        assertEquals(personaje.posicionActual(),coordenadas);
+        assertEquals(personaje.posicionActual(), coordenadas);
     }
 
     @Test
@@ -60,7 +61,7 @@ public class Entrega1Test {
         Vector<Integer> coordenadas = new Vector<>();
         coordenadas.add(0);
         coordenadas.add(-1);
-        assertEquals(personaje.posicionActual(),coordenadas);
+        assertEquals(personaje.posicionActual(), coordenadas);
     }
 
     @Test
@@ -71,6 +72,6 @@ public class Entrega1Test {
         Vector<Integer> coordenadas = new Vector<>();
         coordenadas.add(0);
         coordenadas.add(1);
-        assertEquals(personaje.posicionActual(),coordenadas);
+        assertEquals(personaje.posicionActual(), coordenadas);
     }
 }

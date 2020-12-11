@@ -6,14 +6,14 @@
 
 Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUBA
 
-## Grupo {N}
+## Grupo 10
 
-* **Integrante 1** - [integrante1](https://github.com/integrante1)
-* **Integrante 2** - [integrante2](https://github.com/integrante2)
-* **Integrante 3** - [integrante3](https://github.com/integrante3)
-* **Integrante 4** - [integrante4](https://github.com/integrante4)
+* **Integrante 1** - Joaquín Lerer(https://github.com/joacolerer)
+* **Integrante 2** - Nicolás Podesta(https://github.com/NicoPodesta)
+* **Integrante 3** - Dante Reinaudo(https://github.com/DanteReinaudo)
+* **Integrante 4** - Sebastián Vera Benitez(https://github.com/SVeraB)
 
-Corrector: **{Corrector}**
+Corrector: **Diego Sanchez**
 
 ### Pre-requisitos
 
