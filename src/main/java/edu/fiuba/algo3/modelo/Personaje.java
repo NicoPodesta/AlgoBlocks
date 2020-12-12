@@ -9,6 +9,6 @@ public class Personaje {
     }
 
     public boolean estaPintando() {
-        return lapiz.estaLevantado();
+        return lapiz.estaApoyado();
     }
 }
