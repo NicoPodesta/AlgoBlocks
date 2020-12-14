@@ -5,10 +5,18 @@ public class Personaje {
     private Lapiz lapiz;
 
     public Personaje() {
-        lapiz = new LapizLevantado();
+        this.levantarLapiz();
     }
 
     public boolean estaPintando() {
         return lapiz.estaApoyado();
+    }
+
+    public void levantarLapiz(){
+        lapiz = new LapizLevantado();
+    }
+
+    public void apoyarLapiz() {
+        lapiz = new LapizApoyado();
     }
 }

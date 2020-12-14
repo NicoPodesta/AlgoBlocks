@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.entrega1;
 
+import edu.fiuba.algo3.modelo.BloqueLapizApoyado;
+import edu.fiuba.algo3.modelo.BloqueLapizLevantado;
 import edu.fiuba.algo3.modelo.Personaje;
 import org.junit.jupiter.api.Test;
 
@@ -18,7 +20,7 @@ public class Entrega1Test {
     @Test
     public void testElPersonajeLevantaElLapizConBloque() {
         Personaje personaje = new Personaje();
-        BloqueLapizArriba bloque = new BloqueLapizArriba();
+        BloqueLapizLevantado bloque = new BloqueLapizLevantado();
         bloque.ejecutar(personaje);
         assertFalse(personaje.estaPintando());
     }
@@ -26,7 +28,7 @@ public class Entrega1Test {
     @Test
     public void testElPersonajeBajaElLapizConBloque() {
         Personaje personaje = new Personaje();
-        BloqueLapizAbajo bloque = new BloqueLapizAbajo();
+        BloqueLapizApoyado bloque = new BloqueLapizApoyado();
         bloque.ejecutar(personaje);
         assertTrue(personaje.estaPintando());
     }
