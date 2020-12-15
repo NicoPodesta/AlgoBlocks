@@ -32,6 +32,16 @@ public class Entrega1Test {
     }
 
     @Test
+    public void testElPersonajeBajaYSubeElLapizConBloques() {
+        Personaje personaje = new Personaje();
+        BloqueLapizApoyado bloqueApoyado = new BloqueLapizApoyado();
+        bloqueApoyado.ejecutar(personaje);
+        BloqueLapizLevantado bloqueLevantado = new BloqueLapizLevantado();
+        bloqueLevantado.ejecutar(personaje);
+        assertFalse(personaje.estaPintando());
+    }
+
+    @Test
     public void testElPersonajeSeMueveHaciaArribaConBloque() {
         Personaje personaje = new Personaje();
         BloqueArriba bloque = new BloqueArriba();
