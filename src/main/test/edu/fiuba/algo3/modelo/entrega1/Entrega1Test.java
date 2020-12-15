@@ -1,8 +1,6 @@
 package edu.fiuba.algo3.modelo.entrega1;
 
-import edu.fiuba.algo3.modelo.BloqueLapizApoyado;
-import edu.fiuba.algo3.modelo.BloqueLapizLevantado;
-import edu.fiuba.algo3.modelo.Personaje;
+import edu.fiuba.algo3.modelo.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.Vector;
@@ -39,8 +37,8 @@ public class Entrega1Test {
         BloqueArriba bloque = new BloqueArriba();
         bloque.ejecutar(personaje);
         Vector<Integer> coordenadas = new Vector<>();
-        coordenadas.add(-1);
         coordenadas.add(0);
+        coordenadas.add(-1);
         assertEquals(personaje.posicionActual(), coordenadas);
     }
 
@@ -50,8 +48,8 @@ public class Entrega1Test {
         BloqueAbajo bloque = new BloqueAbajo();
         bloque.ejecutar(personaje);
         Vector<Integer> coordenadas = new Vector<>();
-        coordenadas.add(1);
         coordenadas.add(0);
+        coordenadas.add(1);
         assertEquals(personaje.posicionActual(), coordenadas);
     }
 
@@ -61,8 +59,8 @@ public class Entrega1Test {
         BloqueIzquierda bloque = new BloqueIzquierda();
         bloque.ejecutar(personaje);
         Vector<Integer> coordenadas = new Vector<>();
-        coordenadas.add(0);
         coordenadas.add(-1);
+        coordenadas.add(0);
         assertEquals(personaje.posicionActual(), coordenadas);
     }
 
@@ -72,8 +70,8 @@ public class Entrega1Test {
         BloqueDerecha bloque = new BloqueDerecha();
         bloque.ejecutar(personaje);
         Vector<Integer> coordenadas = new Vector<>();
-        coordenadas.add(0);
         coordenadas.add(1);
+        coordenadas.add(0);
         assertEquals(personaje.posicionActual(), coordenadas);
     }
 }
