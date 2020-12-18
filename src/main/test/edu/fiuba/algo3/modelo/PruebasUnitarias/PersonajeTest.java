@@ -1,4 +1,4 @@
-package PruebasUnitarias;
+package edu.fiuba.algo3.modelo.PruebasUnitarias;
 import edu.fiuba.algo3.modelo.*;
 import org.junit.jupiter.api.Test;
 

@@ -9,7 +9,7 @@ public class Personaje {
 
     public Personaje() {
         this.levantarLapiz();
-        this.posicion = new Posicion(0,0);
+        posicion = new Posicion(0,0);
     }
 
     public boolean estaPintando() {
@@ -25,19 +25,19 @@ public class Personaje {
     }
 
     public void moverHaciaArriba() {
-        this.posicion.arriba();
+        posicion.arriba();
     }
 
     public void moverHaciaAbajo() {
-        this.posicion.abajo();
+        posicion.abajo();
     }
 
     public void moverHaciaLaIzquierda() {
-        this.posicion.izquierda();
+        posicion.izquierda();
     }
 
     public void moverHaciaLaDerecha() {
-        this.posicion.derecha();
+        posicion.derecha();
     }
 
     public Posicion posicionActual() {
