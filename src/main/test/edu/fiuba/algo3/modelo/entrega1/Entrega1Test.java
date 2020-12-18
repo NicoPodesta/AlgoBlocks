@@ -46,9 +46,7 @@ public class Entrega1Test {
         Personaje personaje = new Personaje();
         BloqueArriba bloque = new BloqueArriba();
         bloque.ejecutar(personaje);
-        Vector<Integer> coordenadas = new Vector<>();
-        coordenadas.add(0);
-        coordenadas.add(-1);
+        Posicion coordenadas = new Posicion(0,-1);
         assertEquals(personaje.posicionActual(), coordenadas);
     }
 
@@ -57,9 +55,7 @@ public class Entrega1Test {
         Personaje personaje = new Personaje();
         BloqueAbajo bloque = new BloqueAbajo();
         bloque.ejecutar(personaje);
-        Vector<Integer> coordenadas = new Vector<>();
-        coordenadas.add(0);
-        coordenadas.add(1);
+        Posicion coordenadas = new Posicion(0,1);
         assertEquals(personaje.posicionActual(), coordenadas);
     }
 
@@ -68,9 +64,7 @@ public class Entrega1Test {
         Personaje personaje = new Personaje();
         BloqueIzquierda bloque = new BloqueIzquierda();
         bloque.ejecutar(personaje);
-        Vector<Integer> coordenadas = new Vector<>();
-        coordenadas.add(-1);
-        coordenadas.add(0);
+        Posicion coordenadas = new Posicion(-1,0);
         assertEquals(personaje.posicionActual(), coordenadas);
     }
 
@@ -79,9 +73,7 @@ public class Entrega1Test {
         Personaje personaje = new Personaje();
         BloqueDerecha bloque = new BloqueDerecha();
         bloque.ejecutar(personaje);
-        Vector<Integer> coordenadas = new Vector<>();
-        coordenadas.add(1);
-        coordenadas.add(0);
+        Posicion coordenadas = new Posicion(1,0);
         assertEquals(personaje.posicionActual(), coordenadas);
     }
 }

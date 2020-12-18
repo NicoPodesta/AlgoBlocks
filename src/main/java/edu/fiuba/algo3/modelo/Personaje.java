@@ -4,14 +4,12 @@ import java.util.Vector;
 
 public class Personaje {
 
+    private final Posicion posicion;
     private Lapiz lapiz;
-    private int posicionX;
-    private int posicionY;
 
     public Personaje() {
         this.levantarLapiz();
-        posicionX = 0;
-        posicionY = 0;
+        this.posicion = new Posicion(0,0);
     }
 
     public boolean estaPintando() {
@@ -27,25 +25,22 @@ public class Personaje {
     }
 
     public void moverHaciaArriba() {
-        posicionY = posicionY - 1;
+        this.posicion.arriba();
     }
 
     public void moverHaciaAbajo() {
-        posicionY = posicionY + 1;
+        this.posicion.abajo();
     }
 
     public void moverHaciaLaIzquierda() {
-        posicionX = posicionX - 1;
+        this.posicion.izquierda();
     }
 
     public void moverHaciaLaDerecha() {
-        posicionX = posicionX + 1;
+        this.posicion.derecha();
     }
 
-    public Vector<Integer> posicionActual() {
-        Vector<Integer> posicion = new Vector<>();
-        posicion.add(posicionX);
-        posicion.add(posicionY);
+    public Posicion posicionActual() {
         return posicion;
     }
 }
