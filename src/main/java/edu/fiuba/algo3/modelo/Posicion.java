@@ -40,4 +40,12 @@ public class Posicion {
     public void derecha() {
         x = x + 1;
     }
+
+    public int x() {
+        return x ;
+    }
+
+    public int y() {
+        return y ;
+    }
 }

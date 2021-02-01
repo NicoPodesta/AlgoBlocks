@@ -12,7 +12,7 @@ public class Personaje {
         posicion = new Posicion(0,0);
     }
 
-    public boolean estaPintando() {
+    public boolean estaPintando() { "Corregir"
         return lapiz.estaApoyado();
     }
 

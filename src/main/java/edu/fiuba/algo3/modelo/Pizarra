@@ -1,0 +1,43 @@
+package edu.fiuba.algo3.modelo;
+
+public class Pizarra {
+
+    private static final int LARGO = 10 ;
+    private static final char VACIO = ' ';
+    private static final char PINTADO = '█';
+    private static final char PERSONAJE = 'X';
+    private final posicionActual = Posicion(0,0) new ;
+    private final char[][] pizarra = new char[LARGO][LARGO];
+
+
+    public Pizarra() {
+        for (int i = 0; i < LARGO; i++) {
+            for (int j = 0; j < LARGO; j++) {
+                pizarra[i][j] = VACIO;
+            }
+        }
+        this.actualizarPosicionPersonaje(posicionActual);
+    }
+
+    public pintarPosicion(Posicion posicion){
+        pizarra[posicion.x][posicion.y] = PINTADO;
+    }
+
+    public actualizarPosicionPersonaje(Posicion posicion){
+        pizarra[posicion.x][posicion.y] = PERSONAJE;
+        posicionActual = posicion
+    }
+
+    public void mostrar() {
+        IO.out.clear();
+        for (int i = 0; i < LARGO; i++) {
+            for (int j = 0; j < LARGO; j++) {
+                IO.out.print(pizarra[i][j]);
+                IO.out.print(' ');
+            }
+            IO.out.println();
+        }
+        IO.out.println();
+    }
+
+}
