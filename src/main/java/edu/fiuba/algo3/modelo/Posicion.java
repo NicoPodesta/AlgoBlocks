@@ -4,6 +4,7 @@ import java.util.Objects;
 
 public class Posicion {
 
+    private static final int LARGO = 5;
     private int x;
     private int y;
 
@@ -26,19 +27,36 @@ public class Posicion {
     }
 
     public void arriba() {
-        y = y - 1;
+        if(y - 1 < 0){
+            y = LARGO - 1;
+        }else {
+            y = y - 1;
+        }
     }
 
     public void abajo() {
-        y = y + 1;
+        if(y + 1 > LARGO - 1){
+            y = 0;
+        }else {
+            y = y + 1;
+        }
     }
 
     public void izquierda() {
-        x = x - 1;
+        if(x - 1 < 0){
+            x = LARGO - 1;
+        }else {
+            x = x - 1;
+        }
     }
 
     public void derecha() {
-        x = x + 1;
+
+        if( x + 1 > LARGO - 1){
+            x = 0;
+        }else {
+            x = x + 1;
+        }
     }
 
     public int x() {
@@ -47,5 +65,8 @@ public class Posicion {
 
     public int y() {
         return y ;
+    }
+    public int dimension(){
+        return LARGO;
     }
 }

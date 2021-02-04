@@ -10,8 +10,8 @@ public class Personaje {
 
     public Personaje() {
         this.levantarLapiz();
-        posicion = new Posicion(1,1);
-        pizarra = new Pizarra();
+        posicion = new Posicion(0,0);
+        pizarra = new Pizarra(posicion.dimension());
     }
 
     public boolean estaPintando() { //"Corregir"
@@ -54,4 +54,5 @@ public class Personaje {
     public Posicion posicionActual() {
         return posicion;
     }
+    public Pizarra pizarraActual(){return pizarra;}
 }
