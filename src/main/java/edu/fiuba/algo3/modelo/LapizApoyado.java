@@ -6,4 +6,8 @@ public class LapizApoyado implements Lapiz {
     public boolean estaApoyado() {
         return true;
     }
+    public void pintarPizarra(Posicion posicion, Pizarra pizarra){
+        //pizarra.actualizarPosicionPersonaje(posicion);
+        pizarra.pintarPosicion(posicion);
+    }
 }
