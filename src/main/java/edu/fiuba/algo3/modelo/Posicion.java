@@ -27,46 +27,22 @@ public class Posicion {
     }
 
     public void arriba() {
-        if(y - 1 < 0){
-            y = LARGO - 1;
-        }else {
-            y = y - 1;
-        }
+        y = y - 1;
     }
 
     public void abajo() {
-        if(y + 1 > LARGO - 1){
-            y = 0;
-        }else {
-            y = y + 1;
-        }
+        y = y + 1;
     }
 
     public void izquierda() {
-        if(x - 1 < 0){
-            x = LARGO - 1;
-        }else {
-            x = x - 1;
-        }
+        x = x - 1;
     }
 
     public void derecha() {
-        if( x + 1 > LARGO - 1){
-            x = 0;
-        }else {
-            x = x + 1;
-        }
+        x = x + 1;
     }
 
-    public int x() {
-        return x ;
-    }
-
-    public int y() {
-        return y ;
-    }
-
-    public int dimension(){
-        return LARGO;
+    public String ClaveString(){
+       return Integer.toString(this.x) + "-" + Integer.toString(this.y);
     }
 }

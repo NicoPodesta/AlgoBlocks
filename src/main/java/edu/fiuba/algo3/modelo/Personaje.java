@@ -8,8 +8,8 @@ public class Personaje {
 
     public Personaje() {
         this.levantarLapiz();
-        posicion = new Posicion(0,0);
-        pizarra = new Pizarra(posicion.dimension());
+        this.posicion = new Posicion(0,0);
+        this.pizarra = new Pizarra();
     }
 
     public boolean estaPintando() { //"Corregir"

@@ -10,7 +10,7 @@ public class PersonajeTest {
     public void testElPersonajeMueveCorrectamenteLaPosicionALaDerecha(){
         Personaje personaje = new Personaje();
         personaje.moverHaciaLaDerecha();
-        Posicion coordenadas = new Posicion(0,-1);
+        Posicion coordenadas = new Posicion(1,0);
         assertEquals(personaje.posicionActual(), coordenadas);
     }
 
