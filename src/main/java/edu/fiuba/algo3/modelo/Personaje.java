@@ -1,7 +1,5 @@
 package edu.fiuba.algo3.modelo;
 
-import java.util.Vector;
-
 public class Personaje {
 
     private final Posicion posicion;
@@ -54,5 +52,6 @@ public class Personaje {
     public Posicion posicionActual() {
         return posicion;
     }
+
     public Pizarra pizarraActual(){return pizarra;}
 }

@@ -51,7 +51,6 @@ public class Posicion {
     }
 
     public void derecha() {
-
         if( x + 1 > LARGO - 1){
             x = 0;
         }else {
@@ -66,6 +65,7 @@ public class Posicion {
     public int y() {
         return y ;
     }
+
     public int dimension(){
         return LARGO;
     }
