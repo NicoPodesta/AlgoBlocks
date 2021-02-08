@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
+import java.util.HashSet;
+
 public class Personaje {
 
     private final Posicion posicion;
@@ -53,5 +55,7 @@ public class Personaje {
         return posicion;
     }
 
-    public Pizarra pizarraActual(){return pizarra;}
+    public boolean compararLaPizarra(HashSet<String> pizarra1){
+        return pizarra.equals(pizarra1);
+    }
 }

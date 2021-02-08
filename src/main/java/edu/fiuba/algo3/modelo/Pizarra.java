@@ -1,19 +1,15 @@
 package edu.fiuba.algo3.modelo;
 
-import java.util.Arrays;
-import java.util.Dictionary;
-import java.util.Hashtable;
-import java.util.Objects;
+import java.util.*;
 
 public class Pizarra {
 
-    private final Dictionary<String, Posicion> pizarra;
+    private final HashSet<String> pizarra;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Dictionary<String, Posicion> pizarra1 = (Hashtable<String, Posicion>) o;
+        HashSet<String> pizarra1 = (HashSet<String>) o;
         return pizarra.equals(pizarra1);
     }
 
@@ -23,10 +19,10 @@ public class Pizarra {
     }
 
     public Pizarra() {
-        pizarra = new Hashtable<String, Posicion>();
+        pizarra = new HashSet<String>();
     }
 
     public void pintarPosicion(Posicion posicion){
-        pizarra.put(posicion.ClaveString(), posicion);
+        pizarra.add(posicion.ClaveString());
     }
 }
