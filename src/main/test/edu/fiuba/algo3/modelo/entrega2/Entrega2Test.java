@@ -3,10 +3,8 @@ package edu.fiuba.algo3.modelo.entrega2;
 import edu.fiuba.algo3.modelo.*;
 import org.junit.jupiter.api.Test;
 
-import java.util.Dictionary;
-import java.util.HashMap;
+
 import java.util.HashSet;
-import java.util.Hashtable;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -14,37 +12,37 @@ class Entrega2Test {
 
 
     @Test
-    void laPizarraSeCreaCorrectamente(){
+    public void laPizarraSeCreaCorrectamente(){
         Pizarra pizzarra = new Pizarra();
-        HashSet<String> pizarra1 = new HashSet<String>();
-        assertEquals(pizzarra,pizarra1);
+        HashSet<String> pizarraFinal = new HashSet<>();
+        assertEquals(pizzarra,pizarraFinal);
     }
 
     @Test
-    void moverElPErsonajeConElLapizLevantadoNoPintaLaPizarra(){
+    public void testMoverElPErsonajeConElLapizLevantadoNoPintaLaPizarra(){
         Tablero tablero = new Tablero();
         tablero.agregarBloqueAlAlgoritmo(new BloqueAbajo());
         tablero.agregarBloqueAlAlgoritmo(new BloqueDerecha());
         tablero.ejecutarAlgoritmo();
-        HashSet<String> pizarra1 = new HashSet<String>();
-        assertTrue(tablero.compararPizarra(pizarra1));
+        HashSet<String> pizarraFinal = new HashSet<>();
+        assertTrue(tablero.compararPizarra(pizarraFinal));
     }
 
     @Test
-    void moverElPersonajeConElLapizAbajoPintaLaPizarra(){
+    public void testMoverElPersonajeConElLapizAbajoPintaLaPizarra(){
         Tablero tablero = new Tablero();
         tablero.agregarBloqueAlAlgoritmo(new BloqueLapizApoyado());
         tablero.agregarBloqueAlAlgoritmo(new BloqueAbajo());
         tablero.agregarBloqueAlAlgoritmo(new BloqueDerecha());
         tablero.ejecutarAlgoritmo();
-        HashSet<String> pizarra1 = new HashSet<String>();
+        HashSet<String> pizarraFinal = new HashSet<>();
         Posicion pos1 = new Posicion(0,0);
-        pizarra1.add(pos1.ClaveString());
+        pizarraFinal.add(pos1.ClaveString());
         Posicion pos2 = new Posicion(0,1);
-        pizarra1.add(pos2.ClaveString());
+        pizarraFinal.add(pos2.ClaveString());
         Posicion pos3 = new Posicion(1,1);
-        pizarra1.add(pos3.ClaveString());
-        assertTrue(tablero.compararPizarra(pizarra1));
+        pizarraFinal.add(pos3.ClaveString());
+        assertTrue(tablero.compararPizarra(pizarraFinal));
     }
 
     @Test

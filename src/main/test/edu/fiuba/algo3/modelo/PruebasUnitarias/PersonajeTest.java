@@ -37,17 +37,4 @@ public class PersonajeTest {
         Posicion coordenadas = new Posicion(0,1);
         assertEquals(personaje.posicionActual(), coordenadas);
     }
-
-    @Test
-    public void testELPersonajeConElLapizApoyadoPinta(){
-        Personaje personaje = new Personaje();
-        personaje.apoyarLapiz();
-        assertTrue(personaje.estaPintando());
-    }
-
-    @Test
-    public void testELPersonajeConElLapizLevantadoNoPinta(){
-        Personaje personaje = new Personaje();
-        assertFalse(personaje.estaPintando());
-    }
 }

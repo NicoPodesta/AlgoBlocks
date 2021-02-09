@@ -3,43 +3,11 @@ package edu.fiuba.algo3.modelo.entrega1;
 import edu.fiuba.algo3.modelo.*;
 import org.junit.jupiter.api.Test;
 
-import java.util.Vector;
+import java.util.HashSet;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class Entrega1Test {
-
-    @Test
-    public void testSeCreaPersonajeConElLapizLevantado() {
-        Personaje personaje = new Personaje();
-        assertFalse(personaje.estaPintando());
-    }
-
-    @Test
-    public void testElPersonajeLevantaElLapizConBloque() {
-        Personaje personaje = new Personaje();
-        BloqueLapizLevantado bloque = new BloqueLapizLevantado();
-        bloque.ejecutar(personaje);
-        assertFalse(personaje.estaPintando());
-    }
-
-    @Test
-    public void testElPersonajeBajaElLapizConBloque() {
-        Personaje personaje = new Personaje();
-        BloqueLapizApoyado bloque = new BloqueLapizApoyado();
-        bloque.ejecutar(personaje);
-        assertTrue(personaje.estaPintando());
-    }
-
-    @Test
-    public void testElPersonajeBajaYSubeElLapizConBloques() {
-        Personaje personaje = new Personaje();
-        BloqueLapizApoyado bloqueApoyado = new BloqueLapizApoyado();
-        bloqueApoyado.ejecutar(personaje);
-        BloqueLapizLevantado bloqueLevantado = new BloqueLapizLevantado();
-        bloqueLevantado.ejecutar(personaje);
-        assertFalse(personaje.estaPintando());
-    }
 
     @Test
     public void testElPersonajeSeMueveHaciaArribaConBloque() {
@@ -75,5 +43,54 @@ public class Entrega1Test {
         bloque.ejecutar(personaje);
         Posicion coordenadas = new Posicion(1,0);
         assertEquals(personaje.posicionActual(), coordenadas);
+    }
+
+    @Test
+    public void testSeCreaPersonajeConElLapizLevantado() {
+        Personaje personaje = new Personaje();
+        BloqueArriba bloque = new BloqueArriba();
+        BloqueDerecha bloqueDerecha = new BloqueDerecha();
+        bloque.ejecutar(personaje);
+        bloqueDerecha.ejecutar(personaje);
+        HashSet <String> pizarraFinal = new HashSet<>();
+        assertTrue(personaje.compararLaPizarra(pizarraFinal));
+    }
+
+    @Test
+    public void testElPersonajeDibujaConElLapizAbajo() {
+        Personaje personaje = new Personaje();
+        BloqueLapizApoyado bloque = new BloqueLapizApoyado();
+        BloqueArriba bloqueArriba = new BloqueArriba();
+        BloqueDerecha bloqueDerecha = new BloqueDerecha();
+        bloque.ejecutar(personaje);
+        bloqueArriba.ejecutar(personaje);
+        bloqueDerecha.ejecutar(personaje);
+        bloque.ejecutar(personaje);
+        HashSet <String> pizarraFinal = new HashSet<>();
+        pizarraFinal.add((new Posicion(0,0)).ClaveString());
+        pizarraFinal.add((new Posicion(0,-1)).ClaveString());
+        pizarraFinal.add((new Posicion(1,-1)).ClaveString());
+        assertTrue(personaje.compararLaPizarra(pizarraFinal));
+    }
+
+    @Test
+    public void testElPersonajeSeMuevePrimeroConElLapizArribaYDespuesConElLapizAbajo() {
+        Personaje personaje = new Personaje();
+        HashSet <String> pizarraFinal = new HashSet<>();
+
+        BloqueAbajo bloqueAbajo = new BloqueAbajo();
+        BloqueDerecha bloqueDerecha = new BloqueDerecha();
+        bloqueAbajo.ejecutar(personaje);
+        bloqueDerecha.ejecutar(personaje);
+
+        assertTrue(personaje.compararLaPizarra(pizarraFinal));
+
+        BloqueLapizApoyado bloqueApoyado = new BloqueLapizApoyado();
+        bloqueApoyado.ejecutar(personaje);
+        bloqueDerecha.ejecutar(personaje);
+        pizarraFinal.add((new Posicion(1, 1)).ClaveString());
+        pizarraFinal.add((new Posicion(2,1)).ClaveString());
+
+        assertTrue(personaje.compararLaPizarra(pizarraFinal));
     }
 }

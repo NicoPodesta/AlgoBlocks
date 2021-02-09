@@ -7,10 +7,10 @@ public class Pizarra {
     private final HashSet<String> pizarra;
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        HashSet<String> pizarra1 = (HashSet<String>) o;
-        return pizarra.equals(pizarra1);
+    public boolean equals(Object unaPizarra) {
+        if (this == unaPizarra) return true;
+        HashSet<String> pizarraFinal = (HashSet<String>) unaPizarra;
+        return pizarra.equals(pizarraFinal);
     }
 
     @Override

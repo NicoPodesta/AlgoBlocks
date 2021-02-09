@@ -14,10 +14,6 @@ public class Personaje {
         this.pizarra = new Pizarra();
     }
 
-    public boolean estaPintando() { //"Corregir"
-        return lapiz.estaApoyado();
-    }
-
     public void levantarLapiz(){
         lapiz = new LapizLevantado();
     }
