@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class Pizarra {
 
-    private final HashSet<String> pizarra;
+    private final HashSet<String> pizarra; //cambiar nombre del atributo
 
     @Override
     public boolean equals(Object unaPizarra) {

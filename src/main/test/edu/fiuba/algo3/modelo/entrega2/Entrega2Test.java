@@ -9,7 +9,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class Entrega2Test {
 
-
     @Test
     public void laPizarraSeCreaCorrectamente(){
         Tablero tablero = new Tablero();
@@ -18,7 +17,7 @@ class Entrega2Test {
     }
 
     @Test
-    public void testMoverElPErsonajeConElLapizLevantadoNoPintaLaPizarra(){
+    public void testMoverElPersonajeConElLapizLevantadoNoPintaLaPizarra(){
         Tablero tablero = new Tablero();
         tablero.agregarBloqueAlAlgoritmo(new BloqueAbajo());
         tablero.agregarBloqueAlAlgoritmo(new BloqueDerecha());
@@ -77,5 +76,4 @@ class Entrega2Test {
         pizarraFinal.add(new Posicion(3,3).ClaveString());
         assertTrue(tablero.compararPizarra(pizarraFinal));
     }
-
 }

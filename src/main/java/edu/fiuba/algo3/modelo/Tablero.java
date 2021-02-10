@@ -6,6 +6,7 @@ public class Tablero {
 
     private Personaje personaje;
     //private final BloquesDisponibles = ListaDeBloques new;
+
     private Algoritmo algoritmo;
 
     public Tablero() {
@@ -13,7 +14,8 @@ public class Tablero {
         this.algoritmo = new Algoritmo();
     }
 
-    //"Debemos pensar como solucionar la creacion de bloques, si los crea el tablero o si los crea el algoritmo, tal vez haya que usar algun patron creacional ?"
+    /*Debemos pensar como solucionar la creacion de bloques, si los crea el tablero
+    o si los crea el algoritmo, tal vez haya que usar algun patron creacional ?*/
 
     public void agregarBloqueAlAlgoritmo(Bloque unBloque) {
         algoritmo.agregarBloque(unBloque);

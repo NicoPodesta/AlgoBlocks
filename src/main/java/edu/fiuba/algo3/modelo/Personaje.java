@@ -43,7 +43,7 @@ public class Personaje {
         actualizarPizarra();
     }
 
-    public void actualizarPizarra(){
+    private void actualizarPizarra(){
         lapiz.pintarPizarra(posicion, pizarra);
     }
 

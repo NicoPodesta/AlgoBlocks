@@ -8,7 +8,6 @@ public class LapizApoyado implements Lapiz {
     }
 
     public void pintarPizarra(Posicion posicion, Pizarra pizarra){
-        //pizarra.actualizarPosicionPersonaje(posicion);
         pizarra.pintarPosicion(posicion);
     }
 }
