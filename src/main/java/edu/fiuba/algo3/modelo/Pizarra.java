@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.Objects;
 
 public class Pizarra {
 
@@ -19,7 +20,7 @@ public class Pizarra {
     }
 
     public Pizarra() {
-        pizarra = new HashSet<String>();
+        pizarra = new HashSet<>();
     }
 
     public void pintarPosicion(Posicion posicion){

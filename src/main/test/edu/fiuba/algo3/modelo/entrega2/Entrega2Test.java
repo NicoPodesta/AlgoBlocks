@@ -3,10 +3,9 @@ package edu.fiuba.algo3.modelo.entrega2;
 import edu.fiuba.algo3.modelo.*;
 import org.junit.jupiter.api.Test;
 
-
 import java.util.HashSet;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class Entrega2Test {
 
@@ -57,6 +56,7 @@ class Entrega2Test {
         pizarraFinal.add(new Posicion(2,0).ClaveString());
         assertTrue(tablero.compararPizarra(pizarraFinal));
     }
+
     @Test
     void crearAlgoritmoConBloqueRepeticion3veces(){
         Tablero tablero = new Tablero();
