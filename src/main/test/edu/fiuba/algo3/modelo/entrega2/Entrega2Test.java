@@ -7,7 +7,7 @@ import java.util.HashSet;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class Entrega2Test {
+public class Entrega2Test {
 
     @Test
     public void laPizarraSeCreaCorrectamente(){
