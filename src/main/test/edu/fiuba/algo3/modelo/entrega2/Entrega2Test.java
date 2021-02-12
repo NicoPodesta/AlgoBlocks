@@ -42,7 +42,7 @@ public class Entrega2Test {
     void crearAlgoritmoConBloqueRepeticion2veces(){
         Tablero tablero = new Tablero();
         BloqueLapizApoyado bloqueApoyarLapiz = new BloqueLapizApoyado();
-        BloqueRepetirN bloqueRepeticion = new BloqueRepetirN(2);
+        BloqueRepetir bloqueRepeticion = new BloqueRepetir(2);
         bloqueRepeticion.agregarBloque(new BloqueDerecha());
         tablero.agregarBloqueAlAlgoritmo(bloqueApoyarLapiz);
         tablero.agregarBloqueAlAlgoritmo(bloqueRepeticion);
@@ -58,7 +58,7 @@ public class Entrega2Test {
     void crearAlgoritmoConBloqueRepeticion3veces(){
         Tablero tablero = new Tablero();
         BloqueLapizApoyado bloqueApoyarLapiz = new BloqueLapizApoyado();
-        BloqueRepetirN bloqueRepeticion = new BloqueRepetirN(3);
+        BloqueRepetir bloqueRepeticion = new BloqueRepetir(3);
         bloqueRepeticion.agregarBloque(new BloqueAbajo());
         bloqueRepeticion.agregarBloque(new BloqueDerecha());
         tablero.agregarBloqueAlAlgoritmo(bloqueApoyarLapiz);

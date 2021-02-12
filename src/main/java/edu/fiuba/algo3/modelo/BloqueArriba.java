@@ -6,4 +6,9 @@ public class BloqueArriba implements Bloque {
     public void ejecutar(Personaje personaje) {
         personaje.moverHaciaArriba();
     }
+
+    @Override
+    public void ejecutarInvertido(Personaje personaje) {
+        personaje.moverHaciaAbajo();
+    }
 }

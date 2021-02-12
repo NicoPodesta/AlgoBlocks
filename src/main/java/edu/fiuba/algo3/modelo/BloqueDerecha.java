@@ -6,4 +6,9 @@ public class BloqueDerecha implements Bloque {
     public void ejecutar(Personaje personaje) {
         personaje.moverHaciaLaDerecha();
     }
+
+    @Override
+    public void ejecutarInvertido(Personaje personaje) {
+        personaje.moverHaciaLaIzquierda();
+    }
 }
