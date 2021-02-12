@@ -39,7 +39,7 @@ public class Entrega2Test {
     }
 
     @Test
-    void crearAlgoritmoConBloqueRepeticion2veces(){
+    public void crearAlgoritmoConBloqueRepeticion2veces(){
         Tablero tablero = new Tablero();
         BloqueLapizApoyado bloqueApoyarLapiz = new BloqueLapizApoyado();
         BloqueRepetir bloqueRepeticion = new BloqueRepetir(2);
@@ -55,7 +55,7 @@ public class Entrega2Test {
     }
 
     @Test
-    void crearAlgoritmoConBloqueRepeticion3veces(){
+    public void crearAlgoritmoConBloqueRepeticion3veces(){
         Tablero tablero = new Tablero();
         BloqueLapizApoyado bloqueApoyarLapiz = new BloqueLapizApoyado();
         BloqueRepetir bloqueRepeticion = new BloqueRepetir(3);
