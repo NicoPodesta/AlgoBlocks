@@ -9,9 +9,8 @@ public class Pizarra {
 
     @Override
     public boolean equals(Object unaPizarra) {
-        if (this == unaPizarra) return true;
-        HashSet<String> pizarraFinal = (HashSet<String>) unaPizarra;
-        return posicionesPintadas.equals(pizarraFinal);
+        Pizarra o = (Pizarra) unaPizarra;
+        return o.posicionesPintadas.equals(this.posicionesPintadas);
     }
 
     @Override
