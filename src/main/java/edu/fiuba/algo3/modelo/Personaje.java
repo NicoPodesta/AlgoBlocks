@@ -2,17 +2,17 @@ package edu.fiuba.algo3.modelo;
 
 public class Personaje {
 
-    private final Posicion posicion;
     private Lapiz lapiz;
-    public Pizarra pizarra;
+    private Pizarra pizarra;
+    private final Posicion posicion;
 
     public Personaje() {
         this.levantarLapiz();
-        this.posicion = new Posicion(0,0);
         this.pizarra = new Pizarra();
+        this.posicion = new Posicion(0,0);
     }
 
-    public void levantarLapiz(){
+    public void levantarLapiz() {
         lapiz = new LapizLevantado();
     }
 
@@ -41,7 +41,7 @@ public class Personaje {
         actualizarPizarra();
     }
 
-    private void actualizarPizarra(){
+    private void actualizarPizarra() {
         lapiz.pintarPizarra(posicion, pizarra);
     }
 
@@ -49,7 +49,7 @@ public class Personaje {
         return posicion;
     }
 
-    public boolean contieneLaPizarra(Pizarra pizarra){
+    public boolean contieneLaPizarra(Pizarra pizarra) {
         return this.pizarra.equals(pizarra);
     }
 }

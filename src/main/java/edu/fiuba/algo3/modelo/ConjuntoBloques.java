@@ -10,16 +10,16 @@ public class ConjuntoBloques implements Bloque {
         this.bloques = new ArrayList<>();
     }
 
-    public void agregarBloque(Bloque bloque){
+    public void agregarBloque(Bloque bloque) {
         bloques.add(bloque);
     }
 
-    public void removerBloque(Bloque bloque){
+    public void removerBloque(Bloque bloque) {
         bloques.remove(bloque);
     }
 
     @Override
-    public void ejecutar(Personaje personaje){
+    public void ejecutar(Personaje personaje) {
         for (Bloque unBloque : bloques) {
             unBloque.ejecutar(personaje);
         }
