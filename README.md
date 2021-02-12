@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/NicoPodesta/algo3_tp2.svg?branch=master)](https://travis-ci.org/NicoPodesta/algo3_tp2) [![codecov](https://codecov.io/gh/fiuba/algo3_proyecto_base_tp2/branch/master/graph/badge.svg)](https://codecov.io/gh/NicoPodesta/algo3_tp2)
+[![Build Status](https://travis-ci.org/NicoPodesta/algo3_tp2.svg?branch=master)](https://travis-ci.org/NicoPodesta/algo3_tp2) [![codecov](https://codecov.io/gh/NicoPodesta/algo3_tp2/branch/master/graph/badge.svg?token=JDVZ4FCFXP)](https://codecov.io/gh/NicoPodesta/algo3_tp2)
 
 
 
