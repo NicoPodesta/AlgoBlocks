@@ -3,8 +3,6 @@ package edu.fiuba.algo3.modelo.entrega1;
 import edu.fiuba.algo3.modelo.*;
 import org.junit.jupiter.api.Test;
 
-import java.util.HashSet;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -53,8 +51,8 @@ public class Entrega1Test {
         BloqueDerecha bloqueDerecha = new BloqueDerecha();
         bloque.ejecutar(personaje);
         bloqueDerecha.ejecutar(personaje);
-        HashSet <String> pizarraFinal = new HashSet<>();
-        assertTrue(personaje.compararLaPizarra(pizarraFinal));
+        Pizarra pizarra = new Pizarra();
+        assertTrue(personaje.contieneLaPizarra(pizarra));
     }
 
     @Test
@@ -67,31 +65,31 @@ public class Entrega1Test {
         bloqueArriba.ejecutar(personaje);
         bloqueDerecha.ejecutar(personaje);
         bloque.ejecutar(personaje);
-        HashSet <String> pizarraFinal = new HashSet<>();
-        pizarraFinal.add((new Posicion(0,0)).ClaveString());
-        pizarraFinal.add((new Posicion(0,-1)).ClaveString());
-        pizarraFinal.add((new Posicion(1,-1)).ClaveString());
-        assertTrue(personaje.compararLaPizarra(pizarraFinal));
+        Pizarra pizarra = new Pizarra();
+        pizarra.pintarPosicion(new Posicion(0,0));
+        pizarra.pintarPosicion(new Posicion(0,-1));
+        pizarra.pintarPosicion(new Posicion(1,-1));
+        assertTrue(personaje.contieneLaPizarra(pizarra));
     }
 
     @Test
     public void testElPersonajeSeMuevePrimeroConElLapizArribaYDespuesConElLapizAbajo() {
         Personaje personaje = new Personaje();
-        HashSet <String> pizarraFinal = new HashSet<>();
+        Pizarra pizarra = new Pizarra();
 
         BloqueAbajo bloqueAbajo = new BloqueAbajo();
         BloqueDerecha bloqueDerecha = new BloqueDerecha();
         bloqueAbajo.ejecutar(personaje);
         bloqueDerecha.ejecutar(personaje);
 
-        assertTrue(personaje.compararLaPizarra(pizarraFinal));
+        assertTrue(personaje.contieneLaPizarra(pizarra));
 
         BloqueLapizApoyado bloqueApoyado = new BloqueLapizApoyado();
         bloqueApoyado.ejecutar(personaje);
         bloqueDerecha.ejecutar(personaje);
-        pizarraFinal.add((new Posicion(1, 1)).ClaveString());
-        pizarraFinal.add((new Posicion(2,1)).ClaveString());
+        pizarra.pintarPosicion(new Posicion(1, 1));
+        pizarra.pintarPosicion(new Posicion(2,1));
 
-        assertTrue(personaje.compararLaPizarra(pizarraFinal));
+        assertTrue(personaje.contieneLaPizarra(pizarra));
     }
 }

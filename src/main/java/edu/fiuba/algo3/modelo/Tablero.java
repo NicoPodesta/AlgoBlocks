@@ -1,7 +1,5 @@
 package edu.fiuba.algo3.modelo;
 
-import java.util.HashSet;
-
 public class Tablero {
 
     private Personaje personaje;
@@ -25,7 +23,7 @@ public class Tablero {
         algoritmo.ejecutarAlgoritmo(this.personaje);
     }
 
-    public boolean compararPizarra(HashSet<String> pizarra1){
-        return personaje.compararLaPizarra(pizarra1);
+    public boolean compararPizarra(Pizarra pizarra){
+        return personaje.contieneLaPizarra(pizarra);
     }
 }

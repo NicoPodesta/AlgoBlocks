@@ -3,9 +3,6 @@ package edu.fiuba.algo3.modelo.entrega2;
 import edu.fiuba.algo3.modelo.*;
 import org.junit.jupiter.api.Test;
 
-import java.util.HashSet;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class Entrega2Test {
@@ -13,8 +10,8 @@ public class Entrega2Test {
     @Test
     public void laPizarraSeCreaCorrectamente(){
         Tablero tablero = new Tablero();
-        HashSet<String> pizarraFinal = new HashSet<>();
-        assertTrue(tablero.compararPizarra(pizarraFinal));
+        Pizarra pizarra = new Pizarra();
+        assertTrue(tablero.compararPizarra(pizarra));
     }
 
     @Test
@@ -23,8 +20,8 @@ public class Entrega2Test {
         tablero.agregarBloqueAlAlgoritmo(new BloqueAbajo());
         tablero.agregarBloqueAlAlgoritmo(new BloqueDerecha());
         tablero.ejecutarAlgoritmo();
-        HashSet<String> pizarraFinal = new HashSet<>();
-        assertTrue(tablero.compararPizarra(pizarraFinal));
+        Pizarra pizarra = new Pizarra();
+        assertTrue(tablero.compararPizarra(pizarra));
     }
 
     @Test
@@ -34,11 +31,11 @@ public class Entrega2Test {
         tablero.agregarBloqueAlAlgoritmo(new BloqueAbajo());
         tablero.agregarBloqueAlAlgoritmo(new BloqueDerecha());
         tablero.ejecutarAlgoritmo();
-        HashSet<String> pizarraFinal = new HashSet<>();
-        pizarraFinal.add(new Posicion(0,0).ClaveString());
-        pizarraFinal.add(new Posicion(0,1).ClaveString());
-        pizarraFinal.add(new Posicion(1,1).ClaveString());
-        assertTrue(tablero.compararPizarra(pizarraFinal));
+        Pizarra pizarra = new Pizarra();
+        pizarra.pintarPosicion(new Posicion(0,0));
+        pizarra.pintarPosicion(new Posicion(0,1));
+        pizarra.pintarPosicion(new Posicion(1,1));
+        assertTrue(tablero.compararPizarra(pizarra));
     }
 
     @Test
@@ -50,11 +47,11 @@ public class Entrega2Test {
         tablero.agregarBloqueAlAlgoritmo(bloqueApoyarLapiz);
         tablero.agregarBloqueAlAlgoritmo(bloqueRepeticion);
         tablero.ejecutarAlgoritmo();
-        HashSet<String> pizarraFinal = new HashSet<>();
-        pizarraFinal.add(new Posicion(0,0).ClaveString());
-        pizarraFinal.add(new Posicion(1,0).ClaveString());
-        pizarraFinal.add(new Posicion(2,0).ClaveString());
-        assertTrue(tablero.compararPizarra(pizarraFinal));
+        Pizarra pizarra = new Pizarra();
+        pizarra.pintarPosicion(new Posicion(0,0));
+        pizarra.pintarPosicion(new Posicion(1,0));
+        pizarra.pintarPosicion(new Posicion(2,0));
+        assertTrue(tablero.compararPizarra(pizarra));
     }
 
     @Test
@@ -67,15 +64,15 @@ public class Entrega2Test {
         tablero.agregarBloqueAlAlgoritmo(bloqueApoyarLapiz);
         tablero.agregarBloqueAlAlgoritmo(bloqueRepeticion);
         tablero.ejecutarAlgoritmo();
-        HashSet<String> pizarraFinal = new HashSet<>();
-        pizarraFinal.add(new Posicion(0,0).ClaveString());
-        pizarraFinal.add(new Posicion(0,1).ClaveString());
-        pizarraFinal.add(new Posicion(1,1).ClaveString());
-        pizarraFinal.add(new Posicion(1,2).ClaveString());
-        pizarraFinal.add(new Posicion(2,2).ClaveString());
-        pizarraFinal.add(new Posicion(2,3).ClaveString());
-        pizarraFinal.add(new Posicion(3,3).ClaveString());
-        assertTrue(tablero.compararPizarra(pizarraFinal));
+        Pizarra pizarra = new Pizarra();
+        pizarra.pintarPosicion(new Posicion(0,0));
+        pizarra.pintarPosicion(new Posicion(0,1));
+        pizarra.pintarPosicion(new Posicion(1,1));
+        pizarra.pintarPosicion(new Posicion(1,2));
+        pizarra.pintarPosicion(new Posicion(2,2));
+        pizarra.pintarPosicion(new Posicion(2,3));
+        pizarra.pintarPosicion(new Posicion(3,3));
+        assertTrue(tablero.compararPizarra(pizarra));
     }
 
 }
