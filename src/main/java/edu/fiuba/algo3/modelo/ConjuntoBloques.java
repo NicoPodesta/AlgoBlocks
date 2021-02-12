@@ -31,4 +31,8 @@ public class ConjuntoBloques implements Bloque {
             unBloque.ejecutarInvertido(personaje);
         }
     }
+
+    public boolean estaVacio() {
+        return bloques.isEmpty();
+    }
 }

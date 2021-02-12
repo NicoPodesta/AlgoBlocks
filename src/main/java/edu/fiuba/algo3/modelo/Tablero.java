@@ -1,29 +1,33 @@
 package edu.fiuba.algo3.modelo;
 
+import java.util.ArrayList;
+
 public class Tablero {
 
-    private ConjuntoBloques algoritmoCompleto;
-    //private ConjuntoBloques bloquesDisponibles;
+    private ConjuntoBloques algoritmo;
+    private ArrayList<BloquePersonalizado> bloquesPersonalizados;
     private Personaje personaje;
 
     public Tablero() {
-        this.algoritmoCompleto = new ConjuntoBloques();
-        //this.bloquesDisponibles = new ConjuntoBloques();
+        this.algoritmo = new ConjuntoBloques();
+        this.bloquesPersonalizados = new ArrayList<>();
         this.personaje = new Personaje();
     }
 
-    /*Debemos pensar como solucionar la creacion de bloques, si los crea el tablero
-    o si los crea el algoritmo, tal vez haya que usar algun patron creacional ?*/
-
     public void agregarBloqueAlAlgoritmo(Bloque unBloque) {
-        algoritmoCompleto.agregarBloque(unBloque);
+        algoritmo.agregarBloque(unBloque);
     }
 
     public void ejecutarAlgoritmo() {
-        algoritmoCompleto.ejecutar(this.personaje);
+        algoritmo.ejecutar(personaje);
     }
 
     public boolean compararPizarra(Pizarra pizarra) {
         return personaje.contieneLaPizarra(pizarra);
+    }
+
+    public void guardarBloquePersonalizado(String nombre, ConjuntoBloques algoritmo) throws Exception {
+        BloquePersonalizado bloque = new BloquePersonalizado(nombre, algoritmo);
+        bloquesPersonalizados.add(bloque);
     }
 }
