@@ -1,16 +1,16 @@
 package edu.fiuba.algo3.modelo;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Tablero {
 
     private ConjuntoBloques algoritmo;
-    private ArrayList<BloquePersonalizado> bloquesPersonalizados;
+    private HashMap<String, ConjuntoBloques> bloquesPersonalizados;
     private Personaje personaje;
 
     public Tablero() {
         this.algoritmo = new ConjuntoBloques();
-        this.bloquesPersonalizados = new ArrayList<>();
+        this.bloquesPersonalizados = new HashMap<>();
         this.personaje = new Personaje();
     }
 
@@ -27,7 +27,15 @@ public class Tablero {
     }
 
     public void guardarBloquePersonalizado(String nombre, ConjuntoBloques algoritmo) throws Exception {
-        BloquePersonalizado bloque = new BloquePersonalizado(nombre, algoritmo);
-        bloquesPersonalizados.add(bloque);
+        if (algoritmo.estaVacio()) throw new Exception(); //crear excepcion personalizada
+        bloquesPersonalizados.put(nombre, algoritmo);
     }
+
+    /*public ConjuntoBloques obtenerBloquePersonalizado(String nombre) {
+        return bloquesPersonalizados.get(nombre);
+    }
+
+    public Set<String> obtenerNombresBloquesPersonalizados() {
+        return bloquesPersonalizados.keySet();
+    }*/
 }
