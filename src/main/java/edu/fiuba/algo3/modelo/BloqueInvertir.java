@@ -1,14 +1,14 @@
 package edu.fiuba.algo3.modelo;
 
-public class BloqueAbajo implements Bloque {
+public class BloqueInvertir extends ConjuntoBloques {
 
     @Override
     public void ejecutar(Personaje personaje) {
-        personaje.moverHaciaAbajo();
+        super.ejecutarInvertido(personaje);
     }
 
     @Override
     public void ejecutarInvertido(Personaje personaje) {
-        personaje.moverHaciaArriba();
+        super.ejecutar(personaje);
     }
 }

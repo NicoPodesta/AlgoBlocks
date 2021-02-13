@@ -41,8 +41,4 @@ public class Posicion {
     public void derecha() {
         x = x + 1;
     }
-
-    public String ClaveString(){
-       return Integer.toString(this.x) + "-" + Integer.toString(this.y);
-    }
 }
