@@ -12,44 +12,47 @@ public class Personaje {
         this.posicion = new Posicion(0,0);
     }
 
-    public void levantarLapiz() {
+    public Pizarra levantarLapiz() {
         lapiz = new LapizLevantado();
+        return pizarra;
     }
 
-    public void apoyarLapiz() {
+    public Pizarra apoyarLapiz() {
         lapiz = new LapizApoyado();
-        lapiz.pintarPizarra(posicion, pizarra);
+        return actualizarPizarra();
     }
 
-    public void moverHaciaArriba() {
+    public Pizarra moverHaciaArriba() {
         posicion.arriba();
-        actualizarPizarra();
+        return actualizarPizarra();
     }
 
-    public void moverHaciaAbajo() {
+    public Pizarra moverHaciaAbajo() {
         posicion.abajo();
-        actualizarPizarra();
+        return actualizarPizarra();
     }
 
-    public void moverHaciaLaIzquierda() {
+    public Pizarra moverHaciaLaIzquierda() {
         posicion.izquierda();
-        actualizarPizarra();
+        return actualizarPizarra();
     }
 
-    public void moverHaciaLaDerecha() {
+    public Pizarra moverHaciaLaDerecha() {
         posicion.derecha();
-        actualizarPizarra();
+        return actualizarPizarra();
     }
 
-    private void actualizarPizarra() {
-        lapiz.pintarPizarra(posicion, pizarra);
+    private Pizarra actualizarPizarra() {
+        lapiz.pintar(posicion, pizarra);
+        return pizarra;
     }
 
     public Posicion posicionActual() {
         return posicion;
     }
 
-    public boolean contieneLaPizarra(Pizarra pizarra) {
-        return this.pizarra.equals(pizarra);
+    public Pizarra pizarraActual() {
+        return pizarra;
     }
+
 }

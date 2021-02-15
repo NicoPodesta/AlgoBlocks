@@ -47,12 +47,12 @@ public class Entrega1Test {
     @Test
     public void testSeCreaPersonajeConElLapizLevantado() {
         Personaje personaje = new Personaje();
-        BloqueArriba bloque = new BloqueArriba();
+        BloqueArriba bloqueArriba = new BloqueArriba();
         BloqueDerecha bloqueDerecha = new BloqueDerecha();
-        bloque.ejecutar(personaje);
+        bloqueArriba.ejecutar(personaje);
         bloqueDerecha.ejecutar(personaje);
         Pizarra pizarra = new Pizarra();
-        assertTrue(personaje.contieneLaPizarra(pizarra));
+        assertEquals(personaje.pizarraActual(),pizarra);
     }
 
     @Test
@@ -69,7 +69,7 @@ public class Entrega1Test {
         pizarra.pintarPosicion(new Posicion(0,0));
         pizarra.pintarPosicion(new Posicion(0,-1));
         pizarra.pintarPosicion(new Posicion(1,-1));
-        assertTrue(personaje.contieneLaPizarra(pizarra));
+        assertEquals(personaje.pizarraActual(), pizarra);
     }
 
     @Test
@@ -82,7 +82,7 @@ public class Entrega1Test {
         bloqueAbajo.ejecutar(personaje);
         bloqueDerecha.ejecutar(personaje);
 
-        assertTrue(personaje.contieneLaPizarra(pizarra));
+        assertEquals(personaje.pizarraActual(), pizarra);
 
         BloqueLapizApoyado bloqueApoyado = new BloqueLapizApoyado();
         bloqueApoyado.ejecutar(personaje);
@@ -90,6 +90,6 @@ public class Entrega1Test {
         pizarra.pintarPosicion(new Posicion(1, 1));
         pizarra.pintarPosicion(new Posicion(2,1));
 
-        assertTrue(personaje.contieneLaPizarra(pizarra));
+        assertEquals(personaje.pizarraActual(), pizarra);
     }
 }

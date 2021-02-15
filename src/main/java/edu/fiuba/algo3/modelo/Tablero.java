@@ -18,13 +18,10 @@ public class Tablero {
         algoritmo.agregarBloque(unBloque);
     }
 
-    public void ejecutarAlgoritmo() {
-        algoritmo.ejecutar(personaje);
+    public Pizarra ejecutarAlgoritmo() {
+        return algoritmo.ejecutar(personaje);
     }
 
-    public boolean compararPizarra(Pizarra pizarra) {
-        return personaje.contieneLaPizarra(pizarra);
-    }
 
     public void guardarBloquePersonalizado(String nombre, ConjuntoBloques algoritmo) throws Exception {
         if (algoritmo.estaVacio()) throw new Exception(); //crear excepcion personalizada

@@ -10,16 +10,20 @@ public class BloqueRepetir extends ConjuntoBloques {
     }
 
     @Override
-    public void ejecutar(Personaje personaje) {
+    public Pizarra ejecutar(Personaje personaje) {
+        Pizarra pizarra = new Pizarra();
         for (int i = 0; i < cantIteraciones; i++) {
-            super.ejecutar(personaje);
+            pizarra = super.ejecutar(personaje);
         }
+        return pizarra;
     }
 
     @Override
-    public void ejecutarInvertido(Personaje personaje) {
+    public Pizarra ejecutarInvertido(Personaje personaje) {
+        Pizarra pizarra = new Pizarra();
         for (int i = 0; i < cantIteraciones; i++) {
-            super.ejecutarInvertido(personaje);
+            pizarra = super.ejecutarInvertido(personaje);
         }
+        return pizarra;
     }
 }

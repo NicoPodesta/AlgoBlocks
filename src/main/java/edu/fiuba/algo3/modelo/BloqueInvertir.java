@@ -3,12 +3,12 @@ package edu.fiuba.algo3.modelo;
 public class BloqueInvertir extends ConjuntoBloques {
 
     @Override
-    public void ejecutar(Personaje personaje) {
-        super.ejecutarInvertido(personaje);
+    public Pizarra ejecutar(Personaje personaje) {
+        return super.ejecutarInvertido(personaje);
     }
 
     @Override
-    public void ejecutarInvertido(Personaje personaje) {
-        super.ejecutar(personaje);
+    public Pizarra ejecutarInvertido(Personaje personaje) {
+        return super.ejecutar(personaje);
     }
 }

@@ -3,7 +3,7 @@ package edu.fiuba.algo3.modelo.entrega2;
 import edu.fiuba.algo3.modelo.*;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Entrega2Test {
 
@@ -11,7 +11,7 @@ public class Entrega2Test {
     public void laPizarraSeCreaCorrectamente(){
         Tablero tablero = new Tablero();
         Pizarra pizarra = new Pizarra();
-        assertTrue(tablero.compararPizarra(pizarra));
+        assertEquals(tablero.ejecutarAlgoritmo(),pizarra);
     }
 
     @Test
@@ -19,9 +19,8 @@ public class Entrega2Test {
         Tablero tablero = new Tablero();
         tablero.agregarBloqueAlAlgoritmo(new BloqueAbajo());
         tablero.agregarBloqueAlAlgoritmo(new BloqueDerecha());
-        tablero.ejecutarAlgoritmo();
         Pizarra pizarra = new Pizarra();
-        assertTrue(tablero.compararPizarra(pizarra));
+        assertEquals(tablero.ejecutarAlgoritmo(),pizarra);
     }
 
     @Test
@@ -30,12 +29,11 @@ public class Entrega2Test {
         tablero.agregarBloqueAlAlgoritmo(new BloqueLapizApoyado());
         tablero.agregarBloqueAlAlgoritmo(new BloqueAbajo());
         tablero.agregarBloqueAlAlgoritmo(new BloqueDerecha());
-        tablero.ejecutarAlgoritmo();
         Pizarra pizarra = new Pizarra();
         pizarra.pintarPosicion(new Posicion(0,0));
         pizarra.pintarPosicion(new Posicion(0,1));
         pizarra.pintarPosicion(new Posicion(1,1));
-        assertTrue(tablero.compararPizarra(pizarra));
+        assertEquals(tablero.ejecutarAlgoritmo(),pizarra);
     }
 
     @Test
@@ -46,12 +44,11 @@ public class Entrega2Test {
         bloqueRepeticion.agregarBloque(new BloqueDerecha());
         tablero.agregarBloqueAlAlgoritmo(bloqueApoyarLapiz);
         tablero.agregarBloqueAlAlgoritmo(bloqueRepeticion);
-        tablero.ejecutarAlgoritmo();
         Pizarra pizarra = new Pizarra();
         pizarra.pintarPosicion(new Posicion(0,0));
         pizarra.pintarPosicion(new Posicion(1,0));
         pizarra.pintarPosicion(new Posicion(2,0));
-        assertTrue(tablero.compararPizarra(pizarra));
+        assertEquals(tablero.ejecutarAlgoritmo(),pizarra);
     }
 
     @Test
@@ -63,7 +60,6 @@ public class Entrega2Test {
         bloqueRepeticion.agregarBloque(new BloqueDerecha());
         tablero.agregarBloqueAlAlgoritmo(bloqueApoyarLapiz);
         tablero.agregarBloqueAlAlgoritmo(bloqueRepeticion);
-        tablero.ejecutarAlgoritmo();
         Pizarra pizarra = new Pizarra();
         pizarra.pintarPosicion(new Posicion(0,0));
         pizarra.pintarPosicion(new Posicion(0,1));
@@ -72,7 +68,7 @@ public class Entrega2Test {
         pizarra.pintarPosicion(new Posicion(2,2));
         pizarra.pintarPosicion(new Posicion(2,3));
         pizarra.pintarPosicion(new Posicion(3,3));
-        assertTrue(tablero.compararPizarra(pizarra));
+        assertEquals(tablero.ejecutarAlgoritmo(),pizarra);
     }
 
 }

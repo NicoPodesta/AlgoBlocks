@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 public interface Bloque {
 
-    void ejecutar(Personaje personaje);
+    Pizarra ejecutar(Personaje personaje);
 
-    void ejecutarInvertido(Personaje personaje);
+    Pizarra ejecutarInvertido(Personaje personaje);
 }

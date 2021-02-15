@@ -19,17 +19,21 @@ public class ConjuntoBloques implements Bloque {
     }
 
     @Override
-    public void ejecutar(Personaje personaje) {
+    public Pizarra ejecutar(Personaje personaje) {
+        Pizarra pizarra = new Pizarra();
         for (Bloque unBloque : bloques) {
-            unBloque.ejecutar(personaje);
+            pizarra = unBloque.ejecutar(personaje);
         }
+        return pizarra;
     }
 
     @Override
-    public void ejecutarInvertido(Personaje personaje) {
+    public Pizarra ejecutarInvertido(Personaje personaje) {
+        Pizarra pizarra = new Pizarra();
         for (Bloque unBloque : bloques) {
-            unBloque.ejecutarInvertido(personaje);
+             pizarra = unBloque.ejecutarInvertido(personaje);
         }
+        return pizarra;
     }
 
     public boolean estaVacio() {

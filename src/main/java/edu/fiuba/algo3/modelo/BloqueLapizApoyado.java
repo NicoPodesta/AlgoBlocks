@@ -3,12 +3,12 @@ package edu.fiuba.algo3.modelo;
 public class BloqueLapizApoyado implements Bloque {
 
     @Override
-    public void ejecutar(Personaje personaje) {
-        personaje.apoyarLapiz();
+    public Pizarra ejecutar(Personaje personaje) {
+        return personaje.apoyarLapiz();
     }
 
     @Override
-    public void ejecutarInvertido(Personaje personaje) {
-        personaje.levantarLapiz();
+    public Pizarra ejecutarInvertido(Personaje personaje) {
+        return personaje.levantarLapiz();
     }
 }
