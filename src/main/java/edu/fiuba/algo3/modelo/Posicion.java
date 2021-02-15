@@ -4,7 +4,6 @@ import java.util.Objects;
 
 public class Posicion {
 
-    private static final int LARGO = 5;
     private int x;
     private int y;
 
