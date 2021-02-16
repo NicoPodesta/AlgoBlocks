@@ -79,9 +79,34 @@ public class ConjuntoBloquesTest {
 
 
         Pizarra pizarra = new Pizarra();
-        Posicion posicion = new Posicion(0,0);
 
         assertEquals(algoritmo.ejecutarInvertido(personaje),pizarra);
+    }
+
+    @Test
+    public void seAnidanConjuntos(){
+        ConjuntoBloques algoritmoA = new ConjuntoBloques();
+        ConjuntoBloques algoritmoB = new ConjuntoBloques();
+        BloqueLapizApoyado bloqueLapiz = new BloqueLapizApoyado();
+        BloqueDerecha derecha = new BloqueDerecha();
+        BloqueAbajo abajo = new BloqueAbajo();
+        Personaje personaje = new Personaje();
+
+        algoritmoA.agregarBloque(bloqueLapiz);
+        algoritmoB.agregarBloque(derecha);
+        algoritmoB.agregarBloque(abajo);
+        algoritmoA.agregarBloque(algoritmoB);
+
+
+        Pizarra pizarra = new Pizarra();
+        Posicion posicion = new Posicion(0,0);
+        pizarra.pintarPosicion(posicion);
+        posicion.derecha();
+        pizarra.pintarPosicion( posicion );
+        posicion.abajo();
+        pizarra.pintarPosicion( posicion );
+
+        assertEquals(algoritmoA.ejecutar(personaje),pizarra);
     }
 
 
