@@ -14,8 +14,10 @@ public class ConjuntoBloques implements Bloque {
         bloques.add(bloque);
     }
 
-    public void removerBloque(Bloque bloque) {
-        bloques.remove(bloque);
+    public void removerBloque(Bloque bloque) throws BloqueInexistenteException {
+        if(!bloques.remove(bloque)){
+            throw new BloqueInexistenteException();
+        }
     }
 
     @Override

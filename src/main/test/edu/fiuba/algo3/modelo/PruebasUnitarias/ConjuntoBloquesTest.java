@@ -52,8 +52,16 @@ public class ConjuntoBloquesTest {
         algoritmo.agregarBloque(abajo);
         algoritmo.agregarBloque(arriba);
 
-        algoritmo.removerBloque(derecha);
-        algoritmo.removerBloque(arriba);
+        try{
+            algoritmo.removerBloque(derecha);
+        }catch (BloqueInexistenteException e){
+            fail();
+        }
+        try{
+            algoritmo.removerBloque(arriba);
+        }catch (BloqueInexistenteException e){
+            fail();
+        }
 
         Pizarra pizarra = new Pizarra();
         Posicion posicion = new Posicion(0,0);
@@ -109,5 +117,14 @@ public class ConjuntoBloquesTest {
         assertEquals(algoritmoA.ejecutar(personaje),pizarra);
     }
 
-
+    @Test
+    public void removerUnBloqueInesxistenteLanzaUnaException(){
+        ConjuntoBloques algoritmo = new ConjuntoBloques();
+        try {
+            algoritmo.removerBloque(new BloqueDerecha());
+        }catch (BloqueInexistenteException e){
+            //se lanza correctamente la exception
+            assertTrue(true);
+        }
+    }
 }

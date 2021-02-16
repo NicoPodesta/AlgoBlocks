@@ -49,8 +49,16 @@ public class BloqueRepetirTest {
         repeticion.agregarBloque(derecha);
         repeticion.agregarBloque(abajo);
         repeticion.agregarBloque(arriba);
-        repeticion.removerBloque(derecha);
-        repeticion.removerBloque(arriba);
+        try{
+            repeticion.removerBloque(derecha);
+        }catch (BloqueInexistenteException e){
+            fail();
+        }
+        try{
+            repeticion.removerBloque(arriba);
+        }catch (BloqueInexistenteException e){
+            fail();
+        }
 
         Pizarra pizarra = new Pizarra();
         Posicion posicion = new Posicion(0,0);

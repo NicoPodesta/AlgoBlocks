@@ -85,8 +85,16 @@ public class BloquePersonalizadoTest {
         algoritmo.agregarBloque(arriba);
         BloquePersonalizado personalizado = new BloquePersonalizado("Nuevo Algoritmo", algoritmo);
 
-        personalizado.removerBloque(derecha);
-        personalizado.removerBloque(arriba);
+        try{
+            personalizado.removerBloque(derecha);
+        }catch (BloqueInexistenteException e){
+            fail();
+        }
+        try{
+            personalizado.removerBloque(arriba);
+        }catch (BloqueInexistenteException e){
+            fail();
+        }
 
 
         Pizarra pizarra = new Pizarra();
