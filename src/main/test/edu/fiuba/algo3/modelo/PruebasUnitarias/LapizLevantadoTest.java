@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class LapizLevantadoTest {
+public class LapizLevantadoTest {
 
     @Test
     public void elLapizLevantadoNoPintaSobreLaPizarra(){
