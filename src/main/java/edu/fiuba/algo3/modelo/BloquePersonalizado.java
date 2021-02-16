@@ -4,7 +4,7 @@ public class BloquePersonalizado extends ConjuntoBloques {
 
     private String nombre;
 
-    public BloquePersonalizado(String nombre, ConjuntoBloques algoritmo) throws Exception {
+    public BloquePersonalizado(String nombre, ConjuntoBloques algoritmo) {
         super();
         bloques = algoritmo.bloques;
         this.nombre = nombre;
