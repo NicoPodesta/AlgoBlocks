@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
@@ -15,7 +16,6 @@ public class AlgoBlocks extends Application{
     @Override
     public void start(Stage stage) throws Exception{
         stage.setTitle("AlgoBlocks");
-
 
         Button bloqueArriba = new Button();
         bloqueArriba.setText("bloqueArriba");
@@ -35,9 +35,6 @@ public class AlgoBlocks extends Application{
         Label tituloAlgoritmo = new Label();
         tituloAlgoritmo.setText("Algoritmo Actual");
 
-        Label tituloPizarra = new Label();
-        tituloPizarra.setText("Pizarra");
-
         Button ejecutar = new Button();
         ejecutar.setText("Ejecutar");
 
@@ -48,25 +45,23 @@ public class AlgoBlocks extends Application{
         salir.setText("Salir");
 
 
-
         HBox contenedorBotones = new HBox(ejecutar, guardarAlgoritmo, salir);
 
         VBox contenedorBloques = new VBox(tituloBloques, bloqueArriba, bloqueAbajo, bloqueDerecha, bloqueIzquierda, bloqueLevantarLapiz, bloqueBajarLapiz);
         contenedorBloques.setPrefWidth(256);
         contenedorBloques.setSpacing(10);
         contenedorBloques.setPadding(new Insets(15 , 0,0,60));
-        contenedorBloques.setStyle("-fx-border-color: black;-fx-border-width: 2");
+        contenedorBloques.setStyle("-fx-border-color: black;-fx-border-width: 2;");
 
         VBox contenedorAlgoritmo = new VBox(tituloAlgoritmo);
         contenedorAlgoritmo.setPrefWidth(256);
         contenedorAlgoritmo.setPadding(new Insets(15 , 0,0,85));
-        contenedorAlgoritmo.setStyle("-fx-border-color: blue;-fx-border-width: 2");
+        contenedorAlgoritmo.setStyle("-fx-border-color: black;-fx-border-width: 2 1");
 
-        VBox contenedorPizarra = new VBox(contenedorBotones, tituloPizarra);
+        VBox contenedorPizarra = new VBox(contenedorBotones, armarPizarra());
         contenedorPizarra.setMinWidth(512);
-        contenedorPizarra.setStyle("-fx-border-color: red;-fx-border-width: 2");
-        tituloPizarra.setPadding(new Insets(25 , 0,0,210));
-        contenedorBotones.setPadding(new Insets(15 , 0,0,85));
+        contenedorPizarra.setStyle("-fx-border-color: black;-fx-border-width: 2");
+        contenedorBotones.setPadding(new Insets(55 , 0,0,85));
         contenedorBotones.setSpacing(50);
 
         HBox contenedorPrincipal = new HBox(contenedorBloques, contenedorAlgoritmo, contenedorPizarra);
@@ -86,10 +81,31 @@ public class AlgoBlocks extends Application{
         bloqueLevantarLapiz.setOnDragDetected(bloqueLevantarLapizEventHandler);
         bloqueBajarLapiz.setOnDragDetected(bloqueBajarLapizEventHandler);
 
-
-        Scene escenaPrincipal = new Scene(contenedorPrincipal, 1024,768);
+        Scene escenaPrincipal = new Scene(contenedorPrincipal, 960,650);
         stage.setScene(escenaPrincipal);
         stage.show();
+    }
+
+    public GridPane armarPizarra(){
+        GridPane gridPane = new GridPane();
+        gridPane.setPadding(new Insets(80,0,0,0));
+        for(int y = 0; y < 10; y++){
+            for(int x = 0; x < 10; x++){
+
+                // Create a new TextField in each Iteration
+                TextField tf = new TextField();
+                tf.setPrefHeight(50);
+                tf.setPrefWidth(50);
+                tf.setAlignment(Pos.CENTER);
+                tf.setEditable(false);
+
+                // Iterate the Index using the loops
+                gridPane.setRowIndex(tf,y);
+                gridPane.setColumnIndex(tf,x);
+                gridPane.getChildren().add(tf);
+            }
+        }
+        return gridPane;
     }
 
     public static void main(String[] args) {

@@ -15,6 +15,5 @@ public class BotonBLoqueEventHandler implements EventHandler<MouseEvent> {
 
     @Override
     public void handle(MouseEvent mouseEvent) {
-
     }
 }
