@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.Personaje;
 import edu.fiuba.algo3.modelo.Posicion;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BloqueArribaTest {
 
