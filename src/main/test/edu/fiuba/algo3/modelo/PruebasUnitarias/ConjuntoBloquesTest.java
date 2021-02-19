@@ -9,13 +9,13 @@ import static org.junit.jupiter.api.Assertions.*;
 public class ConjuntoBloquesTest {
 
     @Test
-    public void elAlgoritmoSeCreaCorrectamente(){
+    public void elAlgoritmoSeCreaCorrectamente() {
         ConjuntoBloques algoritmo = new ConjuntoBloques();
         assertTrue(algoritmo.estaVacio());
     }
 
     @Test
-    public void seAgreganVariosBloquesYSeEjecutan(){
+    public void seAgreganVariosBloquesYSeEjecutan() {
         ConjuntoBloques algoritmo = new ConjuntoBloques();
         BloqueLapizApoyado bloqueLapiz = new BloqueLapizApoyado();
         BloqueDerecha derecha = new BloqueDerecha();
@@ -30,16 +30,16 @@ public class ConjuntoBloquesTest {
         Posicion posicion = new Posicion(0,0);
         pizarra.pintarPosicion(posicion);
         posicion.derecha();
-        pizarra.pintarPosicion( posicion);
+        pizarra.pintarPosicion(posicion);
         posicion.abajo();
-        pizarra.pintarPosicion( posicion );
+        pizarra.pintarPosicion(posicion);
 
 
-        assertEquals(algoritmo.ejecutar(personaje),pizarra);
+        assertEquals(algoritmo.ejecutar(personaje), pizarra);
     }
 
     @Test
-    public void seAgreganVariosBloquesLuegoSeRemuevenYSeEjecutan(){
+    public void seAgreganVariosBloquesLuegoSeRemuevenYSeEjecutan() {
         ConjuntoBloques algoritmo = new ConjuntoBloques();
         BloqueLapizApoyado bloqueLapiz = new BloqueLapizApoyado();
         BloqueDerecha derecha = new BloqueDerecha();
@@ -52,14 +52,14 @@ public class ConjuntoBloquesTest {
         algoritmo.agregarBloque(abajo);
         algoritmo.agregarBloque(arriba);
 
-        try{
+        try {
             algoritmo.removerBloque(derecha);
-        }catch (BloqueInexistenteException e){
+        } catch(BloqueInexistenteException e){
             fail();
         }
-        try{
+        try {
             algoritmo.removerBloque(arriba);
-        }catch (BloqueInexistenteException e){
+        } catch(BloqueInexistenteException e){
             fail();
         }
 
@@ -67,14 +67,14 @@ public class ConjuntoBloquesTest {
         Posicion posicion = new Posicion(0,0);
         pizarra.pintarPosicion(posicion);
         posicion.abajo();
-        pizarra.pintarPosicion( posicion );
+        pizarra.pintarPosicion(posicion);
 
 
-        assertEquals(algoritmo.ejecutar(personaje),pizarra);
+        assertEquals(algoritmo.ejecutar(personaje), pizarra);
     }
 
     @Test
-    public void seEjecutaInvertidoElAlgoritmo(){
+    public void seEjecutaInvertidoElAlgoritmo() {
         ConjuntoBloques algoritmo = new ConjuntoBloques();
         BloqueLapizApoyado bloqueLapiz = new BloqueLapizApoyado();
         BloqueDerecha derecha = new BloqueDerecha();
@@ -88,11 +88,11 @@ public class ConjuntoBloquesTest {
 
         Pizarra pizarra = new Pizarra();
 
-        assertEquals(algoritmo.ejecutarInvertido(personaje),pizarra);
+        assertEquals(algoritmo.ejecutarInvertido(personaje), pizarra);
     }
 
     @Test
-    public void seAnidanConjuntos(){
+    public void seAnidanConjuntos() {
         ConjuntoBloques algoritmoA = new ConjuntoBloques();
         ConjuntoBloques algoritmoB = new ConjuntoBloques();
         BloqueLapizApoyado bloqueLapiz = new BloqueLapizApoyado();
@@ -110,19 +110,19 @@ public class ConjuntoBloquesTest {
         Posicion posicion = new Posicion(0,0);
         pizarra.pintarPosicion(posicion);
         posicion.derecha();
-        pizarra.pintarPosicion( posicion );
+        pizarra.pintarPosicion(posicion);
         posicion.abajo();
-        pizarra.pintarPosicion( posicion );
+        pizarra.pintarPosicion(posicion);
 
-        assertEquals(algoritmoA.ejecutar(personaje),pizarra);
+        assertEquals(algoritmoA.ejecutar(personaje), pizarra);
     }
 
     @Test
-    public void removerUnBloqueInesxistenteLanzaUnaException(){
+    public void removerUnBloqueInesxistenteLanzaUnaException() {
         ConjuntoBloques algoritmo = new ConjuntoBloques();
         try {
             algoritmo.removerBloque(new BloqueDerecha());
-        }catch (BloqueInexistenteException e){
+        } catch (BloqueInexistenteException e){
             //se lanza correctamente la exception
             assertTrue(true);
         }

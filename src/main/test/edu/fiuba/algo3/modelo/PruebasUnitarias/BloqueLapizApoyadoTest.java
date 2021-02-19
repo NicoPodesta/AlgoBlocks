@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class BloqueLapizApoyadoTest {
 
     @Test
-    public void ejecutarElBloqueLapizApoyadoPintaSobreLaPizarra(){
+    public void ejecutarElBloqueLapizApoyadoPintaSobreLaPizarra() {
         BloqueLapizApoyado bloqueLapiz = new BloqueLapizApoyado();
         BloqueDerecha bloqueDerecha = new BloqueDerecha();
         Personaje personaje = new Personaje();
@@ -16,17 +16,16 @@ public class BloqueLapizApoyadoTest {
         Pizarra pizarra = new Pizarra();
         Posicion posicion = new Posicion(1,0);
         pizarra.pintarPosicion(posicion);
-        assertEquals(bloqueLapiz.ejecutar(personaje),pizarra);
+        assertEquals(bloqueLapiz.ejecutar(personaje), pizarra);
     }
 
     @Test
-    public void ejecutarInvertidoElBloqueLapizApoyadoNoPintaSobreLaPizarra(){
+    public void ejecutarInvertidoElBloqueLapizApoyadoNoPintaSobreLaPizarra() {
         BloqueLapizApoyado bloqueLapiz = new BloqueLapizApoyado();
         BloqueDerecha bloqueDerecha = new BloqueDerecha();
         Personaje personaje = new Personaje();
         bloqueDerecha.ejecutar(personaje);
         Pizarra pizarra = new Pizarra();
-        assertEquals(bloqueLapiz.ejecutarInvertido(personaje),pizarra);
+        assertEquals(bloqueLapiz.ejecutarInvertido(personaje) ,pizarra);
     }
-
 }

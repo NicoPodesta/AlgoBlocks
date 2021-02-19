@@ -10,17 +10,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class LapizApoyadoTest {
 
     @Test
-    public void elLapizApoyadoPintaSobreLaPizarra(){
+    public void elLapizApoyadoPintaSobreLaPizarra() {
         LapizApoyado lapiz = new LapizApoyado();
         Posicion posicion = new Posicion(1,1);
         Pizarra pizarra1 = new Pizarra();
-        lapiz.pintar(posicion,pizarra1);
+        lapiz.pintar(posicion, pizarra1);
 
         Pizarra pizarra2 = new Pizarra();
         pizarra2.pintarPosicion(posicion);
 
-        assertEquals(pizarra1,pizarra2);
-
+        assertEquals(pizarra1, pizarra2);
     }
-
 }

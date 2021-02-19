@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class PizarraTest {
 
     @Test
-    public void lasPosicionesSePintanCorrectamente(){
+    public void lasPosicionesSePintanCorrectamente() {
         Posicion posicion1 = new Posicion(0,0);
         Posicion posicion2 = new Posicion(4,20);
         Pizarra pizarra1 = new Pizarra();
@@ -21,12 +21,11 @@ public class PizarraTest {
         pizarra2.pintarPosicion(posicion1);
         pizarra2.pintarPosicion(posicion2);
 
-        assertEquals(pizarra1,pizarra2);
-
+        assertEquals(pizarra1, pizarra2);
     }
 
     @Test
-    public void lasPosicionesSePintanCorrectamenteNoImportaElOrden(){
+    public void lasPosicionesSePintanCorrectamenteNoImportaElOrden() {
         Posicion posicion1 = new Posicion(0,0);
         Posicion posicion2 = new Posicion(4,20);
         Posicion posicion3 = new Posicion(1,2);
@@ -41,12 +40,11 @@ public class PizarraTest {
         pizarra2.pintarPosicion(posicion3);
         pizarra2.pintarPosicion(posicion2);
 
-        assertEquals(pizarra1,pizarra2);
-
+        assertEquals(pizarra1, pizarra2);
     }
 
     @Test
-    public void lasPosicionesNoSeRepitenEnLaPizarra(){
+    public void lasPosicionesNoSeRepitenEnLaPizarra() {
         Posicion posicion1 = new Posicion(0,0);
         Pizarra pizarra1 = new Pizarra();
         Pizarra pizarra2 = new Pizarra();
@@ -59,7 +57,6 @@ public class PizarraTest {
         pizarra2.pintarPosicion(posicion1);
 
 
-        assertEquals(pizarra1,pizarra2);
-
+        assertEquals(pizarra1, pizarra2);
     }
 }

@@ -70,5 +70,4 @@ public class Entrega2Test {
         pizarra.pintarPosicion(new Posicion(3,3));
         assertEquals(tablero.ejecutarAlgoritmo(),pizarra);
     }
-
 }

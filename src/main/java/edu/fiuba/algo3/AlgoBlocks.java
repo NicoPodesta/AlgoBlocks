@@ -1,5 +1,6 @@
 package edu.fiuba.algo3;
 
+import edu.fiuba.algo3.modelo.Tablero;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -67,20 +68,20 @@ public class AlgoBlocks extends Application{
 
         HBox contenedorPrincipal = new HBox(contenedorBloques, contenedorAlgoritmo, contenedorPizarra);
 
-
-        BotonBLoqueEventHandler bloqueArribaEventHandler = new BotonBLoqueEventHandler(bloqueArriba);
-        BotonBLoqueEventHandler bloqueAbajoEventHandler = new BotonBLoqueEventHandler(bloqueAbajo);
-        BotonBLoqueEventHandler bloqueDerechaEventHandler = new BotonBLoqueEventHandler(bloqueDerecha);
-        BotonBLoqueEventHandler bloqueIzquierdaEventHandler = new BotonBLoqueEventHandler(bloqueIzquierda);
-        BotonBLoqueEventHandler bloqueLevantarLapizEventHandler = new BotonBLoqueEventHandler(bloqueLevantarLapiz);
-        BotonBLoqueEventHandler bloqueBajarLapizEventHandler = new BotonBLoqueEventHandler(bloqueBajarLapiz);
+        Tablero tablero = new Tablero();
+        BotonBloqueArribaEventHandler bloqueArribaEventHandler = new BotonBloqueArribaEventHandler(tablero);
+        BotonBloqueAbajoEventHandler bloqueAbajoEventHandler = new BotonBloqueAbajoEventHandler(tablero);
+        BotonBloqueDerechaEventHandler bloqueDerechaEventHandler = new BotonBloqueDerechaEventHandler(tablero);
+        BotonBloqueIzquierdaEventHandler bloqueIzquierdaEventHandler = new BotonBloqueIzquierdaEventHandler(tablero);
+        BotonBloqueLapizLevantadoEventHandler bloqueLapizLevantadoEventHandler = new BotonBloqueLapizLevantadoEventHandler(tablero);
+        BotonBloqueLapizApoyadoEventHandler bloqueLapizApoyadoEventHandler = new BotonBloqueLapizApoyadoEventHandler(tablero);
 
         bloqueArriba.setOnDragDetected(bloqueArribaEventHandler);
         bloqueAbajo.setOnDragDetected(bloqueAbajoEventHandler);
         bloqueDerecha.setOnDragDetected(bloqueDerechaEventHandler);
         bloqueIzquierda.setOnDragDetected(bloqueIzquierdaEventHandler);
-        bloqueLevantarLapiz.setOnDragDetected(bloqueLevantarLapizEventHandler);
-        bloqueBajarLapiz.setOnDragDetected(bloqueBajarLapizEventHandler);
+        bloqueLevantarLapiz.setOnDragDetected(bloqueLapizLevantadoEventHandler);
+        bloqueBajarLapiz.setOnDragDetected(bloqueLapizApoyadoEventHandler);
 
         Scene escenaPrincipal = new Scene(contenedorPrincipal, 960,650);
         stage.setScene(escenaPrincipal);

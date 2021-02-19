@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class BloqueIzquierdaTest {
 
     @Test
-    public void ejecutarElBloqueMueveHaciaLaIzquierdaAlPersonaje(){
+    public void ejecutarElBloqueMueveHaciaLaIzquierdaAlPersonaje() {
         BloqueIzquierda bloque = new BloqueIzquierda();
         Personaje personaje = new Personaje();
         bloque.ejecutar(personaje);
@@ -19,12 +19,11 @@ public class BloqueIzquierdaTest {
     }
 
     @Test
-    public void ejecutarInvertidoElBloqueMueveHaciaLaDerechaAlPersonaje(){
+    public void ejecutarInvertidoElBloqueMueveHaciaLaDerechaAlPersonaje() {
         BloqueIzquierda bloque = new BloqueIzquierda();
         Personaje personaje = new Personaje();
         bloque.ejecutarInvertido(personaje);
         Posicion coordenadas = new Posicion(1,0);
         assertEquals(personaje.posicionActual(), coordenadas);
     }
-
 }

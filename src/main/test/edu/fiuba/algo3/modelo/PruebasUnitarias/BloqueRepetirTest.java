@@ -8,13 +8,13 @@ import static org.junit.jupiter.api.Assertions.*;
 public class BloqueRepetirTest {
 
     @Test
-    public void elBloqueRepetirSeCreaCorrectamente(){
+    public void elBloqueRepetirSeCreaCorrectamente() {
         BloqueRepetir repeticion = new BloqueRepetir(2);
         assertTrue(repeticion.estaVacio());
     }
 
     @Test
-    public void seAgreganVariosBloquesYSeRepiten2Veces(){
+    public void seAgreganVariosBloquesYSeRepiten2Veces() {
         BloqueRepetir repeticion = new BloqueRepetir(2);
         BloqueLapizApoyado bloqueLapiz = new BloqueLapizApoyado();
         BloqueDerecha derecha = new BloqueDerecha();
@@ -29,16 +29,16 @@ public class BloqueRepetirTest {
         pizarra.pintarPosicion(posicion);
         for (int i = 0; i < 2; ++i){
             posicion.derecha();
-            pizarra.pintarPosicion( posicion);
+            pizarra.pintarPosicion(posicion);
             posicion.abajo();
-            pizarra.pintarPosicion( posicion );
+            pizarra.pintarPosicion(posicion);
         }
 
         assertEquals(repeticion.ejecutar(personaje),pizarra);
     }
 
     @Test
-    public void seAgreganVariosBloquesYSeRemueven(){
+    public void seAgreganVariosBloquesYSeRemueven() {
         BloqueRepetir repeticion = new BloqueRepetir(3);
         BloqueLapizApoyado bloqueLapiz = new BloqueLapizApoyado();
         BloqueDerecha derecha = new BloqueDerecha();
@@ -49,30 +49,30 @@ public class BloqueRepetirTest {
         repeticion.agregarBloque(derecha);
         repeticion.agregarBloque(abajo);
         repeticion.agregarBloque(arriba);
-        try{
+        try {
             repeticion.removerBloque(derecha);
-        }catch (BloqueInexistenteException e){
+        } catch (BloqueInexistenteException e) {
             fail();
         }
-        try{
+        try {
             repeticion.removerBloque(arriba);
-        }catch (BloqueInexistenteException e){
+        } catch (BloqueInexistenteException e) {
             fail();
         }
 
         Pizarra pizarra = new Pizarra();
         Posicion posicion = new Posicion(0,0);
         pizarra.pintarPosicion(posicion);
-        for (int i = 0; i < 3; ++i){
+        for (int i = 0; i < 3; ++i) {
             posicion.abajo();
-            pizarra.pintarPosicion( posicion );
+            pizarra.pintarPosicion(posicion);
         }
 
-        assertEquals(repeticion.ejecutar(personaje),pizarra);
+        assertEquals(repeticion.ejecutar(personaje), pizarra);
     }
 
     @Test
-    public void ejecutarInvertidoInvierteLosBloquesEItera(){
+    public void ejecutarInvertidoInvierteLosBloquesEItera() {
         BloqueRepetir repeticion = new BloqueRepetir(2);
         BloqueLapizApoyado bloqueLapiz = new BloqueLapizApoyado();
         BloqueDerecha derecha = new BloqueDerecha();
@@ -85,18 +85,18 @@ public class BloqueRepetirTest {
         Pizarra pizarra = new Pizarra();
         Posicion posicion = new Posicion(0,0);
         pizarra.pintarPosicion(posicion);
-        for (int i = 0; i < 2; ++i){
+        for (int i = 0; i < 2; ++i) {
             posicion.izquierda();
             pizarra.pintarPosicion( posicion);
             posicion.arriba();
-            pizarra.pintarPosicion( posicion );
+            pizarra.pintarPosicion(posicion);
         }
 
-        assertEquals(repeticion.ejecutarInvertido(personaje),pizarra);
+        assertEquals(repeticion.ejecutarInvertido(personaje), pizarra);
     }
 
     @Test
-    public void seAnidanDosBloquesDeRepeticion(){
+    public void seAnidanDosBloquesDeRepeticion() {
         BloqueRepetir repeticionI = new BloqueRepetir(2);
         BloqueRepetir repeticionJ = new BloqueRepetir(3);
         BloqueLapizApoyado bloqueLapiz = new BloqueLapizApoyado();
@@ -111,17 +111,15 @@ public class BloqueRepetirTest {
         Pizarra pizarra = new Pizarra();
         Posicion posicion = new Posicion(0,0);
         pizarra.pintarPosicion(posicion);
-        for (int i = 0; i < 2; ++i){
+        for (int i = 0; i < 2; ++i) {
             posicion.derecha();
-            pizarra.pintarPosicion( posicion);
-            for (int j = 0; j < 3; ++j){
+            pizarra.pintarPosicion(posicion);
+            for (int j = 0; j < 3; ++j) {
                 posicion.abajo();
-                pizarra.pintarPosicion( posicion );
+                pizarra.pintarPosicion(posicion);
             }
         }
 
-        assertEquals(repeticionI.ejecutar(personaje),pizarra);
+        assertEquals(repeticionI.ejecutar(personaje), pizarra);
     }
-
-
 }

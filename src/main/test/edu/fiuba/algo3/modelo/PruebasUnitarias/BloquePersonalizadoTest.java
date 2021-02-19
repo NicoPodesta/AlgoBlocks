@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.modelo.PruebasUnitarias;
 
-
 import edu.fiuba.algo3.modelo.*;
 import org.junit.jupiter.api.Test;
 
@@ -9,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class BloquePersonalizadoTest {
 
     @Test
-    public void elAlgoritmoPersonalizadoSeCreaCorrectamente(){
+    public void elAlgoritmoPersonalizadoSeCreaCorrectamente() {
         ConjuntoBloques algoritmo = new ConjuntoBloques();
         BloquePersonalizado personalizado = new BloquePersonalizado("Nuevo Algoritmo", algoritmo);
         assertTrue(personalizado.estaVacio());
@@ -18,7 +17,7 @@ public class BloquePersonalizadoTest {
 
 
     @Test
-    public void seCreaUnNuevoAlgoritmoySeEjecuta(){
+    public void seCreaUnNuevoAlgoritmoySeEjecuta() {
         ConjuntoBloques algoritmo = new ConjuntoBloques();
         BloqueLapizApoyado bloqueLapiz = new BloqueLapizApoyado();
         BloqueDerecha derecha = new BloqueDerecha();
@@ -35,16 +34,16 @@ public class BloquePersonalizadoTest {
         Posicion posicion = new Posicion(0,0);
         pizarra.pintarPosicion(posicion);
         posicion.derecha();
-        pizarra.pintarPosicion( posicion);
+        pizarra.pintarPosicion(posicion);
         posicion.abajo();
-        pizarra.pintarPosicion( posicion );
+        pizarra.pintarPosicion(posicion);
 
 
         assertEquals(personalizado.ejecutar(personaje),pizarra);
     }
 
     @Test
-    public void seCreaUnNuevoAlgoritmoySeModifica(){
+    public void seCreaUnNuevoAlgoritmoySeModifica() {
         ConjuntoBloques algoritmo = new ConjuntoBloques();
         BloqueLapizApoyado bloqueLapiz = new BloqueLapizApoyado();
         BloqueDerecha derecha = new BloqueDerecha();
@@ -61,16 +60,16 @@ public class BloquePersonalizadoTest {
         Posicion posicion = new Posicion(0,0);
         pizarra.pintarPosicion(posicion);
         posicion.derecha();
-        pizarra.pintarPosicion( posicion);
+        pizarra.pintarPosicion(posicion);
         posicion.abajo();
-        pizarra.pintarPosicion( posicion );
+        pizarra.pintarPosicion(posicion);
 
 
-        assertEquals(personalizado.ejecutar(personaje),pizarra);
+        assertEquals(personalizado.ejecutar(personaje), pizarra);
     }
 
     @Test
-    public void seCreaNuevoAlgorimoySeRemuevenBloques(){
+    public void seCreaNuevoAlgorimoySeRemuevenBloques() {
         ConjuntoBloques algoritmo = new ConjuntoBloques();
         BloqueLapizApoyado bloqueLapiz = new BloqueLapizApoyado();
         BloqueDerecha derecha = new BloqueDerecha();
@@ -85,14 +84,14 @@ public class BloquePersonalizadoTest {
         algoritmo.agregarBloque(arriba);
         BloquePersonalizado personalizado = new BloquePersonalizado("Nuevo Algoritmo", algoritmo);
 
-        try{
+        try {
             personalizado.removerBloque(derecha);
         }catch (BloqueInexistenteException e){
             fail();
         }
-        try{
+        try {
             personalizado.removerBloque(arriba);
-        }catch (BloqueInexistenteException e){
+        } catch (BloqueInexistenteException e){
             fail();
         }
 
@@ -101,14 +100,14 @@ public class BloquePersonalizadoTest {
         Posicion posicion = new Posicion(0,0);
         pizarra.pintarPosicion(posicion);
         posicion.abajo();
-        pizarra.pintarPosicion( posicion );
+        pizarra.pintarPosicion(posicion);
 
 
-        assertEquals(personalizado.ejecutar(personaje),pizarra);
+        assertEquals(personalizado.ejecutar(personaje), pizarra);
     }
 
     @Test
-    public void seEjecutaInvertidoElAlgoritmo(){
+    public void seEjecutaInvertidoElAlgoritmo() {
         ConjuntoBloques algoritmo = new ConjuntoBloques();
         BloqueLapizLevantado bloqueLapiz = new BloqueLapizLevantado();
         BloqueDerecha derecha = new BloqueDerecha();
@@ -126,15 +125,15 @@ public class BloquePersonalizadoTest {
         Posicion posicion = new Posicion(0,0);
         pizarra.pintarPosicion(posicion);
         posicion.izquierda();
-        pizarra.pintarPosicion( posicion );
+        pizarra.pintarPosicion(posicion);
         posicion.arriba();
-        pizarra.pintarPosicion( posicion );
+        pizarra.pintarPosicion(posicion);
 
-        assertEquals(personalizado.ejecutarInvertido(personaje),pizarra);
+        assertEquals(personalizado.ejecutarInvertido(personaje), pizarra);
     }
 
     @Test
-    public void seAnidanAlgoritmosPersonalizados(){
+    public void seAnidanAlgoritmosPersonalizados() {
         ConjuntoBloques algoritmoA = new ConjuntoBloques();
         ConjuntoBloques algoritmoB = new ConjuntoBloques();
         BloqueLapizApoyado bloqueLapiz = new BloqueLapizApoyado();
@@ -157,12 +156,12 @@ public class BloquePersonalizadoTest {
         Posicion posicion = new Posicion(0,0);
         pizarra.pintarPosicion(posicion);
         posicion.derecha();
-        pizarra.pintarPosicion( posicion );
+        pizarra.pintarPosicion(posicion);
         posicion.abajo();
-        pizarra.pintarPosicion( posicion );
+        pizarra.pintarPosicion(posicion);
         posicion.derecha();
         pizarra.pintarPosicion(posicion);
 
-        assertEquals(algoritmoA.ejecutar(personaje),pizarra);
+        assertEquals(algoritmoA.ejecutar(personaje), pizarra);
     }
 }

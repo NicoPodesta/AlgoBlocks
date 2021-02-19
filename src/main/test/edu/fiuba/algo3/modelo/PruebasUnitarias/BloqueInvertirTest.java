@@ -9,13 +9,13 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class BloqueInvertirTest {
 
     @Test
-    public void elBloqueInvertirSeCreaCorrectamente(){
+    public void elBloqueInvertirSeCreaCorrectamente() {
         BloqueInvertir invertir = new BloqueInvertir();
         assertTrue(invertir.estaVacio());
     }
 
     @Test
-    public void seAgreganVariosBloquesYSeEjecutan(){
+    public void seAgreganVariosBloquesYSeEjecutan() {
         BloqueInvertir invertir = new BloqueInvertir();
         BloqueLapizApoyado bloqueLapiz = new BloqueLapizApoyado();
         BloqueDerecha derecha = new BloqueDerecha();
@@ -30,16 +30,16 @@ public class BloqueInvertirTest {
         Posicion posicion = new Posicion(0,0);
         pizarra.pintarPosicion(posicion);
         posicion.izquierda();
-        pizarra.pintarPosicion( posicion);
+        pizarra.pintarPosicion(posicion);
         posicion.arriba();
-        pizarra.pintarPosicion( posicion );
+        pizarra.pintarPosicion(posicion);
 
 
-        assertEquals(invertir.ejecutar(personaje),pizarra);
+        assertEquals(invertir.ejecutar(personaje), pizarra);
     }
 
     @Test
-    public void seEjecutaInvertidoElBloqueInvertir(){
+    public void seEjecutaInvertidoElBloqueInvertir() {
         BloqueInvertir invertir = new BloqueInvertir();
         BloqueLapizApoyado bloqueLapiz = new BloqueLapizApoyado();
         BloqueDerecha derecha = new BloqueDerecha();
@@ -55,15 +55,15 @@ public class BloqueInvertirTest {
         Posicion posicion = new Posicion(0,0);
         pizarra.pintarPosicion(posicion);
         posicion.derecha();
-        pizarra.pintarPosicion( posicion);
+        pizarra.pintarPosicion(posicion);
         posicion.abajo();
-        pizarra.pintarPosicion( posicion );
+        pizarra.pintarPosicion(posicion);
 
-        assertEquals(invertir.ejecutarInvertido(personaje),pizarra);
+        assertEquals(invertir.ejecutarInvertido(personaje), pizarra);
     }
 
     @Test
-    public void seAnidanBloquesInvertirYSeCancelan(){
+    public void seAnidanBloquesInvertirYSeCancelan() {
         BloqueInvertir invertirA = new BloqueInvertir();
         BloqueInvertir invertirB = new BloqueInvertir();
         BloqueLapizLevantado bloqueLapiz = new BloqueLapizLevantado();
@@ -81,11 +81,10 @@ public class BloqueInvertirTest {
         Posicion posicion = new Posicion(0,0);
         pizarra.pintarPosicion(posicion);
         posicion.derecha();
-        pizarra.pintarPosicion( posicion );
+        pizarra.pintarPosicion(posicion);
         posicion.abajo();
-        pizarra.pintarPosicion( posicion );
+        pizarra.pintarPosicion(posicion);
 
-        assertEquals(invertirA.ejecutar(personaje),pizarra);
+        assertEquals(invertirA.ejecutar(personaje), pizarra);
     }
-
 }

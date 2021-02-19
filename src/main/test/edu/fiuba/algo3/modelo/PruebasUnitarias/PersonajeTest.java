@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class PersonajeTest {
 
     @Test
-    public void testElPersonajeMueveCorrectamenteLaPosicionALaDerecha(){
+    public void testElPersonajeMueveCorrectamenteLaPosicionALaDerecha() {
         Personaje personaje = new Personaje();
         personaje.moverHaciaLaDerecha();
         Posicion coordenadas = new Posicion(1,0);
@@ -17,7 +17,7 @@ public class PersonajeTest {
     }
 
     @Test
-    public void testElPersonajeMueveCorrectamenteLaPosicionALaIzquierda(){
+    public void testElPersonajeMueveCorrectamenteLaPosicionALaIzquierda() {
         Personaje personaje = new Personaje();
         personaje.moverHaciaLaIzquierda();
         Posicion coordenadas = new Posicion(-1,0);
@@ -25,7 +25,7 @@ public class PersonajeTest {
     }
 
     @Test
-    public void testElPersonajeMueveCorrectamenteLaPosicionHaciaArriba(){
+    public void testElPersonajeMueveCorrectamenteLaPosicionHaciaArriba() {
         Personaje personaje = new Personaje();
         personaje.moverHaciaArriba();
         Posicion coordenadas = new Posicion(0,-1);
@@ -33,7 +33,7 @@ public class PersonajeTest {
     }
 
     @Test
-    public void testElPersonajeMueveCorrectamenteLaPosicionHaciaAbajo(){
+    public void testElPersonajeMueveCorrectamenteLaPosicionHaciaAbajo() {
         Personaje personaje = new Personaje();
         personaje.moverHaciaAbajo();
         Posicion coordenadas = new Posicion(0,1);

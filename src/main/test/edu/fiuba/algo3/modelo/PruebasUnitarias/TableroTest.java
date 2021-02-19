@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TableroTest {
 
     @Test
-    public void guardaCorrectamenteLosBloquesPersonalizados(){
+    public void guardaCorrectamenteLosBloquesPersonalizados() {
         Tablero tablero = new Tablero();
         ConjuntoBloques algoritmo = new ConjuntoBloques ();
         BloqueAbajo bloqueAbajo = new BloqueAbajo();
@@ -16,21 +16,21 @@ public class TableroTest {
         algoritmo.agregarBloque(bloqueAbajo);
         algoritmo.agregarBloque(bloqueAbajo);
         algoritmo.agregarBloque(bloqueDerecha);
-        try{
+        try {
             tablero.guardarBloquePersonalizado("Letra L", algoritmo);
-        }catch (AlgoritmoVacioException e){
+        } catch (AlgoritmoVacioException e){
             fail();
         }
         try {
             ConjuntoBloques algoritmoPersonalizado = tablero.obtenerBloquePersonalizado("Letra L");
             assertEquals(algoritmoPersonalizado, algoritmo);
-        }catch (BloqueInexistenteException e){
+        } catch (BloqueInexistenteException e){
             fail();
         }
 
     }
     @Test
-    public void remueveCorrectamenteUnBloquePersonalizado(){
+    public void remueveCorrectamenteUnBloquePersonalizado() {
         Tablero tablero = new Tablero();
         ConjuntoBloques algoritmo = new ConjuntoBloques ();
         BloqueAbajo bloqueAbajo = new BloqueAbajo();
@@ -38,26 +38,26 @@ public class TableroTest {
         algoritmo.agregarBloque(bloqueAbajo);
         algoritmo.agregarBloque(bloqueAbajo);
         algoritmo.agregarBloque(bloqueDerecha);
-        try{
+        try {
             tablero.guardarBloquePersonalizado("Letra L", algoritmo);
-        }catch (AlgoritmoVacioException e){
+        } catch (AlgoritmoVacioException e){
             fail();
         }
-        try{
+        try {
             tablero.removerBloquePersonalizado("Letra L");
-        }catch (BloqueInexistenteException e){
+        } catch (BloqueInexistenteException e){
             fail();
         }
         try {
             tablero.obtenerBloquePersonalizado("Letra L");
-        }catch (BloqueInexistenteException e){
+        } catch (BloqueInexistenteException e){
             //se lanza correctamente la exception
             assertTrue(true);
         }
     }
 
     @Test
-    public void guardarUnbloquePersonalizadoVacioLanzaUnaException(){
+    public void guardarUnbloquePersonalizadoVacioLanzaUnaException() {
         Tablero tablero = new Tablero();
         ConjuntoBloques algoritmo = new ConjuntoBloques ();
 
@@ -70,42 +70,42 @@ public class TableroTest {
     }
 
     @Test
-    public void removerUnBloquePersonalizadoInexitenteLanzaUnaException(){
+    public void removerUnBloquePersonalizadoInexitenteLanzaUnaException() {
         Tablero tablero = new Tablero();
 
-        try{
+        try {
             tablero.removerBloquePersonalizado("Letra L");
-        }catch (BloqueInexistenteException e){
+        } catch (BloqueInexistenteException e){
             //se lanza correctamente la exception
             assertTrue(true);
         }
     }
 
     @Test
-    public void obtenerUnBloqueNoGuardadoLanzaUnaExcpetion(){
+    public void obtenerUnBloqueNoGuardadoLanzaUnaExcpetion() {
         Tablero tablero = new Tablero();
 
-        try{
+        try {
             tablero.obtenerBloquePersonalizado("Letra L");
-        }catch (BloqueInexistenteException e){
+        } catch (BloqueInexistenteException e){
             //se lanza correctamente la exception
             assertTrue(true);
         }
     }
 
     @Test
-    public void seEjecutaCorrectamenteUnBloquePersonalizadoYaGuardado(){
+    public void seEjecutaCorrectamenteUnBloquePersonalizadoYaGuardado() {
         Tablero tablero = new Tablero();
-        ConjuntoBloques algoritmo = new ConjuntoBloques ();
+        ConjuntoBloques algoritmo = new ConjuntoBloques();
         BloqueAbajo bloqueAbajo = new BloqueAbajo();
         BloqueDerecha bloqueDerecha = new BloqueDerecha();
         tablero.agregarBloqueAlAlgoritmo(new BloqueLapizApoyado());
         algoritmo.agregarBloque(bloqueAbajo);
         algoritmo.agregarBloque(bloqueAbajo);
         algoritmo.agregarBloque(bloqueDerecha);
-        try{
+        try {
             tablero.guardarBloquePersonalizado("Letra L", algoritmo);
-        }catch (AlgoritmoVacioException e){
+        } catch (AlgoritmoVacioException e){
             fail();
         }
 
@@ -115,9 +115,9 @@ public class TableroTest {
         pizarraFinal.pintarPosicion(new Posicion(0,2));
         pizarraFinal.pintarPosicion(new Posicion(1,2));
 
-        try{
+        try {
             tablero.agregarBloqueAlAlgoritmo(tablero.obtenerBloquePersonalizado("Letra L"));
-        }catch (BloqueInexistenteException e){
+        } catch (BloqueInexistenteException e){
             fail();
         }
 
