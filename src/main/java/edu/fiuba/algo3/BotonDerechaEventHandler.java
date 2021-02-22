@@ -4,9 +4,9 @@ import edu.fiuba.algo3.modelo.BloqueDerecha;
 import edu.fiuba.algo3.modelo.Tablero;
 import javafx.scene.input.MouseEvent;
 
-public class BotonBloqueDerechaEventHandler extends BotonBloqueEventHandler {
+public class BotonDerechaEventHandler extends BotonBloqueEventHandler {
 
-    public BotonBloqueDerechaEventHandler(Tablero tablero) {
+    public BotonDerechaEventHandler(Tablero tablero) {
         super(tablero);
     }
 

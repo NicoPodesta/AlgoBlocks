@@ -4,9 +4,9 @@ import edu.fiuba.algo3.modelo.BloqueLapizLevantado;
 import edu.fiuba.algo3.modelo.Tablero;
 import javafx.scene.input.MouseEvent;
 
-public class BotonBloqueLapizLevantadoEventHandler extends BotonBloqueEventHandler {
+public class BotonLapizLevantadoEventHandler extends BotonBloqueEventHandler {
 
-    public BotonBloqueLapizLevantadoEventHandler(Tablero tablero) {
+    public BotonLapizLevantadoEventHandler(Tablero tablero) {
         super(tablero);
     }
 

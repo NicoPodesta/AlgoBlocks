@@ -20,17 +20,17 @@ public class AlgoBlocks extends Application{
         stage.setTitle("AlgoBlocks");
 
         Button bloqueArriba = new Button();
-        bloqueArriba.setText("bloqueArriba");
+        bloqueArriba.setText("Arriba");
         Button bloqueAbajo = new Button();
-        bloqueAbajo.setText("bloqueAbajo");
+        bloqueAbajo.setText("Abajo");
         Button bloqueDerecha = new Button();
-        bloqueDerecha.setText("bloqueDerecha");
+        bloqueDerecha.setText("Derecha");
         Button bloqueIzquierda = new Button();
-        bloqueIzquierda.setText("bloqueIzquierda");
+        bloqueIzquierda.setText("Izquierda");
         Button bloqueLevantarLapiz = new Button();
-        bloqueLevantarLapiz.setText("bloqueLevantarLapiz");
-        Button bloqueBajarLapiz = new Button();
-        bloqueBajarLapiz.setText("bloqueBajarLapiz");
+        bloqueLevantarLapiz.setText("LevantarLapiz");
+        Button bloqueApoyarLapiz = new Button();
+        bloqueApoyarLapiz.setText("ApoyarLapiz");
 
         Label tituloBloques = new Label();
         tituloBloques.setText("Bloques disponibles");
@@ -46,10 +46,10 @@ public class AlgoBlocks extends Application{
         Button salir = new Button();
         salir.setText("Salir");
 
-
         HBox contenedorBotones = new HBox(ejecutar, guardarAlgoritmo, salir);
 
-        VBox contenedorBloques = new VBox(tituloBloques, bloqueArriba, bloqueAbajo, bloqueDerecha, bloqueIzquierda, bloqueLevantarLapiz, bloqueBajarLapiz);
+        VBox contenedorBloques = new VBox(tituloBloques, bloqueArriba, bloqueAbajo, bloqueDerecha, bloqueIzquierda,
+                bloqueLevantarLapiz, bloqueApoyarLapiz);
         contenedorBloques.setPrefWidth(256);
         contenedorBloques.setSpacing(10);
         contenedorBloques.setPadding(new Insets(15 , 0,0,60));
@@ -69,19 +69,19 @@ public class AlgoBlocks extends Application{
         HBox contenedorPrincipal = new HBox(contenedorBloques, contenedorAlgoritmo, contenedorPizarra);
 
         Tablero tablero = new Tablero();
-        BotonBloqueArribaEventHandler bloqueArribaEventHandler = new BotonBloqueArribaEventHandler(tablero);
-        BotonBloqueAbajoEventHandler bloqueAbajoEventHandler = new BotonBloqueAbajoEventHandler(tablero);
-        BotonBloqueDerechaEventHandler bloqueDerechaEventHandler = new BotonBloqueDerechaEventHandler(tablero);
-        BotonBloqueIzquierdaEventHandler bloqueIzquierdaEventHandler = new BotonBloqueIzquierdaEventHandler(tablero);
-        BotonBloqueLapizLevantadoEventHandler bloqueLapizLevantadoEventHandler = new BotonBloqueLapizLevantadoEventHandler(tablero);
-        BotonBloqueLapizApoyadoEventHandler bloqueLapizApoyadoEventHandler = new BotonBloqueLapizApoyadoEventHandler(tablero);
+        BotonArribaEventHandler arribaEventHandler = new BotonArribaEventHandler(tablero);
+        BotonAbajoEventHandler abajoEventHandler = new BotonAbajoEventHandler(tablero);
+        BotonDerechaEventHandler derechaEventHandler = new BotonDerechaEventHandler(tablero);
+        BotonIzquierdaEventHandler izquierdaEventHandler = new BotonIzquierdaEventHandler(tablero);
+        BotonLapizLevantadoEventHandler lapizLevantadoEventHandler = new BotonLapizLevantadoEventHandler(tablero);
+        BotonLapizApoyadoEventHandler lapizApoyadoEventHandler = new BotonLapizApoyadoEventHandler(tablero);
 
-        bloqueArriba.setOnDragDetected(bloqueArribaEventHandler);
-        bloqueAbajo.setOnDragDetected(bloqueAbajoEventHandler);
-        bloqueDerecha.setOnDragDetected(bloqueDerechaEventHandler);
-        bloqueIzquierda.setOnDragDetected(bloqueIzquierdaEventHandler);
-        bloqueLevantarLapiz.setOnDragDetected(bloqueLapizLevantadoEventHandler);
-        bloqueBajarLapiz.setOnDragDetected(bloqueLapizApoyadoEventHandler);
+        bloqueArriba.setOnDragDetected(arribaEventHandler);
+        bloqueAbajo.setOnDragDetected(abajoEventHandler);
+        bloqueDerecha.setOnDragDetected(derechaEventHandler);
+        bloqueIzquierda.setOnDragDetected(izquierdaEventHandler);
+        bloqueLevantarLapiz.setOnDragDetected(lapizLevantadoEventHandler);
+        bloqueApoyarLapiz.setOnDragDetected(lapizApoyadoEventHandler);
 
         Scene escenaPrincipal = new Scene(contenedorPrincipal, 960,650);
         stage.setScene(escenaPrincipal);
