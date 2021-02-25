@@ -1,6 +1,7 @@
-package edu.fiuba.algo3;
+package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.modelo.Tablero;
+import edu.fiuba.algo3.controlador.*;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;

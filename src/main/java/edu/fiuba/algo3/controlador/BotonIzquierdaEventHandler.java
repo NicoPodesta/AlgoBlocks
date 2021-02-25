@@ -1,4 +1,5 @@
-package edu.fiuba.algo3;
+package edu.fiuba.algo3.controlador;
+
 
 import edu.fiuba.algo3.modelo.BloqueIzquierda;
 import edu.fiuba.algo3.modelo.Tablero;
