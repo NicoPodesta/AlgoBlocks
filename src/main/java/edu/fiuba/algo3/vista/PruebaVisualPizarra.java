@@ -3,10 +3,11 @@ package edu.fiuba.algo3.vista;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.paint.Paint;
-import javafx.scene.shape.LineTo;
-import javafx.scene.shape.MoveTo;
-import javafx.scene.shape.Path;
+import javafx.scene.shape.*;
 import javafx.stage.Stage;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 
 
 import edu.fiuba.algo3.modelo.Tablero;
@@ -23,47 +24,58 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class PruebaVisualPizarra  extends Application {
+    final int n = 10; // number of squares in each row and column
+    final int TAM_LINEA = 75; // length of each square  in pixels
+    final int offset = 25;
     @Override
     public void start(Stage stage)  {
+        int cant_lineas = 0;
         //Creating a Path
         Path path = new Path();
-
         //Moving to the starting point
-        MoveTo moveTo = new MoveTo(10, 10);
-
+        MoveTo moveTo = new MoveTo(offset, offset);
         //Creating 1st line
-        LineTo line1 = new LineTo(20, 10);
+        LineTo line1 = new LineTo(offset + TAM_LINEA, offset);
+        cant_lineas++;
 
-        //Creating 2nd line
-        LineTo line2 = new LineTo(20,20);
-
-        //Creating 3rd line
-        LineTo line3 = new LineTo(10,20);
-
-        //Creating 4th line
-        LineTo line4 = new LineTo(0, 0);
-
-        //Creating 4th line
-        LineTo line5 = new LineTo(10, 10);
 
         //Adding all the elements to the path
         path.getElements().add(moveTo);
-        path.getElements().addAll(line1, line2, line3, line4, line5);
+        path.getElements().addAll(line1);
+
+
+        LineTo lineaPrevia = (LineTo) path.getElements().get(cant_lineas);
+        LineTo line2 = new LineTo(lineaPrevia.getX(), lineaPrevia.getY() + TAM_LINEA);
+        cant_lineas++;
+        path.getElements().add(line2);
+
+
+        lineaPrevia = (LineTo) path.getElements().get(cant_lineas);
+        LineTo line3 = new LineTo(lineaPrevia.getX() + TAM_LINEA, lineaPrevia.getY());
+        cant_lineas++;
+        path.getElements().add(line3);
+
+
+
+
+
+
 
         path.setStrokeWidth(3.0);
         //Creating a Group object
-        Group root = new Group(path);
+        Group grupo = new Group(path);
 
-        //Creating a scene object
-        Scene scene = new Scene(root, 600, 300);
+        Pane root = new Pane(grupo);
 
-        //Setting title to the Stage
-        stage.setTitle("Drawing an arc through a path");
+        root.setPrefSize(n * TAM_LINEA, n * TAM_LINEA);
 
-        //Adding scene to the stage
+        Scene scene = new Scene(root, Color.WHITE);
+
         stage.setScene(scene);
-
-        //Displaying the contents of the stage
+        stage.setTitle("Pizarra");
         stage.show();
+    }
+    public static void main(String[] args) {
+        launch(args);
     }
 }
