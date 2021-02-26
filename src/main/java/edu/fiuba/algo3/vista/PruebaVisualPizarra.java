@@ -15,6 +15,9 @@ public class PruebaVisualPizarra  extends Application {
     @Override
     public void start(Stage stage)  {
         Dibujador dibujador = new Dibujador();
+        dibujador.dibujarLineaAbajo();
+        dibujador.dibujarLineaDerecha();
+
         stage.setScene(dibujador.getEscena());
         stage.setTitle("Pizarra");
         stage.show();

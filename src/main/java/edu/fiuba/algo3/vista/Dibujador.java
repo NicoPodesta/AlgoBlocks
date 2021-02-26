@@ -16,6 +16,7 @@ public class Dibujador {
     private Path recorrido;
     private Pane root;
     private Scene scene;
+    //Siempre necesitamos tener el x e y anterior para poder dibujar un nuevo tramo
     private double x_anterior;
     private double y_anterior;
 
@@ -31,9 +32,27 @@ public class Dibujador {
     }
 
     private void inicializarRecorrido(){
+        //Inicializa el recorrido con un objeto MoveTo, desde aca se arma todo el recorrido
         this.recorrido.getElements().add(new MoveTo(posInicialRecorrido, posInicialRecorrido)); //Posicion inicial del recorrido
         x_anterior = posInicialRecorrido;
         y_anterior = posInicialRecorrido;
+    }
+
+    public void dibujarLineaAbajo(){
+        this.recorrido.getElements().add(new LineTo(x_anterior, y_anterior + TAM_LINEA));
+        actualizarXeYPrevios();
+    }
+    public void dibujarLineaArriba(){
+        this.recorrido.getElements().add(new LineTo(x_anterior, y_anterior - TAM_LINEA));
+        actualizarXeYPrevios();
+    }
+    public void dibujarLineaDerecha(){
+        this.recorrido.getElements().add(new LineTo(x_anterior + TAM_LINEA, y_anterior));
+        actualizarXeYPrevios();
+    }
+    public void dibujarLineaIzquierda(){
+        this.recorrido.getElements().add(new LineTo(x_anterior - TAM_LINEA, y_anterior));
+        actualizarXeYPrevios();
     }
 
     private void actualizarXeYPrevios(){
