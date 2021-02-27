@@ -2,6 +2,7 @@ package edu.fiuba.algo3.vista;
 
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -27,6 +28,10 @@ public class Dibujador {
         this.recorrido = new Path();
         this.root = new Pane(this.recorrido);
         this.root.setPrefSize(n * TAM_LINEA, n * TAM_LINEA);
+        BackgroundImage miBackground= new BackgroundImage(new Image("file:src/main/java/edu/fiuba/algo3/vista/Imagenes/fondo_dibujador.png",n * TAM_LINEA,n * TAM_LINEA,false,false),
+                BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+                BackgroundSize.DEFAULT);
+        this.root.setBackground(new Background(miBackground));
         this.recorrido.setStrokeWidth(4.5);
         inicializarRecorrido();
         this.root.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(3))));
