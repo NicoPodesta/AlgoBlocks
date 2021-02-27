@@ -54,6 +54,22 @@ public class Dibujador {
         this.recorrido.getElements().add(new LineTo(x_anterior - TAM_LINEA, y_anterior));
         actualizarXeYPrevios();
     }
+    public void moverseAbajo(){
+        this.recorrido.getElements().add(new MoveTo(x_anterior, y_anterior + TAM_LINEA));
+        this.y_anterior = y_anterior + TAM_LINEA;
+    }
+    public void moverseArriba(){
+        this.recorrido.getElements().add(new MoveTo(x_anterior, y_anterior - TAM_LINEA));
+        this.y_anterior = y_anterior - TAM_LINEA;
+    }
+    public void moverseDerecha(){
+        this.recorrido.getElements().add(new MoveTo(x_anterior + TAM_LINEA, y_anterior));
+        this.x_anterior = x_anterior + TAM_LINEA;
+    }
+    public void moverseIzquierda(){
+        this.recorrido.getElements().add(new MoveTo(x_anterior - TAM_LINEA, y_anterior));
+        this.x_anterior = x_anterior - TAM_LINEA;
+    }
 
     private void actualizarXeYPrevios(){
         LineTo lineaPrevia = (LineTo) this.recorrido.getElements().get(this.recorrido.getElements().size() - 1);
