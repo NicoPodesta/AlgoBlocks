@@ -2,8 +2,9 @@ package edu.fiuba.algo3.vista;
 
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
@@ -11,7 +12,7 @@ import javafx.scene.shape.Path;
 public class Dibujador {
     private final int n = 10; //Numero de posibles segmentos
     private final int TAM_LINEA = 75; //Tamaño de cada linea
-    private final int posInicialRecorrido = 25;
+    private final int posInicialRecorrido = (n * TAM_LINEA)/2;
 
     private Path recorrido;
     private Pane root;
@@ -26,8 +27,9 @@ public class Dibujador {
         this.recorrido = new Path();
         this.root = new Pane(this.recorrido);
         this.root.setPrefSize(n * TAM_LINEA, n * TAM_LINEA);
-        this.recorrido.setStrokeWidth(3.0);
+        this.recorrido.setStrokeWidth(4.5);
         inicializarRecorrido();
+        this.root.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(3))));
         this.scene  = new Scene(root, Color.WHITE);
     }
 
@@ -39,20 +41,44 @@ public class Dibujador {
     }
 
     public void dibujarLineaAbajo(){
+        if(y_anterior == +n * TAM_LINEA){
+            y_anterior = 0;
+            this.recorrido.getElements().add(new MoveTo(x_anterior, y_anterior));
+        }
+        dibujarCirculo();
         this.recorrido.getElements().add(new LineTo(x_anterior, y_anterior + TAM_LINEA));
         actualizarXeYPrevios();
+        dibujarCirculo();
     }
     public void dibujarLineaArriba(){
+        if(y_anterior == 0){
+            y_anterior = n * TAM_LINEA;
+            this.recorrido.getElements().add(new MoveTo(x_anterior, y_anterior));
+        }
+        dibujarCirculo();
         this.recorrido.getElements().add(new LineTo(x_anterior, y_anterior - TAM_LINEA));
         actualizarXeYPrevios();
+        dibujarCirculo();
     }
     public void dibujarLineaDerecha(){
+        if(x_anterior == n * TAM_LINEA){
+            x_anterior = 0;
+            this.recorrido.getElements().add(new MoveTo(x_anterior, y_anterior));
+        }
+        dibujarCirculo();
         this.recorrido.getElements().add(new LineTo(x_anterior + TAM_LINEA, y_anterior));
         actualizarXeYPrevios();
+        dibujarCirculo();
     }
     public void dibujarLineaIzquierda(){
+        if(x_anterior == 0){
+            x_anterior = n * TAM_LINEA;
+            this.recorrido.getElements().add(new MoveTo(x_anterior, y_anterior));
+        }
+        dibujarCirculo();
         this.recorrido.getElements().add(new LineTo(x_anterior - TAM_LINEA, y_anterior));
         actualizarXeYPrevios();
+        dibujarCirculo();
     }
     public void moverseAbajo(){
         this.recorrido.getElements().add(new MoveTo(x_anterior, y_anterior + TAM_LINEA));
@@ -75,6 +101,12 @@ public class Dibujador {
         LineTo lineaPrevia = (LineTo) this.recorrido.getElements().get(this.recorrido.getElements().size() - 1);
         x_anterior = lineaPrevia.getX();
         y_anterior = lineaPrevia.getY();
+    }
+
+    private void dibujarCirculo(){
+        Circle circulo = new Circle(x_anterior, y_anterior, 6);
+        circulo.setFill(Color.BLACK);
+        this.root.getChildren().add(circulo);
     }
 
     public Scene getEscena(){
