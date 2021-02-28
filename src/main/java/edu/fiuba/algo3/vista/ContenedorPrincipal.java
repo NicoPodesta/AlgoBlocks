@@ -21,45 +21,30 @@ public class ContenedorPrincipal extends BorderPane {
     }
 
     private HBox nuevoContenedorBloques(Tablero tablero){
-        Button bloqueArriba = new Button();
-        bloqueArriba.setText("Arriba");
-        Button bloqueAbajo = new Button();
-        bloqueAbajo.setText("Abajo");
-        Button bloqueDerecha = new Button();
-        bloqueDerecha.setText("Derecha");
-        Button bloqueIzquierda = new Button();
-        bloqueIzquierda.setText("Izquierda");
-        Button bloqueLevantarLapiz = new Button();
-        bloqueLevantarLapiz.setText("LevantarLapiz");
-        Button bloqueApoyarLapiz = new Button();
-        bloqueApoyarLapiz.setText("ApoyarLapiz");
-        Button bloqueRepetirX2 = new Button();
-        bloqueRepetirX2.setText("RepetirX2");
-        Button bloqueRepetirX3 = new Button();
-        bloqueRepetirX3.setText("RepetirX3");
-        Button bloqueInvertir = new Button();
-        bloqueInvertir.setText("Invertir Comportamiento");
-        Button bloquePersonalizado = new Button();
-        bloquePersonalizado.setText("Personalizado");
+        Button bloqueArriba = new Button("Arriba");
+        Button bloqueAbajo = new Button("Abajo");
+        Button bloqueDerecha = new Button("Derecha");
+        Button bloqueIzquierda = new Button("Izquierda");
+        Button bloqueLevantarLapiz = new Button("LevantarLapiz");
+        Button bloqueApoyarLapiz = new Button("ApoyarLapiz");
+        Button bloqueRepetirX2 = new Button("RepetirX2");
+        Button bloqueRepetirX3 = new Button("RepetirX3");
+        Button bloqueInvertir = new Button("Invertir Comportamiento");
+        Button bloquePersonalizado = new Button("Personalizado");
 
-        BotonArribaEventHandler arribaEventHandler = new BotonArribaEventHandler(tablero);
-        BotonAbajoEventHandler abajoEventHandler = new BotonAbajoEventHandler(tablero);
-        BotonDerechaEventHandler derechaEventHandler = new BotonDerechaEventHandler(tablero);
-        BotonIzquierdaEventHandler izquierdaEventHandler = new BotonIzquierdaEventHandler(tablero);
-        BotonLapizLevantadoEventHandler lapizLevantadoEventHandler = new BotonLapizLevantadoEventHandler(tablero);
-        BotonLapizApoyadoEventHandler lapizApoyadoEventHandler = new BotonLapizApoyadoEventHandler(tablero);
+        bloqueArriba.setOnMouseClicked(new BotonArribaEventHandler(tablero));
+        bloqueAbajo.setOnMouseClicked(new BotonAbajoEventHandler(tablero));
+        bloqueDerecha.setOnMouseClicked(new BotonDerechaEventHandler(tablero));
+        bloqueIzquierda.setOnMouseClicked(new BotonIzquierdaEventHandler(tablero));
+        bloqueLevantarLapiz.setOnMouseClicked(new BotonLapizLevantadoEventHandler(tablero));
+        bloqueApoyarLapiz.setOnMouseClicked(new BotonLapizApoyadoEventHandler(tablero));
+        bloqueRepetirX2.setOnMouseClicked(new BotonRepetirX2EventHandler(tablero));
+        bloqueRepetirX3.setOnMouseClicked(new BotonRepetirX3EventHandler(tablero));
+        bloqueInvertir.setOnMouseClicked(new BotonInvertirEventHandler(tablero));
+        bloquePersonalizado.setOnMouseClicked(new BotonPersonalizadoEventHandler(tablero));
 
-        bloqueArriba.setOnDragDetected(arribaEventHandler);
-        bloqueAbajo.setOnDragDetected(abajoEventHandler);
-        bloqueDerecha.setOnDragDetected(derechaEventHandler);
-        bloqueIzquierda.setOnDragDetected(izquierdaEventHandler);
-        bloqueLevantarLapiz.setOnDragDetected(lapizLevantadoEventHandler);
-        bloqueApoyarLapiz.setOnDragDetected(lapizApoyadoEventHandler);
-
-        Label tituloBloques = new Label();
-        tituloBloques.setText("Bloques disponibles");
-        Label tituloAlgoritmo = new Label();
-        tituloAlgoritmo.setText("Algoritmo Actual");
+        Label tituloBloques = new Label("Bloques disponibles");
+        Label tituloAlgoritmo = new Label("Algoritmo Actual");
 
         VBox contenedorBotones = new VBox(tituloBloques, bloqueArriba, bloqueAbajo, bloqueDerecha, bloqueIzquierda,
                 bloqueLevantarLapiz, bloqueApoyarLapiz, bloqueRepetirX2, bloqueRepetirX3, bloqueInvertir,
@@ -78,9 +63,7 @@ public class ContenedorPrincipal extends BorderPane {
     }
 
     private void setContenedorBloques(Tablero tablero){
-
         this.setLeft(nuevoContenedorBloques(tablero));
-
     }
 
     private VBox nuevoContenedorPizzarra(){
@@ -105,7 +88,6 @@ public class ContenedorPrincipal extends BorderPane {
     }
 
     private void setCentro(){
-
         this.setCenter(nuevoContenedorPizzarra());
     }
 
