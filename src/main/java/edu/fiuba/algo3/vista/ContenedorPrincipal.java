@@ -33,6 +33,14 @@ public class ContenedorPrincipal extends BorderPane {
         bloqueLevantarLapiz.setText("LevantarLapiz");
         Button bloqueApoyarLapiz = new Button();
         bloqueApoyarLapiz.setText("ApoyarLapiz");
+        Button bloqueRepetirX2 = new Button();
+        bloqueRepetirX2.setText("RepetirX2");
+        Button bloqueRepetirX3 = new Button();
+        bloqueRepetirX3.setText("RepetirX3");
+        Button bloqueInvertir = new Button();
+        bloqueInvertir.setText("Invertir Comportamiento");
+        Button bloquePersonalizado = new Button();
+        bloquePersonalizado.setText("Personalizado");
 
         BotonArribaEventHandler arribaEventHandler = new BotonArribaEventHandler(tablero);
         BotonAbajoEventHandler abajoEventHandler = new BotonAbajoEventHandler(tablero);
@@ -40,7 +48,6 @@ public class ContenedorPrincipal extends BorderPane {
         BotonIzquierdaEventHandler izquierdaEventHandler = new BotonIzquierdaEventHandler(tablero);
         BotonLapizLevantadoEventHandler lapizLevantadoEventHandler = new BotonLapizLevantadoEventHandler(tablero);
         BotonLapizApoyadoEventHandler lapizApoyadoEventHandler = new BotonLapizApoyadoEventHandler(tablero);
-
 
         bloqueArriba.setOnDragDetected(arribaEventHandler);
         bloqueAbajo.setOnDragDetected(abajoEventHandler);
@@ -55,7 +62,8 @@ public class ContenedorPrincipal extends BorderPane {
         tituloAlgoritmo.setText("Algoritmo Actual");
 
         VBox contenedorBotones = new VBox(tituloBloques, bloqueArriba, bloqueAbajo, bloqueDerecha, bloqueIzquierda,
-                bloqueLevantarLapiz, bloqueApoyarLapiz);
+                bloqueLevantarLapiz, bloqueApoyarLapiz, bloqueRepetirX2, bloqueRepetirX3, bloqueInvertir,
+                bloquePersonalizado);
         contenedorBotones.setPrefWidth(256);
         contenedorBotones.setSpacing(10);
         contenedorBotones.setPadding(new Insets(15 , 0,0,60));
