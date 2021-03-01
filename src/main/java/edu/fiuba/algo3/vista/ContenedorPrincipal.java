@@ -1,6 +1,9 @@
 package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.controlador.*;
+import edu.fiuba.algo3.modelo.Bloque;
+import edu.fiuba.algo3.modelo.BloquePersonalizado;
+import edu.fiuba.algo3.modelo.Personaje;
 import edu.fiuba.algo3.modelo.Tablero;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -12,17 +15,22 @@ import javafx.scene.layout.VBox;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
+import java.util.ArrayList;
+
 
 public class ContenedorPrincipal extends BorderPane {
+
     public Dibujador dibujador;
 
-    public ContenedorPrincipal(Tablero tablero, Dibujador dibujador){
+    public ContenedorPrincipal(ArrayList<Bloque> algoritmo, Personaje personaje,
+                               ArrayList<BloquePersonalizado> bloquesPersonalizados, Dibujador dibujador) {
         this.dibujador = dibujador;
-        this.setContenedorBloques(tablero);
+        this.setLeft(nuevoContenedorBloques(algoritmo, personaje, bloquesPersonalizados));
         this.setCentro();
     }
 
-    private HBox nuevoContenedorBloques(Tablero tablero){
+    private HBox nuevoContenedorBloques(ArrayList<Bloque> algoritmo, Personaje personaje,
+                                        ArrayList<BloquePersonalizado> bloquesPersonalizados) {
         Button bloqueArriba = new Button("Arriba");
         Button bloqueAbajo = new Button("Abajo");
         Button bloqueDerecha = new Button("Derecha");
@@ -34,16 +42,16 @@ public class ContenedorPrincipal extends BorderPane {
         Button bloqueInvertir = new Button("Invertir Comportamiento");
         Button bloquePersonalizado = new Button("Personalizado");
 
-        bloqueArriba.setOnMouseClicked(new BotonArribaEventHandler(tablero));
-        bloqueAbajo.setOnMouseClicked(new BotonAbajoEventHandler(tablero));
-        bloqueDerecha.setOnMouseClicked(new BotonDerechaEventHandler(tablero));
-        bloqueIzquierda.setOnMouseClicked(new BotonIzquierdaEventHandler(tablero));
-        bloqueLevantarLapiz.setOnMouseClicked(new BotonLapizLevantadoEventHandler(tablero));
-        bloqueApoyarLapiz.setOnMouseClicked(new BotonLapizApoyadoEventHandler(tablero));
-        bloqueRepetirX2.setOnMouseClicked(new BotonRepetirX2EventHandler(tablero));
-        bloqueRepetirX3.setOnMouseClicked(new BotonRepetirX3EventHandler(tablero));
-        bloqueInvertir.setOnMouseClicked(new BotonInvertirEventHandler(tablero));
-        bloquePersonalizado.setOnMouseClicked(new BotonPersonalizadoEventHandler(tablero));
+        bloqueArriba.setOnMouseClicked(new BotonArribaEventHandler(algoritmo));
+        bloqueAbajo.setOnMouseClicked(new BotonAbajoEventHandler(algoritmo));
+        bloqueDerecha.setOnMouseClicked(new BotonDerechaEventHandler(algoritmo));
+        bloqueIzquierda.setOnMouseClicked(new BotonIzquierdaEventHandler(algoritmo));
+        bloqueLevantarLapiz.setOnMouseClicked(new BotonLapizLevantadoEventHandler(algoritmo));
+        bloqueApoyarLapiz.setOnMouseClicked(new BotonLapizApoyadoEventHandler(algoritmo));
+        bloqueRepetirX2.setOnMouseClicked(new BotonRepetirX2EventHandler(algoritmo));
+        bloqueRepetirX3.setOnMouseClicked(new BotonRepetirX3EventHandler(algoritmo));
+        bloqueInvertir.setOnMouseClicked(new BotonInvertirEventHandler(algoritmo));
+        bloquePersonalizado.setOnMouseClicked(new BotonPersonalizadoEventHandler(algoritmo, bloquesPersonalizados));
 
         Label tituloBloques = new Label("Bloques disponibles");
         Label tituloAlgoritmo = new Label("Algoritmo Actual");
@@ -64,11 +72,7 @@ public class ContenedorPrincipal extends BorderPane {
         return new HBox(contenedorBotones, contenedorAlgoritmo);
     }
 
-    private void setContenedorBloques(Tablero tablero){
-        this.setLeft(nuevoContenedorBloques(tablero));
-    }
-
-    private VBox nuevoContenedorPizzarra(){
+    private VBox nuevoContenedorPizzarra() {
         Button ejecutar = new Button();
         ejecutar.setText("Ejecutar");
 
@@ -89,7 +93,7 @@ public class ContenedorPrincipal extends BorderPane {
         return contenedorPizarra;
     }
 
-    private void setCentro(){
+    private void setCentro() {
         this.setCenter(nuevoContenedorPizzarra());
     }
 

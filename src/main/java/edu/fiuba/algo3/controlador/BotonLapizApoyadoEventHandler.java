@@ -1,18 +1,20 @@
 package edu.fiuba.algo3.controlador;
 
-
+import edu.fiuba.algo3.modelo.Bloque;
 import edu.fiuba.algo3.modelo.BloqueLapizApoyado;
 import edu.fiuba.algo3.modelo.Tablero;
 import javafx.scene.input.MouseEvent;
 
+import java.util.ArrayList;
+
 public class BotonLapizApoyadoEventHandler extends BotonBloqueEventHandler {
 
-    public BotonLapizApoyadoEventHandler(Tablero tablero) {
-        super(tablero);
+    public BotonLapizApoyadoEventHandler(ArrayList<Bloque> algoritmo) {
+        super(algoritmo);
     }
 
     @Override
     public void handle(MouseEvent event) {
-        agregarBloqueAlTablero(new BloqueLapizApoyado());
+        algoritmo.add(new BloqueLapizApoyado());
     }
 }

@@ -1,15 +1,21 @@
 package edu.fiuba.algo3.controlador;
 
+import edu.fiuba.algo3.modelo.Bloque;
+import edu.fiuba.algo3.modelo.BloquePersonalizado;
 import edu.fiuba.algo3.modelo.Tablero;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
-public class BotonPersonalizadoEventHandler implements EventHandler<MouseEvent> {
+import java.util.ArrayList;
 
-    private Tablero tablero;
+public class BotonPersonalizadoEventHandler extends BotonBloqueEventHandler {
 
-    public BotonPersonalizadoEventHandler(Tablero tablero) {
-        this.tablero = tablero;
+    private ArrayList<BloquePersonalizado> bloquesPersonalizados;
+
+    public BotonPersonalizadoEventHandler(ArrayList<Bloque> algoritmo,
+                                          ArrayList<BloquePersonalizado> bloquesPersonalizados) {
+        super(algoritmo);
+        this.bloquesPersonalizados = bloquesPersonalizados;
     }
 
     @Override

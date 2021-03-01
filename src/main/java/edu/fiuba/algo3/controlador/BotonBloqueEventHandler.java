@@ -1,20 +1,18 @@
 package edu.fiuba.algo3.controlador;
 
-
 import edu.fiuba.algo3.modelo.Bloque;
 import edu.fiuba.algo3.modelo.Tablero;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public abstract class BotonBloqueEventHandler implements EventHandler<MouseEvent> {
 
-    private Tablero tablero;
+    protected ArrayList<Bloque> algoritmo;
 
-    public BotonBloqueEventHandler(Tablero tablero) {
-        this.tablero = tablero;
-    }
-
-    protected void agregarBloqueAlTablero(Bloque bloque) {
-        tablero.agregarBloqueAlAlgoritmo(bloque);
+    public BotonBloqueEventHandler(ArrayList<Bloque> algoritmo) {
+        this.algoritmo = algoritmo;
     }
 }
