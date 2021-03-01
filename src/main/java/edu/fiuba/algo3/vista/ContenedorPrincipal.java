@@ -14,8 +14,10 @@ import javafx.scene.control.Label;
 
 
 public class ContenedorPrincipal extends BorderPane {
+    public Dibujador dibujador;
 
-    public ContenedorPrincipal(Tablero tablero){
+    public ContenedorPrincipal(Tablero tablero, Dibujador dibujador){
+        this.dibujador = dibujador;
         this.setContenedorBloques(tablero);
         this.setCentro();
     }
@@ -78,10 +80,10 @@ public class ContenedorPrincipal extends BorderPane {
 
         HBox contenedorBotonesPizarra = new HBox(ejecutar, guardarAlgoritmo, salir);
 
-        VBox contenedorPizarra = new VBox(contenedorBotonesPizarra, armarPizarra());
+        VBox contenedorPizarra = new VBox(contenedorBotonesPizarra, dibujador.getPane());
         contenedorPizarra.setMinWidth(512);
         contenedorPizarra.setStyle("-fx-border-color: black;-fx-border-width: 2");
-        contenedorBotonesPizarra.setPadding(new Insets(55 , 0,0,85));
+        contenedorBotonesPizarra.setPadding(new Insets(30 , 0,50,85));
         contenedorBotonesPizarra.setSpacing(50);
 
         return contenedorPizarra;
@@ -91,25 +93,4 @@ public class ContenedorPrincipal extends BorderPane {
         this.setCenter(nuevoContenedorPizzarra());
     }
 
-    private GridPane armarPizarra(){
-        GridPane gridPane = new GridPane();
-        gridPane.setPadding(new Insets(80,0,0,0));
-        for(int y = 0; y < 10; y++){
-            for(int x = 0; x < 10; x++){
-
-                // Create a new TextField in each Iteration
-                TextField tf = new TextField();
-                tf.setPrefHeight(50);
-                tf.setPrefWidth(50);
-                tf.setAlignment(Pos.CENTER);
-                tf.setEditable(false);
-
-                // Iterate the Index using the loops
-                gridPane.setRowIndex(tf,y);
-                gridPane.setColumnIndex(tf,x);
-                gridPane.getChildren().add(tf);
-            }
-        }
-        return gridPane;
-    }
 }

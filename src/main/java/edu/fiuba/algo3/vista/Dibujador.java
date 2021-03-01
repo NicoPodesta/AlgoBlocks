@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.vista;
 
+import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -12,12 +13,11 @@ import javafx.scene.shape.Path;
 
 public class Dibujador {
     private final int n = 10; //Numero de posibles segmentos
-    private final int TAM_LINEA = 75; //Tamaño de cada linea
+    private final int TAM_LINEA = 51; //Tamaño de cada linea
     private final int posInicialRecorrido = (n * TAM_LINEA)/2;
 
     private Path recorrido;
     private Pane root;
-    private Scene scene;
     //Siempre necesitamos tener el x e y anterior para poder dibujar un nuevo tramo
     private double x_anterior;
     private double y_anterior;
@@ -34,8 +34,7 @@ public class Dibujador {
         this.root.setBackground(new Background(miBackground));
         this.recorrido.setStrokeWidth(4.5);
         inicializarRecorrido();
-        this.root.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(3))));
-        this.scene  = new Scene(root, Color.WHITE);
+        this.root.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(2))));
     }
 
     private void inicializarRecorrido(){
@@ -46,7 +45,7 @@ public class Dibujador {
     }
 
     public void dibujarLineaAbajo(){
-        if(y_anterior == +n * TAM_LINEA){
+        if(y_anterior == n * TAM_LINEA){
             y_anterior = 0;
             this.recorrido.getElements().add(new MoveTo(x_anterior, y_anterior));
         }
@@ -109,12 +108,12 @@ public class Dibujador {
     }
 
     private void dibujarCirculo(){
-        Circle circulo = new Circle(x_anterior, y_anterior, 6);
+        Circle circulo = new Circle(x_anterior, y_anterior, 4);
         circulo.setFill(Color.BLACK);
         this.root.getChildren().add(circulo);
     }
 
-    public Scene getEscena(){
-        return scene;
+    public Pane getPane(){
+        return root;
     }
 }

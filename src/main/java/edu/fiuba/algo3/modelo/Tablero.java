@@ -22,7 +22,6 @@ public class Tablero {
         return algoritmo.ejecutar(personaje);
     }
 
-
     public void guardarBloquePersonalizado(String nombre, ConjuntoBloques algoritmo) throws AlgoritmoVacioException {
         if (algoritmo.estaVacio()) {
             throw new AlgoritmoVacioException();
@@ -42,8 +41,4 @@ public class Tablero {
             throw new BloqueInexistenteException();
         }
     }
-
-    /*public Set<String> obtenerNombresBloquesPersonalizados() {
-        return bloquesPersonalizados.keySet();
-    }*/
 }

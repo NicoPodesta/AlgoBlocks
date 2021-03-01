@@ -12,11 +12,9 @@ public class AlgoBlocks extends Application{
         stage.setTitle("AlgoBlocks");
 
         Tablero tablero = new Tablero();
-
-        ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(tablero);
-        Scene escenaPrincipal = new Scene(contenedorPrincipal, 960, 650); //ver si esta bien pasar estos numeros
-
-
+        Dibujador dibujador = new Dibujador();
+        ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(tablero, dibujador);
+        Scene escenaPrincipal = new Scene(contenedorPrincipal, 1024, 668); //ver si esta bien pasar estos numeros
         stage.setScene(escenaPrincipal);
         stage.show();
     }
