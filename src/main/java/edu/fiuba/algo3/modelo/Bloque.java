@@ -5,4 +5,6 @@ public interface Bloque {
     Pizarra ejecutar(Personaje personaje);
 
     Pizarra ejecutarInvertido(Personaje personaje);
+
+    String obtenerNombre();
 }

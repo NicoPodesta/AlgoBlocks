@@ -41,4 +41,9 @@ public class ConjuntoBloques implements Bloque {
     public boolean estaVacio() {
         return bloques.isEmpty();
     }
+
+    @Override
+    public String obtenerNombre() {
+        return "Conjunto Bloques";
+    }
 }

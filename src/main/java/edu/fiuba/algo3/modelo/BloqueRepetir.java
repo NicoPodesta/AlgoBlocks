@@ -26,4 +26,9 @@ public class BloqueRepetir extends ConjuntoBloques {
         }
         return pizarra;
     }
+
+    @Override
+    public String obtenerNombre() {
+        return "RepetirX" + cantIteraciones;
+    }
 }

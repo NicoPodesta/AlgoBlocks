@@ -10,6 +10,7 @@ public class BloquePersonalizado extends ConjuntoBloques {
         this.nombre = nombre;
     }
 
+    @Override
     public String obtenerNombre() {
         return nombre;
     }

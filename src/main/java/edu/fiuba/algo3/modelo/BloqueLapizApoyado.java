@@ -11,4 +11,9 @@ public class BloqueLapizApoyado implements Bloque {
     public Pizarra ejecutarInvertido(Personaje personaje) {
         return personaje.levantarLapiz();
     }
+
+    @Override
+    public String obtenerNombre() {
+        return "Apoyar Lapiz";
+    }
 }

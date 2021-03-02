@@ -11,4 +11,9 @@ public class BloqueInvertir extends ConjuntoBloques {
     public Pizarra ejecutarInvertido(Personaje personaje) {
         return super.ejecutar(personaje);
     }
+
+    @Override
+    public String obtenerNombre() {
+        return "Invertir Comportamiento";
+    }
 }

@@ -11,4 +11,9 @@ public class BloqueDerecha implements Bloque {
     public Pizarra ejecutarInvertido(Personaje personaje) {
         return personaje.moverHaciaLaIzquierda();
     }
+
+    @Override
+    public String obtenerNombre() {
+        return "Derecha";
+    }
 }

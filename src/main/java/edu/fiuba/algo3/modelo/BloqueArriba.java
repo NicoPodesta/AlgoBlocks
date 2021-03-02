@@ -11,4 +11,9 @@ public class BloqueArriba implements Bloque {
     public Pizarra ejecutarInvertido(Personaje personaje) {
         return personaje.moverHaciaAbajo();
     }
+
+    @Override
+    public String obtenerNombre() {
+        return "Arriba";
+    }
 }

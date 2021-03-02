@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.vista;
 
-import edu.fiuba.algo3.modelo.*;
+import edu.fiuba.algo3.modelo.BloquePersonalizado;
+import edu.fiuba.algo3.modelo.ConjuntoBloques;
+import edu.fiuba.algo3.modelo.Personaje;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;

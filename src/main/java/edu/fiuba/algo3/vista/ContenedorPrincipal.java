@@ -1,18 +1,19 @@
 package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.controlador.*;
-import edu.fiuba.algo3.modelo.*;
+import edu.fiuba.algo3.modelo.Bloque;
+import edu.fiuba.algo3.modelo.BloquePersonalizado;
+import edu.fiuba.algo3.modelo.ConjuntoBloques;
+import edu.fiuba.algo3.modelo.Personaje;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 
@@ -96,7 +97,15 @@ public class ContenedorPrincipal extends BorderPane {
         this.setCenter(nuevoContenedorPizzarra());
     }
 
-    public void agregarNombreBloque(String nombre) {
-        nombresBloquesAlgoritmo.add(new Label(nombre));
+    public void agregarNombreBloque(Bloque bloque) {
+        nombresBloquesAlgoritmo.add(new Label(bloque.obtenerNombre()));
+    }
+
+    // la idea es que los conjuntos de bloques sean azules y se puedan clickear para ver su contenido
+    public void agregarNombreConjuntoBloques(ConjuntoBloques conjunto) {
+        Label nuevoLabel = new Label(conjunto.obtenerNombre());
+        nuevoLabel.setTextFill(Color.BLUE);
+        nuevoLabel.setOnMouseClicked(new LabelConjuntoBloquesEventHandler(conjunto));
+        nombresBloquesAlgoritmo.add(nuevoLabel);
     }
 }
