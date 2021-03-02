@@ -1,10 +1,7 @@
 package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.controlador.*;
-import edu.fiuba.algo3.modelo.Bloque;
-import edu.fiuba.algo3.modelo.BloquePersonalizado;
-import edu.fiuba.algo3.modelo.Personaje;
-import edu.fiuba.algo3.modelo.Tablero;
+import edu.fiuba.algo3.modelo.*;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.TextField;
@@ -22,14 +19,14 @@ public class ContenedorPrincipal extends BorderPane {
 
     public Dibujador dibujador;
 
-    public ContenedorPrincipal(ArrayList<Bloque> algoritmo, Personaje personaje,
+    public ContenedorPrincipal(ConjuntoBloques algoritmo, Personaje personaje,
                                ArrayList<BloquePersonalizado> bloquesPersonalizados, Dibujador dibujador) {
         this.dibujador = dibujador;
         this.setLeft(nuevoContenedorBloques(algoritmo, personaje, bloquesPersonalizados));
         this.setCentro();
     }
 
-    private HBox nuevoContenedorBloques(ArrayList<Bloque> algoritmo, Personaje personaje,
+    private HBox nuevoContenedorBloques(ConjuntoBloques algoritmo, Personaje personaje,
                                         ArrayList<BloquePersonalizado> bloquesPersonalizados) {
         Button bloqueArriba = new Button("Arriba");
         Button bloqueAbajo = new Button("Abajo");

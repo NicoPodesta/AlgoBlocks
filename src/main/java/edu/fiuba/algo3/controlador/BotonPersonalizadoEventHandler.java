@@ -2,6 +2,7 @@ package edu.fiuba.algo3.controlador;
 
 import edu.fiuba.algo3.modelo.Bloque;
 import edu.fiuba.algo3.modelo.BloquePersonalizado;
+import edu.fiuba.algo3.modelo.ConjuntoBloques;
 import edu.fiuba.algo3.modelo.Tablero;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
@@ -12,7 +13,7 @@ public class BotonPersonalizadoEventHandler extends BotonBloqueEventHandler {
 
     private ArrayList<BloquePersonalizado> bloquesPersonalizados;
 
-    public BotonPersonalizadoEventHandler(ArrayList<Bloque> algoritmo,
+    public BotonPersonalizadoEventHandler(ConjuntoBloques algoritmo,
                                           ArrayList<BloquePersonalizado> bloquesPersonalizados) {
         super(algoritmo);
         this.bloquesPersonalizados = bloquesPersonalizados;
