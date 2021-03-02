@@ -29,7 +29,7 @@ public class ContenedorPrincipal extends BorderPane {
         this.dibujador = dibujador;
         this.algoritmo = algoritmo;
         this.setLeft(nuevoContenedorBloques(personaje, bloquesPersonalizados));
-        this.setCentro();
+        this.setCenter(nuevoContenedorPizzarra(personaje, bloquesPersonalizados));
     }
 
     private HBox nuevoContenedorBloques(Personaje personaje, ArrayList<BloquePersonalizado> bloquesPersonalizados) {
@@ -75,14 +75,18 @@ public class ContenedorPrincipal extends BorderPane {
         return new HBox(contenedorBotones, contenedorAlgoritmo);
     }
 
-    private VBox nuevoContenedorPizzarra() {
-        Button ejecutar = new Button("Ejecutar");
+    private VBox nuevoContenedorPizzarra(Personaje personaje, ArrayList<BloquePersonalizado> bloquesPersonalizados) {
 
-        Button guardarAlgoritmo = new Button("Guardar algoritmo");
+        Button botonBorrar = new Button("Borrar Ultimo Bloque");
+        Button botonGuardarAlgoritmo = new Button("Guardar algoritmo");
+        Button botonEjecutar = new Button("Ejecutar");
 
-        Button salir = new Button("Salir");
+        botonBorrar.setOnMouseClicked(new BotonBorrarEventHandler(algoritmo, this));
+        /*botonGuardarAlgoritmo.setOnMouseClicked(new BotonGuardarAlgoritmoEventHandler(algoritmo, bloquesPersonalizados,
+                this));
+        botonEjecutar.setOnMouseClicked(new BotonEjecutarEventHandler(algoritmo, personaje, this));*/
 
-        HBox contenedorBotonesPizarra = new HBox(ejecutar, guardarAlgoritmo, salir);
+        HBox contenedorBotonesPizarra = new HBox(botonBorrar, botonGuardarAlgoritmo, botonEjecutar);
 
         VBox contenedorPizarra = new VBox(contenedorBotonesPizarra, dibujador.getPane());
         contenedorPizarra.setMinWidth(512);
@@ -91,10 +95,6 @@ public class ContenedorPrincipal extends BorderPane {
         contenedorBotonesPizarra.setSpacing(50);
 
         return contenedorPizarra;
-    }
-
-    private void setCentro() {
-        this.setCenter(nuevoContenedorPizzarra());
     }
 
     public void agregarNombreBloque(Bloque bloque) {
@@ -107,5 +107,11 @@ public class ContenedorPrincipal extends BorderPane {
         nuevoLabel.setTextFill(Color.BLUE);
         nuevoLabel.setOnMouseClicked(new LabelConjuntoBloquesEventHandler(conjunto));
         nombresBloquesAlgoritmo.add(nuevoLabel);
+    }
+
+    public void eliminarUltimoNombreBloque() {
+        if(nombresBloquesAlgoritmo.size() > 1) {
+            nombresBloquesAlgoritmo.remove(nombresBloquesAlgoritmo.size()-1);
+        }
     }
 }

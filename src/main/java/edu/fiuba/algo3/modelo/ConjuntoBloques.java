@@ -46,4 +46,8 @@ public class ConjuntoBloques implements Bloque {
     public String obtenerNombre() {
         return "Conjunto Bloques";
     }
+
+    public void removerUltimoBloque() {
+        if(!bloques.isEmpty()) bloques.remove(bloques.size()-1);
+    }
 }
