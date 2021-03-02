@@ -5,26 +5,26 @@ import java.util.Objects;
 
 public class Pizarra {
 
-    private final HashSet<Posicion> posicionesPintadas;
+    private final HashSet<Trazo> trazosPintados;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Pizarra pizarra = (Pizarra) o;
-        return pizarra.posicionesPintadas.equals(this.posicionesPintadas);
+        return pizarra.trazosPintados.equals(this.trazosPintados);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(posicionesPintadas);
+        return Objects.hash(trazosPintados);
     }
 
     public Pizarra() {
-        posicionesPintadas = new HashSet<>();
+        trazosPintados = new HashSet<>();
     }
 
-    public void pintarPosicion(Posicion posicion) {
-        posicionesPintadas.add(posicion);
+    public void pintarPosicion(Trazo trazo) {
+        trazosPintados.add(trazo);
     }
 }
