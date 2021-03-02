@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Bloque;
 import edu.fiuba.algo3.modelo.BloquePersonalizado;
 import edu.fiuba.algo3.modelo.ConjuntoBloques;
 import edu.fiuba.algo3.modelo.Tablero;
+import edu.fiuba.algo3.vista.ContenedorPrincipal;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
@@ -14,8 +15,9 @@ public class BotonPersonalizadoEventHandler extends BotonBloqueEventHandler {
     private ArrayList<BloquePersonalizado> bloquesPersonalizados;
 
     public BotonPersonalizadoEventHandler(ConjuntoBloques algoritmo,
-                                          ArrayList<BloquePersonalizado> bloquesPersonalizados) {
-        super(algoritmo);
+                                          ArrayList<BloquePersonalizado> bloquesPersonalizados,
+                                          ContenedorPrincipal contenedor) {
+        super(algoritmo, contenedor);
         this.bloquesPersonalizados = bloquesPersonalizados;
     }
 
