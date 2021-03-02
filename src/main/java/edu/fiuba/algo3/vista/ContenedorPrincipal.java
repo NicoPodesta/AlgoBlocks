@@ -83,8 +83,9 @@ public class ContenedorPrincipal extends BorderPane {
 
         botonBorrar.setOnMouseClicked(new BotonBorrarEventHandler(algoritmo, this));
         /*botonGuardarAlgoritmo.setOnMouseClicked(new BotonGuardarAlgoritmoEventHandler(algoritmo, bloquesPersonalizados,
-                this));
-        botonEjecutar.setOnMouseClicked(new BotonEjecutarEventHandler(algoritmo, personaje, this));*/
+                this));*/
+
+        botonEjecutar.setOnMouseClicked(new BotonEjecutarEventHandler(algoritmo, personaje));
 
         HBox contenedorBotonesPizarra = new HBox(botonBorrar, botonGuardarAlgoritmo, botonEjecutar);
 

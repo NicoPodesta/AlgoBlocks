@@ -22,7 +22,6 @@ public class Dibujador {
     private VistaLapizLevantado vistaLapizLevantado;
     private VistaLapizApoyado vistaLapizApoyado;
 
-
     public Dibujador(){
         //Group grupo = new Group(path); Ejemplos de google dicen que hay que agregar el recorrido a un objeto de tipo grupo pero no veo cambio alguno, lo dejo por las dudas
         this.recorrido = new Path();
@@ -37,24 +36,36 @@ public class Dibujador {
 
         this.x_anterior = posInicialRecorrido;
         this.y_anterior = posInicialRecorrido;
+
         this.vistaLapizLevantado = new VistaLapizLevantado(this.recorrido, this.root, this.x_anterior, this.y_anterior);
         this.vistaLapizApoyado = new VistaLapizApoyado(this.recorrido, this.root, this.x_anterior, this.y_anterior);
 
         //Se setea como vista inicial la vista lapiz levantado
+        this.vistaLapiz = this.vistaLapizApoyado;
+    }
+
+    public void moverseArriba(){
+        this.vistaLapiz.dibujarArriba();
+    }
+
+    public void moverseAbajo(){
+        this.vistaLapiz.dibujarAbajo();
+    }
+
+    public void moverseDerecha(){
+        this.vistaLapiz.dibujarDerecha();
+    }
+
+    public void moverseIzquierda(){
+        this.vistaLapiz.dibujarIzquierda();
+    }
+
+    public void apoyarLapiz(){
+        this.vistaLapiz = this.vistaLapizApoyado;
+    }
+
+    public void levantarrLapiz(){
         this.vistaLapiz = this.vistaLapizLevantado;
-    }
-
-
-    public void dibujarLineaAbajo(){
-    }
-
-    public void dibujarLineaArriba(){
-    }
-
-    public void dibujarLineaDerecha(){
-    }
-
-    public void dibujarLineaIzquierda(){
     }
 
     public Pane getPane(){
