@@ -10,9 +10,11 @@ public class BloquePersonalizadoTest {
     @Test
     public void elAlgoritmoPersonalizadoSeCreaCorrectamente() {
         ConjuntoBloques algoritmo = new ConjuntoBloques();
+        BloqueDerecha derecha = new BloqueDerecha();
+        algoritmo.agregarBloque(derecha);
         BloquePersonalizado personalizado = new BloquePersonalizado("Nuevo Algoritmo", algoritmo);
-        assertTrue(personalizado.estaVacio());
-        assertEquals(personalizado.obtenerNombre(),"Nuevo Algoritmo");
+        assertEquals(personalizado.obtenerNombre(), "Nuevo Algoritmo");
+
     }
 
 
@@ -163,5 +165,70 @@ public class BloquePersonalizadoTest {
         pizarra.pintarPosicion(posicion);
 
         assertEquals(algoritmoA.ejecutar(personaje), pizarra);
+    }
+
+    @Test
+    public void elUltimoBloqueSeRemueveCorrectamente() {
+        ConjuntoBloques algoritmo = new ConjuntoBloques();
+        BloqueLapizApoyado bloqueLapiz = new BloqueLapizApoyado();
+        BloqueDerecha derecha = new BloqueDerecha();
+        BloqueAbajo abajo = new BloqueAbajo();
+        BloqueArriba arriba = new BloqueArriba();
+        Personaje personaje = new Personaje();
+
+
+        algoritmo.agregarBloque(bloqueLapiz);
+        algoritmo.agregarBloque(derecha);
+        algoritmo.agregarBloque(abajo);
+        algoritmo.agregarBloque(arriba);
+        BloquePersonalizado personalizado = new BloquePersonalizado("Nuevo Algoritmo", algoritmo);
+
+        personalizado.removerUltimoBloque();
+        personalizado.removerUltimoBloque();
+
+        Pizarra pizarra = new Pizarra();
+        Posicion posicion = new Posicion(0,0);
+        pizarra.pintarPosicion(posicion);
+        posicion.derecha();
+        pizarra.pintarPosicion(posicion);
+
+
+        assertEquals(personalizado.ejecutar(personaje), pizarra);
+    }
+
+    @Test
+    public void quitarUltimoBloqueABloqueVacioNoHaceNada() {
+        ConjuntoBloques algoritmo = new ConjuntoBloques();
+        BloquePersonalizado personalizado = new BloquePersonalizado("Nuevo Algoritmo", algoritmo);
+        personalizado.removerUltimoBloque();
+        assertTrue(personalizado.estaVacio());
+    }
+
+    @Test
+    public void seAgregaYsequitaUltimoAlgoritmoQuedaVacio() {
+        ConjuntoBloques algoritmo = new ConjuntoBloques();
+        BloqueAbajo abajo = new BloqueAbajo();
+        algoritmo.agregarBloque(abajo);
+
+        BloquePersonalizado personalizado = new BloquePersonalizado("Nuevo Algoritmo", algoritmo);
+        personalizado.removerUltimoBloque();
+        assertTrue(personalizado.estaVacio());
+    }
+
+    @Test
+    public void seRemueveBloqueInexistenteYSeLanzaExcepcionCorrecta() {
+        try {
+            ConjuntoBloques algoritmo = new ConjuntoBloques();
+            BloqueLapizLevantado bloqueLapiz = new BloqueLapizLevantado();
+            BloqueDerecha derecha = new BloqueDerecha();
+            BloqueAbajo abajo = new BloqueAbajo();
+
+            algoritmo.agregarBloque(bloqueLapiz);
+            algoritmo.agregarBloque(abajo);
+
+            BloquePersonalizado personalizado = new BloquePersonalizado("Nuevo Algoritmo", algoritmo);
+            personalizado.removerBloque(derecha);
+        }
+        catch (BloqueInexistenteException expected){ }
     }
 }

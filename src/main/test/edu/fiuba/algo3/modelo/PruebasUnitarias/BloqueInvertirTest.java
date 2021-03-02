@@ -87,4 +87,63 @@ public class BloqueInvertirTest {
 
         assertEquals(invertirA.ejecutar(personaje), pizarra);
     }
+
+    @Test
+    public void elNombreDelBloqueEsElCorrecto() {
+        BloqueInvertir bloque = new BloqueInvertir();
+        assertEquals(bloque.obtenerNombre(), "Invertir Comportamiento");
+    }
+
+    @Test
+    public void elUltimoBloqueSeRemueveCorrectamente() {
+        BloqueInvertir invertir = new BloqueInvertir();
+        BloqueLapizLevantado bloqueLapiz = new BloqueLapizLevantado();
+        BloqueDerecha derecha = new BloqueDerecha();
+        BloqueAbajo abajo = new BloqueAbajo();
+        BloqueArriba arriba = new BloqueArriba();
+        Personaje personaje = new Personaje();
+
+        invertir.agregarBloque(bloqueLapiz);
+        invertir.agregarBloque(derecha);
+        invertir.agregarBloque(abajo);
+        invertir.agregarBloque(arriba);
+        invertir.removerUltimoBloque();
+        invertir.removerUltimoBloque();
+
+        Pizarra pizarra = new Pizarra();
+        Posicion posicion = new Posicion(0,0);
+        pizarra.pintarPosicion(posicion);
+        posicion.izquierda();
+        pizarra.pintarPosicion(posicion);
+
+
+        assertEquals(invertir.ejecutar(personaje), pizarra);
+    }
+
+    @Test
+    public void quitarUltimoBloqueABloqueVacioNoHaceNada() {
+        BloqueInvertir invertir = new BloqueInvertir();
+        invertir.removerUltimoBloque();
+        assertTrue(invertir.estaVacio());
+    }
+
+    @Test
+    public void seAgregaYsequitaUltimoAlgoritmoQuedaVacio() {
+        BloqueInvertir invertir = new BloqueInvertir();
+        BloqueDerecha derecha = new BloqueDerecha();
+        invertir.agregarBloque(derecha);
+        invertir.removerUltimoBloque();
+        assertTrue(invertir.estaVacio());
+    }
+
+    @Test
+    public void seRemueveBloqueInexistenteYSeLanzaExcepcionCorrecta() {
+        try {
+            BloqueInvertir invertir = new BloqueInvertir();
+            BloqueDerecha derecha = new BloqueDerecha();
+            invertir.removerBloque(derecha);
+        }
+        catch (BloqueInexistenteException expected){ }
+    }
+
 }

@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.PruebasUnitarias;
 
+import edu.fiuba.algo3.modelo.BloqueAbajo;
 import edu.fiuba.algo3.modelo.BloqueArriba;
 import edu.fiuba.algo3.modelo.Personaje;
 import edu.fiuba.algo3.modelo.Posicion;
@@ -25,5 +26,11 @@ public class BloqueArribaTest {
         bloque.ejecutarInvertido(personaje);
         Posicion coordenadas = new Posicion(0,1);
         assertEquals(personaje.posicionActual(), coordenadas);
+    }
+
+    @Test
+    public void elNombreDelBloqueEsElCorrecto() {
+        BloqueArriba bloque = new BloqueArriba();
+        assertEquals(bloque.obtenerNombre(), "Arriba");
     }
 }

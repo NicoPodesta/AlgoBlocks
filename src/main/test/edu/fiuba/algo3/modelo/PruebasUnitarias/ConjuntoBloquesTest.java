@@ -128,6 +128,63 @@ public class ConjuntoBloquesTest {
         }
     }
 
+    @Test
+    public void elNombreDelBloqueEsElCorrecto() {
+        ConjuntoBloques bloque = new ConjuntoBloques();
+        assertEquals(bloque.obtenerNombre(), "Conjunto Bloques");
+    }
+
+    @Test
+    public void elUltimoBloqueSeRemueveCorrectamente() {
+        ConjuntoBloques algoritmo = new ConjuntoBloques();
+        BloqueLapizApoyado bloqueLapiz = new BloqueLapizApoyado();
+        BloqueDerecha derecha = new BloqueDerecha();
+        BloqueAbajo abajo = new BloqueAbajo();
+        BloqueArriba arriba = new BloqueArriba();
+        Personaje personaje = new Personaje();
+
+        algoritmo.agregarBloque(bloqueLapiz);
+        algoritmo.agregarBloque(derecha);
+        algoritmo.agregarBloque(abajo);
+        algoritmo.agregarBloque(arriba);
+        algoritmo.removerUltimoBloque();
+        algoritmo.removerUltimoBloque();
+
+        Pizarra pizarra = new Pizarra();
+        Posicion posicion = new Posicion(0,0);
+        pizarra.pintarPosicion(posicion);
+        posicion.derecha();
+        pizarra.pintarPosicion(posicion);
+
+
+        assertEquals(algoritmo.ejecutar(personaje), pizarra);
+    }
+
+    @Test
+    public void quitarUltimoBloqueABloqueVacioNoHaceNada() {
+        ConjuntoBloques algoritmo = new ConjuntoBloques();
+        algoritmo.removerUltimoBloque();
+        assertTrue(algoritmo.estaVacio());
+    }
+
+    @Test
+    public void seAgregaYsequitaUltimoAlgoritmoQuedaVacio() {
+        ConjuntoBloques algoritmo = new ConjuntoBloques();
+        BloqueDerecha derecha = new BloqueDerecha();
+        algoritmo.agregarBloque(derecha);
+        algoritmo.removerUltimoBloque();
+        assertTrue(algoritmo.estaVacio());
+    }
+
+    @Test
+    public void seRemueveBloqueInexistenteYSeLanzaExcepcionCorrecta() {
+        try {
+            ConjuntoBloques algoritmo = new ConjuntoBloques();
+            BloqueDerecha derecha = new BloqueDerecha();
+            algoritmo.removerBloque(derecha);
+        }
+        catch (BloqueInexistenteException expected){ }
+    }
 
 }
 

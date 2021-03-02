@@ -18,6 +18,7 @@ public class BloqueAbajoTest {
         assertEquals(personaje.posicionActual(), coordenadas);
     }
 
+
     @Test
     public void ejecutarInvertidoElBloqueMueveHaciaArribaAlPersonaje() {
         BloqueAbajo bloque = new BloqueAbajo();
@@ -25,5 +26,11 @@ public class BloqueAbajoTest {
         bloque.ejecutarInvertido(personaje);
         Posicion coordenadas = new Posicion(0,-1);
         assertEquals(personaje.posicionActual(), coordenadas);
+    }
+
+    @Test
+    public void elNombreDelBloqueEsElCorrecto() {
+        BloqueAbajo bloque = new BloqueAbajo();
+        assertEquals(bloque.obtenerNombre(), "Abajo");
     }
 }

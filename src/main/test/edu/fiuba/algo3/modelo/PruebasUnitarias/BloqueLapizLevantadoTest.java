@@ -28,4 +28,10 @@ public class BloqueLapizLevantadoTest {
         pizarra.pintarPosicion(posicion);
         assertEquals(bloqueLapiz.ejecutarInvertido(personaje), pizarra);
     }
+
+    @Test
+    public void elNombreDelBloqueEsElCorrecto() {
+        BloqueLapizLevantado bloque = new BloqueLapizLevantado();
+        assertEquals(bloque.obtenerNombre(), "Levantar Lapíz");
+    }
 }

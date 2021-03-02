@@ -122,4 +122,64 @@ public class BloqueRepetirTest {
 
         assertEquals(repeticionI.ejecutar(personaje), pizarra);
     }
+
+    @Test
+    public void elNombreDelBloqueEsElCorrecto() {
+        BloqueRepetir bloque = new BloqueRepetir(3);
+        assertEquals(bloque.obtenerNombre(), "RepetirX3");
+    }
+
+    @Test
+    public void elUltimoBloqueSeRemueveCorrectamente() {
+        BloqueRepetir repeticion = new BloqueRepetir(3);
+        BloqueLapizApoyado bloqueLapiz = new BloqueLapizApoyado();
+        BloqueDerecha derecha = new BloqueDerecha();
+        BloqueAbajo abajo = new BloqueAbajo();
+        BloqueArriba arriba = new BloqueArriba();
+        Personaje personaje = new Personaje();
+        bloqueLapiz.ejecutar(personaje);
+        repeticion.agregarBloque(derecha);
+        repeticion.agregarBloque(abajo);
+        repeticion.agregarBloque(arriba);
+        repeticion.removerUltimoBloque();
+        repeticion.removerUltimoBloque();
+
+        Pizarra pizarra = new Pizarra();
+        Posicion posicion = new Posicion(0,0);
+        pizarra.pintarPosicion(posicion);
+        for (int i = 0; i < 3; ++i) {
+            posicion.derecha();
+            pizarra.pintarPosicion(posicion);
+        }
+
+        assertEquals(repeticion.ejecutar(personaje), pizarra);
+    }
+
+    @Test
+    public void quitarUltimoBloqueABloqueVacioNoHaceNada() {
+        BloqueRepetir repeticion = new BloqueRepetir(3);
+        repeticion.removerUltimoBloque();
+        assertTrue(repeticion.estaVacio());
+    }
+
+    @Test
+    public void seAgregaYsequitaUltimoAlgoritmoQuedaVacio() {
+        BloqueRepetir repeticion = new BloqueRepetir(3);
+        BloqueDerecha derecha = new BloqueDerecha();
+        repeticion.agregarBloque(derecha);
+        repeticion.removerUltimoBloque();
+        assertTrue(repeticion.estaVacio());
+    }
+
+    @Test
+    public void seRemueveBloqueInexistenteYSeLanzaExcepcionCorrecta() {
+        try {
+            BloqueRepetir repeticion = new BloqueRepetir(3);
+            BloqueDerecha derecha = new BloqueDerecha();
+            repeticion.removerBloque(derecha);
+        }
+        catch (BloqueInexistenteException expected){ }
+    }
+
+
 }

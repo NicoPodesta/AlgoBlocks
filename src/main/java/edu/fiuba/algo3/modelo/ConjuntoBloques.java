@@ -18,6 +18,9 @@ public class ConjuntoBloques implements Bloque {
         if(!bloques.remove(bloque)){
             throw new BloqueInexistenteException();
         }
+        else{
+            bloques.remove(bloque);
+        }
     }
 
     @Override
