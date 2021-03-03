@@ -27,10 +27,10 @@ public class AlgoBlocks extends Application{
                 dibujador);
 
         vistaPersonaje = new VistaPersonaje(dibujador, personaje);
-        personaje.addObserver(vistaPersonaje);
-
         vistaPizarra = new VistaPizarra(personaje.obtenerPizarra(), dibujador);
-        personaje.agregarObserverALaPizarra(vistaPizarra);
+        personaje.agregarObserver(vistaPersonaje,vistaPizarra);
+
+
 
         vistaAlgoritmo = new VistaAlgoritmo(algoritmo, contenedorPrincipal);
         algoritmo.addObserver(vistaAlgoritmo);

@@ -36,8 +36,8 @@ public class Dibujador{
         this.root.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(2))));
 
         this.playerImage = new ImageView();
-        this.playerImage.setScaleY(1.3);
-        this.playerImage.setScaleX(1.3);
+        this.playerImage.setScaleY(1);
+        this.playerImage.setScaleX(1);
         this.playerImage.setFitHeight(64);
         this.playerImage.setFitWidth(64);
         this.playerImage.setX(this.x_anterior - 64);
@@ -47,13 +47,21 @@ public class Dibujador{
         this.x_anterior = posInicialRecorrido;
         this.y_anterior = posInicialRecorrido;
         inicializarRecorrido();
-
         actualizarugadorEnPantalla();
+        /*dibujarAbajo();
+        dibujarAbajo();
+        dibujarDerecha();
+        dibujarAbajo();
+        limpiar();
+        dibujarAbajo();
+        dibujarAbajo();
+        dibujarDerecha();
+        dibujarAbajo();*/
     }
 
     private void actualizarugadorEnPantalla(){
-        this.playerImage.setX(this.x_anterior - 64);
-        this.playerImage.setY(this.y_anterior - 28);
+        this.playerImage.setX(this.x_anterior - 55);
+        this.playerImage.setY(this.y_anterior - 27);
         this.root.getChildren().remove(playerImage);
         this.root.getChildren().add(playerImage);
     }
@@ -145,7 +153,6 @@ public class Dibujador{
         actualizarugadorEnPantalla();
     }
 
-
     public Pane getPane(){
         return this.root;
     }
@@ -155,6 +162,15 @@ public class Dibujador{
         circulo.setFill(Color.BLACK);
         this.root.getChildren().add(circulo);
     }
+
+    public void limpiar(){
+        this.root.getChildren().clear();
+        this.x_anterior = posInicialRecorrido;
+        this.y_anterior = posInicialRecorrido;
+        inicializarRecorrido();
+        actualizarugadorEnPantalla();
+    }
+
 
     public void actualizarXeYPrevios() {
         LineTo lineaPrevia = (LineTo) this.recorrido.getElements().get(this.recorrido.getElements().size() - 1);

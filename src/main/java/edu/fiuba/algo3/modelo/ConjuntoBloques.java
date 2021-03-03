@@ -9,7 +9,6 @@ public class ConjuntoBloques implements Bloque, Observable {
     protected ArrayList<Bloque> bloques;
     private ArrayList<Observer> observers;
 
-
     public ConjuntoBloques() {
         this.observers = new ArrayList<>();
         this.bloques = new ArrayList<>();

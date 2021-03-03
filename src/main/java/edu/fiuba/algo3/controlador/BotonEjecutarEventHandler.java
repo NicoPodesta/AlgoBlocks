@@ -21,7 +21,6 @@ public class BotonEjecutarEventHandler implements EventHandler<MouseEvent> {
 
     @Override
     public void handle(MouseEvent mouseEvent) {
-        //this.dibujador.limpiar();
         this.algoritmo.ejecutar(this.personaje);
     }
 }

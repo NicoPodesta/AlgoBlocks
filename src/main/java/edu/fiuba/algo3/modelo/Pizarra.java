@@ -6,10 +6,9 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Objects;
 
-public class Pizarra implements Observable {
+public class Pizarra  {
 
     private final HashSet<Trazo> trazosPintados;
-    private ArrayList<Observer> observers;
 
     @Override
     public boolean equals(Object o) {
@@ -25,28 +24,15 @@ public class Pizarra implements Observable {
     }
 
     public Pizarra() {
-        observers = new ArrayList<>();
         trazosPintados = new HashSet<>();
     }
 
     public void pintarTrazo(Trazo trazo) {
         trazosPintados.add(trazo);
-        notifyObserver();
     }
 
     public HashSet<Trazo> obtenerTrazos(){
         return trazosPintados;
     }
 
-
-
-    @Override
-    public void addObserver(Observer observer) {
-        observers.add(observer);
-    }
-
-    @Override
-    public void notifyObserver() {
-        observers.forEach(Observer::update);
-    }
 }
