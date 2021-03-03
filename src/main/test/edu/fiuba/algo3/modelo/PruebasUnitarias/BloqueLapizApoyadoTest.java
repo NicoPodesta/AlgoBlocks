@@ -12,10 +12,11 @@ public class BloqueLapizApoyadoTest {
         BloqueLapizApoyado bloqueLapiz = new BloqueLapizApoyado();
         BloqueDerecha bloqueDerecha = new BloqueDerecha();
         Personaje personaje = new Personaje();
+        bloqueLapiz.ejecutar(personaje);
         bloqueDerecha.ejecutar(personaje);
         Pizarra pizarra = new Pizarra();
-        Posicion posicion = new Posicion(1,0);
-        pizarra.pintarTrazo(posicion);
+        Trazo trazo = new Trazo(new Posicion(0,0), new Posicion(1,0));
+        pizarra.pintarTrazo(trazo);
         assertEquals(bloqueLapiz.ejecutar(personaje), pizarra);
     }
 
@@ -34,4 +35,5 @@ public class BloqueLapizApoyadoTest {
         BloqueLapizApoyado bloque = new BloqueLapizApoyado();
         assertEquals(bloque.obtenerNombre(), "Apoyar Lapiz");
     }
+
 }

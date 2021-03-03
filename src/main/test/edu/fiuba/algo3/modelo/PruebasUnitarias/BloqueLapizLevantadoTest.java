@@ -22,10 +22,11 @@ public class BloqueLapizLevantadoTest {
         BloqueLapizLevantado bloqueLapiz = new BloqueLapizLevantado();
         BloqueDerecha bloqueDerecha = new BloqueDerecha();
         Personaje personaje = new Personaje();
+        bloqueLapiz.ejecutarInvertido(personaje);
         bloqueDerecha.ejecutar(personaje);
         Pizarra pizarra = new Pizarra();
-        Posicion posicion = new Posicion(1,0);
-        pizarra.pintarTrazo(posicion);
+        Trazo trazo  = new Trazo(new Posicion(0,0), new Posicion(1,0));
+        pizarra.pintarTrazo(trazo);
         assertEquals(bloqueLapiz.ejecutarInvertido(personaje), pizarra);
     }
 
@@ -34,4 +35,6 @@ public class BloqueLapizLevantadoTest {
         BloqueLapizLevantado bloque = new BloqueLapizLevantado();
         assertEquals(bloque.obtenerNombre(), "Levantar Lapíz");
     }
+
+
 }

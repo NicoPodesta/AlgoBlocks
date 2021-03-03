@@ -22,4 +22,5 @@ public class LapizApoyadoTest {
 
         assertEquals(pizarra1, pizarra2);
     }
+
 }
