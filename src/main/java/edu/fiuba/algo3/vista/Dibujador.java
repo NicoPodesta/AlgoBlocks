@@ -3,6 +3,9 @@ package edu.fiuba.algo3.vista;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.LineTo;
+import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 
 public class Dibujador {
@@ -16,10 +19,6 @@ public class Dibujador {
 
     public Path recorrido;
     public Pane root;
-
-    private VistaLapiz vistaLapiz;
-    private VistaLapizLevantado vistaLapizLevantado;
-    private VistaLapizApoyado vistaLapizApoyado;
 
     public Dibujador(){
         //Group grupo = new Group(path); Ejemplos de google dicen que hay que agregar el recorrido a un objeto de tipo grupo pero no veo cambio alguno, lo dejo por las dudas
@@ -35,39 +34,90 @@ public class Dibujador {
 
         this.x_anterior = posInicialRecorrido;
         this.y_anterior = posInicialRecorrido;
-
-        this.vistaLapizLevantado = new VistaLapizLevantado(this.recorrido, this.root, this.x_anterior, this.y_anterior);
-        this.vistaLapizApoyado = new VistaLapizApoyado(this.recorrido, this.root, this.x_anterior, this.y_anterior);
-
-        //Se setea como vista inicial la vista lapiz levantado
-        this.vistaLapiz = this.vistaLapizApoyado;
+        inicializarRecorrido();
     }
 
-    public void moverseArriba(){
-        this.vistaLapiz.dibujarArriba();
+    private void inicializarRecorrido(){
+        this.recorrido.getElements().add(new MoveTo(x_anterior, y_anterior)); //Posicion inicial del recorrido
     }
 
-    public void moverseAbajo(){
-        this.vistaLapiz.dibujarAbajo();
+    public void dibujarArriba(){
+        if(y_anterior == 0){
+            y_anterior = n * TAM_LINEA;
+            this.recorrido.getElements().add(new MoveTo(x_anterior, y_anterior));
+        }
+        dibujarCirculo();
+        this.recorrido.getElements().add(new LineTo(x_anterior, y_anterior - TAM_LINEA));
+        actualizarXeYPrevios();
+        dibujarCirculo();
     }
 
-    public void moverseDerecha(){
-        this.vistaLapiz.dibujarDerecha();
+    public void dibujarAbajo() {
+        if(y_anterior == n * TAM_LINEA){
+            y_anterior = 0;
+            this.recorrido.getElements().add(new MoveTo(x_anterior, y_anterior));
+        }
+        dibujarCirculo();
+        this.recorrido.getElements().add(new LineTo(x_anterior, y_anterior + TAM_LINEA));
+        actualizarXeYPrevios();
+        dibujarCirculo();
     }
 
-    public void moverseIzquierda(){
-        this.vistaLapiz.dibujarIzquierda();
+    public void dibujarDerecha() {
+        if(x_anterior == n * TAM_LINEA){
+            x_anterior = 0;
+            this.recorrido.getElements().add(new MoveTo(x_anterior, y_anterior));
+        }
+        dibujarCirculo();
+        this.recorrido.getElements().add(new LineTo(x_anterior + TAM_LINEA, y_anterior));
+        actualizarXeYPrevios();
+        dibujarCirculo();
+    }
+    public void dibujarIzquierda() {
+        if(x_anterior == 0){
+            x_anterior = n * TAM_LINEA;
+            this.recorrido.getElements().add(new MoveTo(x_anterior, y_anterior));
+        }
+        dibujarCirculo();
+        this.recorrido.getElements().add(new LineTo(x_anterior - TAM_LINEA, y_anterior));
+        actualizarXeYPrevios();
+        dibujarCirculo();
     }
 
-    public void apoyarLapiz(){
-        this.vistaLapiz = this.vistaLapizApoyado;
+    public void moverArriba() {
+        this.recorrido.getElements().add(new MoveTo(x_anterior, y_anterior - TAM_LINEA));
+        this.y_anterior = y_anterior - TAM_LINEA;
     }
 
-    public void levantarrLapiz(){
-        this.vistaLapiz = this.vistaLapizLevantado;
+    public void moverAbajo() {
+        this.recorrido.getElements().add(new MoveTo(x_anterior, y_anterior + TAM_LINEA));
+        this.y_anterior = y_anterior + TAM_LINEA;
     }
+
+    public void moverDerecha() {
+        this.recorrido.getElements().add(new MoveTo(x_anterior + TAM_LINEA, y_anterior));
+        this.x_anterior = x_anterior + TAM_LINEA;
+    }
+
+    public void moverIzquierda() {
+        this.recorrido.getElements().add(new MoveTo(x_anterior - TAM_LINEA, y_anterior));
+        this.x_anterior = x_anterior - TAM_LINEA;
+    }
+
 
     public Pane getPane(){
         return this.root;
+    }
+
+    private void dibujarCirculo(){
+        Circle circulo = new Circle(x_anterior, y_anterior, 4);
+        circulo.setFill(Color.BLACK);
+        this.root.getChildren().add(circulo);
+    }
+
+    public void actualizarXeYPrevios() {
+        LineTo lineaPrevia = (LineTo) this.recorrido.getElements().get(this.recorrido.getElements().size() - 1);
+        x_anterior = lineaPrevia.getX();
+        y_anterior = lineaPrevia.getY();
     }
 }
