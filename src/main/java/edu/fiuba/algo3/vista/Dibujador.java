@@ -49,6 +49,7 @@ public class Dibujador{
         this.x_anterior = posInicialRecorrido;
         this.y_anterior = posInicialRecorrido;
         inicializarRecorrido();
+
         actualizarugadorEnPantalla();
     }
 
