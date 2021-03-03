@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.vista;
 
-import edu.fiuba.algo3.controlador.*;
+import edu.fiuba.algo3.controlador.BotonBorrarEventHandler;
+import edu.fiuba.algo3.controlador.BotonEjecutarEventHandler;
 import edu.fiuba.algo3.modelo.Bloque;
 import edu.fiuba.algo3.modelo.BloquePersonalizado;
 import edu.fiuba.algo3.modelo.ConjuntoBloques;

@@ -17,7 +17,7 @@ public class ContenedorConjuntoBloques extends BorderPane {
     public ContenedorConjuntoBloques(ConjuntoBloques algoritmo, ConjuntoBloques conjunto, Stage stage){
         this.contenedor = new ContenedorBotones();
         this.contenedorAlgoritmos = new ContenedorAlgoritmo();
-        this.agregarBotones(this.contenedor.crearContenedorBotones(algoritmo)); //ver para los dos de setear el tamaño correcto
+        this.agregarBotones(this.contenedor.crearContenedorBotones(conjunto)); //ver para los dos de setear el tamaño correcto
         this.agregarAlgoritmo(contenedorAlgoritmos);
         Button botonTerminado = new Button("Terminado");
         botonTerminado.setOnMouseClicked(new BotonTerminadoEventHandler(algoritmo, conjunto, stage));

@@ -2,7 +2,6 @@ package edu.fiuba.algo3.controlador;
 
 import edu.fiuba.algo3.modelo.BloquePersonalizado;
 import edu.fiuba.algo3.modelo.ConjuntoBloques;
-import edu.fiuba.algo3.vista.ContenedorPrincipal;
 import javafx.scene.input.MouseEvent;
 
 import java.util.ArrayList;
