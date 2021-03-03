@@ -9,6 +9,7 @@ import edu.fiuba.algo3.modelo.ConjuntoBloques;
 import edu.fiuba.algo3.modelo.Personaje;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -72,7 +73,7 @@ public class ContenedorPrincipal extends BorderPane {
     }
 
     public void agregarNombreBloque(Bloque bloque) {
-        this.contenedorAlgoritmo.agregar(new Button(bloque.obtenerNombre()));
+        this.contenedorAlgoritmo.agregar(new Label(bloque.obtenerNombre()));
     }
 
     /* la idea es que los conjuntos de bloques sean azules y se puedan clickear para ver su contenido

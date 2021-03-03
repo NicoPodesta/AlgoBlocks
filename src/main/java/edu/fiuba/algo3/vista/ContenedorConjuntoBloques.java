@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.BloquePersonalizado;
 import edu.fiuba.algo3.modelo.ConjuntoBloques;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -48,7 +49,7 @@ public class ContenedorConjuntoBloques extends BorderPane {
     }
 
     public void agregarNombreBloque(Bloque bloque){
-        contenedorAlgoritmos.agregar(new Button(bloque.obtenerNombre()));
+        contenedorAlgoritmos.agregar(new Label(bloque.obtenerNombre()));
     }
 
     public void eliminarUltimoNombreBloque(){

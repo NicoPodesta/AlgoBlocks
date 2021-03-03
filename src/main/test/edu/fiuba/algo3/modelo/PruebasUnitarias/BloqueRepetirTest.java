@@ -35,38 +35,6 @@ public class BloqueRepetirTest {
 
 
     @Test
-    public void seAgreganVariosBloquesYSeRemueven() {
-        BloqueRepetir repeticion = new BloqueRepetir(3);
-        BloqueLapizApoyado bloqueLapiz = new BloqueLapizApoyado();
-        BloqueDerecha derecha = new BloqueDerecha();
-        BloqueAbajo abajo = new BloqueAbajo();
-        BloqueArriba arriba = new BloqueArriba();
-        Personaje personaje = new Personaje();
-        bloqueLapiz.ejecutar(personaje);
-        repeticion.agregarBloque(derecha);
-        repeticion.agregarBloque(abajo);
-        repeticion.agregarBloque(arriba);
-        try {
-            repeticion.removerBloque(derecha);
-        } catch (BloqueInexistenteException e) {
-            fail();
-        }
-        try {
-            repeticion.removerBloque(arriba);
-        } catch (BloqueInexistenteException e) {
-            fail();
-        }
-
-        Pizarra pizarra = new Pizarra();
-        for (int i = 0; i < 3; ++i) {
-            pizarra.pintarTrazo(new Trazo(new Posicion(0,i),new Posicion(0,i+1)));
-        }
-
-        assertEquals(repeticion.ejecutar(personaje), pizarra);
-    }
-
-
-    @Test
     public void ejecutarInvertidoInvierteLosBloquesEItera() {
         BloqueRepetir repeticion = new BloqueRepetir(2);
         BloqueLapizApoyado bloqueLapiz = new BloqueLapizApoyado();
@@ -129,8 +97,16 @@ public class BloqueRepetirTest {
         repeticion.agregarBloque(derecha);
         repeticion.agregarBloque(abajo);
         repeticion.agregarBloque(arriba);
-        repeticion.removerUltimoBloque();
-        repeticion.removerUltimoBloque();
+        try {
+            repeticion.removerUltimoBloque();
+        }catch (AlgoritmoVacioException o){
+            fail();
+        }
+        try {
+            repeticion.removerUltimoBloque();
+        }catch (AlgoritmoVacioException o){
+            fail();
+        }
 
         Pizarra pizarra = new Pizarra();
         pizarra.pintarTrazo(new Trazo(new Posicion(0,0),new Posicion(1,0)));
@@ -143,7 +119,11 @@ public class BloqueRepetirTest {
     @Test
     public void quitarUltimoBloqueABloqueVacioNoHaceNada() {
         BloqueRepetir repeticion = new BloqueRepetir(3);
-        repeticion.removerUltimoBloque();
+        try {
+            repeticion.removerUltimoBloque();
+        }catch (AlgoritmoVacioException o){
+            fail();
+        }
         assertTrue(repeticion.estaVacio());
     }
 
@@ -152,18 +132,12 @@ public class BloqueRepetirTest {
         BloqueRepetir repeticion = new BloqueRepetir(3);
         BloqueDerecha derecha = new BloqueDerecha();
         repeticion.agregarBloque(derecha);
-        repeticion.removerUltimoBloque();
-        assertTrue(repeticion.estaVacio());
-    }
-
-    @Test
-    public void seRemueveBloqueInexistenteYSeLanzaExcepcionCorrecta() {
         try {
-            BloqueRepetir repeticion = new BloqueRepetir(3);
-            BloqueDerecha derecha = new BloqueDerecha();
-            repeticion.removerBloque(derecha);
+            repeticion.removerUltimoBloque();
+        }catch (AlgoritmoVacioException o){
+            fail();
         }
-        catch (BloqueInexistenteException expected){ }
+        assertTrue(repeticion.estaVacio());
     }
 
 }

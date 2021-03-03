@@ -1,26 +1,23 @@
 package edu.fiuba.algo3.modelo;
 
 import java.util.ArrayList;
+import edu.fiuba.algo3.vista.Observer;
 
-public class ConjuntoBloques implements Bloque {
+
+public class ConjuntoBloques implements Bloque, Observable {
 
     protected ArrayList<Bloque> bloques;
+    private ArrayList<Observer> observers;
+
 
     public ConjuntoBloques() {
+        this.observers = new ArrayList<>();
         this.bloques = new ArrayList<>();
     }
 
     public void agregarBloque(Bloque bloque) {
         bloques.add(bloque);
-    }
-
-    public void removerBloque(Bloque bloque) throws BloqueInexistenteException {
-        if(!bloques.remove(bloque)){
-            throw new BloqueInexistenteException();
-        }
-        else{
-            bloques.remove(bloque);
-        }
+        notifyObserver();
     }
 
     @Override
@@ -45,12 +42,36 @@ public class ConjuntoBloques implements Bloque {
         return bloques.isEmpty();
     }
 
+    public Bloque obtenerUltimoBloque() throws AlgoritmoVacioException{
+        if(bloques.isEmpty()){
+            throw new AlgoritmoVacioException();
+        }
+        else{
+            return bloques.get(bloques.size()-1);
+        }
+    }
+
     @Override
     public String obtenerNombre() {
         return "Conjunto Bloques";
     }
 
-    public void removerUltimoBloque() {
-        if(!bloques.isEmpty()) bloques.remove(bloques.size()-1);
+    public void removerUltimoBloque() throws AlgoritmoVacioException{
+        if (bloques.isEmpty()){
+            throw new AlgoritmoVacioException();
+        }
+        else {
+            bloques.remove(bloques.size()-1);
+        }
+    }
+
+    @Override
+    public void addObserver(Observer observer) {
+        observers.add(observer);
+    }
+
+    @Override
+    public void notifyObserver() {
+        observers.forEach(Observer::update);
     }
 }

@@ -10,8 +10,8 @@ public class ContenedorAlgoritmo extends VBox {
         super(new Label("Algoritmo Actual"));
     }
 
-    public void agregar(Button button){
-        this.getChildren().add(button);
+    public void agregar(Label label){
+        this.getChildren().add(label);
     }
 
     public void removerUltimo(){

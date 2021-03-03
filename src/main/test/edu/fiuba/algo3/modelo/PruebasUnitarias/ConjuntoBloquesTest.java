@@ -34,7 +34,7 @@ public class ConjuntoBloquesTest {
         assertEquals(algoritmo.ejecutar(personaje), pizarra);
     }
 
-    @Test
+    /*@Test
     public void seAgreganVariosBloquesLuegoSeRemuevenYSeEjecutan() {
         ConjuntoBloques algoritmo = new ConjuntoBloques();
         BloqueLapizApoyado bloqueLapiz = new BloqueLapizApoyado();
@@ -64,7 +64,7 @@ public class ConjuntoBloquesTest {
 
 
         assertEquals(algoritmo.ejecutar(personaje), pizarra);
-    }
+    }*/
 
     @Test
     public void seEjecutaInvertidoElAlgoritmo() {
@@ -105,7 +105,7 @@ public class ConjuntoBloquesTest {
         assertEquals(algoritmoA.ejecutar(personaje), pizarra);
     }
 
-    @Test
+    /*@Test
     public void removerUnBloqueInesxistenteLanzaUnaException() {
         ConjuntoBloques algoritmo = new ConjuntoBloques();
         try {
@@ -114,7 +114,7 @@ public class ConjuntoBloquesTest {
             //se lanza correctamente la exception
             assertTrue(true);
         }
-    }
+    }*/
 
     @Test
     public void elNombreDelBloqueEsElCorrecto() {
@@ -135,8 +135,16 @@ public class ConjuntoBloquesTest {
         algoritmo.agregarBloque(derecha);
         algoritmo.agregarBloque(abajo);
         algoritmo.agregarBloque(arriba);
-        algoritmo.removerUltimoBloque();
-        algoritmo.removerUltimoBloque();
+        try {
+            algoritmo.removerUltimoBloque();
+        }catch (AlgoritmoVacioException o){
+            fail();
+        }
+        try {
+            algoritmo.removerUltimoBloque();
+        }catch (AlgoritmoVacioException o){
+            fail();
+        }
 
         Pizarra pizarra = new Pizarra();
         pizarra.pintarTrazo(new Trazo(new Posicion(0,0),new Posicion(1,0)));
@@ -147,7 +155,11 @@ public class ConjuntoBloquesTest {
     @Test
     public void quitarUltimoBloqueABloqueVacioNoHaceNada() {
         ConjuntoBloques algoritmo = new ConjuntoBloques();
-        algoritmo.removerUltimoBloque();
+        try {
+            algoritmo.removerUltimoBloque();
+        }catch (AlgoritmoVacioException o){
+            fail();
+        }
         assertTrue(algoritmo.estaVacio());
     }
 
@@ -156,11 +168,15 @@ public class ConjuntoBloquesTest {
         ConjuntoBloques algoritmo = new ConjuntoBloques();
         BloqueDerecha derecha = new BloqueDerecha();
         algoritmo.agregarBloque(derecha);
-        algoritmo.removerUltimoBloque();
+        try {
+            algoritmo.removerUltimoBloque();
+        }catch (AlgoritmoVacioException o){
+            fail();
+        }
         assertTrue(algoritmo.estaVacio());
     }
 
-    @Test
+    /*@Test
     public void seRemueveBloqueInexistenteYSeLanzaExcepcionCorrecta() {
         try {
             ConjuntoBloques algoritmo = new ConjuntoBloques();
@@ -168,7 +184,7 @@ public class ConjuntoBloquesTest {
             algoritmo.removerBloque(derecha);
         }
         catch (BloqueInexistenteException expected){ }
-    }
+    }*/
 
 }
 

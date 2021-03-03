@@ -12,6 +12,8 @@ import java.util.ArrayList;
 public class AlgoBlocks extends Application{
 
     private VistaPersonaje vistaPersonaje;
+    private VistaAlgoritmo vistaAlgoritmo;
+    private ContenedorPrincipal contenedorPrincipal;
 
     @Override
     public void start(Stage stage) {
@@ -20,12 +22,15 @@ public class AlgoBlocks extends Application{
         ConjuntoBloques algoritmo = new ConjuntoBloques();
         ArrayList<BloquePersonalizado> bloquesPersonalizados = new ArrayList<>();
         Dibujador dibujador = new Dibujador();
+        contenedorPrincipal = new ContenedorPrincipal(algoritmo, personaje, bloquesPersonalizados,
+                dibujador);
 
         vistaPersonaje = new VistaPersonaje(dibujador, personaje);
         personaje.addObserver(vistaPersonaje);
 
-        ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(algoritmo, personaje, bloquesPersonalizados,
-                dibujador);
+        vistaAlgoritmo = new VistaAlgoritmo(algoritmo, contenedorPrincipal);
+        algoritmo.addObserver(vistaAlgoritmo);
+
         Scene escenaPrincipal = new Scene(contenedorPrincipal, 1024, 668); //ver si esta bien pasar estos numeros
         stage.setScene(escenaPrincipal);
         stage.show();
