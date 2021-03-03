@@ -11,32 +11,24 @@ import java.util.ArrayList;
 
 public class AlgoBlocks extends Application{
 
-    private VistaPersonaje vistaPersonaje;
-    private VistaAlgoritmo vistaAlgoritmo;
-    private ContenedorPrincipal contenedorPrincipal;
-    private VistaPizarra vistaPizarra;
-
     @Override
     public void start(Stage stage) {
         stage.setTitle("AlgoBlocks");
         Personaje personaje = new Personaje();
         ConjuntoBloques algoritmo = new ConjuntoBloques();
         ArrayList<BloquePersonalizado> bloquesPersonalizados = new ArrayList<>();
-        Dibujador dibujador = new Dibujador();
-        contenedorPrincipal = new ContenedorPrincipal(algoritmo, personaje, bloquesPersonalizados,
-                dibujador);
+        VistaPizarra vistaPizarra = new VistaPizarra(personaje.obtenerPizarra());
+        ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(algoritmo, personaje, bloquesPersonalizados,
+                vistaPizarra);
 
-        vistaPersonaje = new VistaPersonaje(dibujador, personaje);
+        VistaPersonaje vistaPersonaje = new VistaPersonaje(personaje, vistaPizarra);
         personaje.addObserver(vistaPersonaje);
-        vistaPizarra = new VistaPizarra(personaje.obtenerPizarra(), dibujador);
         personaje.agregarObserverALaPizarra(vistaPizarra);
 
-
-
-        vistaAlgoritmo = new VistaAlgoritmo(algoritmo, contenedorPrincipal);
+        VistaAlgoritmo vistaAlgoritmo = new VistaAlgoritmo(algoritmo, contenedorPrincipal);
         algoritmo.addObserver(vistaAlgoritmo);
 
-        Scene escenaPrincipal = new Scene(contenedorPrincipal, 1024, 668); //ver si esta bien pasar estos numeros
+        Scene escenaPrincipal = new Scene(contenedorPrincipal, 1024, 668);
         stage.setScene(escenaPrincipal);
         stage.show();
     }

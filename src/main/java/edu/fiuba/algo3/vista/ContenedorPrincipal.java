@@ -19,14 +19,14 @@ import java.util.ArrayList;
 
 public class ContenedorPrincipal extends BorderPane {
 
-    final private Dibujador dibujador;
+    final private VistaPizarra vistaPizarra;
     final private ConjuntoBloques algoritmo;
     final private ContenedorBotones contenedorBotones;
     private ContenedorAlgoritmo contenedorAlgoritmo;
 
     public ContenedorPrincipal(ConjuntoBloques algoritmo, Personaje personaje,
-                               ArrayList<BloquePersonalizado> bloquesPersonalizados, Dibujador dibujador) {
-        this.dibujador = dibujador;
+                               ArrayList<BloquePersonalizado> bloquesPersonalizados, VistaPizarra vistaPizarra) {
+        this.vistaPizarra = vistaPizarra;
         this.algoritmo = algoritmo;
         this.contenedorBotones = new ContenedorBotones(algoritmo, bloquesPersonalizados);
         this.contenedorAlgoritmo = new ContenedorAlgoritmo();
@@ -59,11 +59,11 @@ public class ContenedorPrincipal extends BorderPane {
         botonBorrar.setOnMouseClicked(new BotonBorrarEventHandler(algoritmo, this));
         botonGuardarAlgoritmo.setOnMouseClicked(new BotonGuardarAlgoritmoEventHandler(algoritmo,
                 bloquesPersonalizados));
-        botonEjecutar.setOnMouseClicked(new BotonEjecutarEventHandler(algoritmo, personaje, dibujador));
+        botonEjecutar.setOnMouseClicked(new BotonEjecutarEventHandler(algoritmo, personaje, vistaPizarra));
 
         HBox contenedorBotonesPizarra = new HBox(botonBorrar, botonGuardarAlgoritmo, botonEjecutar);
 
-        VBox contenedorPizarra = new VBox(contenedorBotonesPizarra, dibujador.getPane());
+        VBox contenedorPizarra = new VBox(contenedorBotonesPizarra, vistaPizarra.getPane());
         contenedorPizarra.setMinWidth(512);
         contenedorPizarra.setStyle("-fx-border-color: black;-fx-border-width: 2");
         contenedorBotonesPizarra.setPadding(new Insets(30 , 0,50,85));

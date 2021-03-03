@@ -4,14 +4,13 @@ import edu.fiuba.algo3.vista.Observer;
 
 import java.util.ArrayList;
 
-public class Personaje implements Observable{
+public class Personaje implements Observable {
 
     private Lapiz lapiz;
     private Pizarra pizarra;
     private Posicion posicion;
     private Posicion posicionAnterior;
     private ArrayList<Observer> observers;
-
 
     public Personaje() {
         observers = new ArrayList<>();
@@ -72,7 +71,7 @@ public class Personaje implements Observable{
     }
 
     public void agregarObserverALaPizarra(Observer observer){
-        this.pizarra.addObserver(observer);
+        pizarra.addObserver(observer);
     }
 
     public Posicion posicionActual() {
