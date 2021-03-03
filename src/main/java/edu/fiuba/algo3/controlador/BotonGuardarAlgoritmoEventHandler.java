@@ -12,15 +12,11 @@ import javafx.stage.Stage;
 
 import java.util.ArrayList;
 
-public class BotonGuardarAlgoritmoEventHandler implements EventHandler<MouseEvent> {
-
-    private ArrayList<BloquePersonalizado> bloquesPersonalizados;
-    private ConjuntoBloques algoritmo;
+public class BotonGuardarAlgoritmoEventHandler extends BotonConjuntoBloquesEventHandler {
 
     public BotonGuardarAlgoritmoEventHandler(ConjuntoBloques algoritmo,
                                              ArrayList<BloquePersonalizado> bloquesPersonalizados) {
-        this.algoritmo = algoritmo;
-        this.bloquesPersonalizados = bloquesPersonalizados;
+        super(algoritmo, bloquesPersonalizados);
     }
 
     @Override
