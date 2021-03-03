@@ -22,7 +22,8 @@ public class Dibujador{
 
     public Path recorrido;
     public Pane root;
-    public Group player;
+
+    ImageView playerImage;
 
     public Dibujador(){
         //Group grupo = new Group(path); Ejemplos de google dicen que hay que agregar el recorrido a un objeto de tipo grupo pero no veo cambio alguno, lo dejo por las dudas
@@ -36,26 +37,26 @@ public class Dibujador{
         this.recorrido.setStrokeWidth(4.5);
         this.root.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(2))));
 
+        this.playerImage = new ImageView();
+        this.playerImage.setScaleY(1.3);
+        this.playerImage.setScaleX(1.3);
+        this.playerImage.setFitHeight(64);
+        this.playerImage.setFitWidth(64);
+        this.playerImage.setX(this.x_anterior - 64);
+        this.playerImage.setY(this.y_anterior - 32);
+        this.playerImage.setImage(new Image("file:src/main/java/edu/fiuba/algo3/vista/Imagenes/playerTransparente.png"));
+
         this.x_anterior = posInicialRecorrido;
         this.y_anterior = posInicialRecorrido;
         inicializarRecorrido();
-
-        this.player = new Group();
-
-        ImageView playerImage = new ImageView();
-        playerImage.setScaleX(1);
-        playerImage.setScaleY(1);
-        playerImage.setFitHeight(64);
-        playerImage.setFitWidth(64);
-        playerImage.setImage(new Image("file:src/main/java/edu/fiuba/algo3/vista/Imagenes/playerTransparente.png"));
-
-        this.root.getChildren().add(playerImage);
-
-
+        actualizarugadorEnPantalla();
     }
 
-    private void agregarJugadorEnCanvas(Node view, int x, int y){
-
+    private void actualizarugadorEnPantalla(){
+        this.playerImage.setX(this.x_anterior - 64);
+        this.playerImage.setY(this.y_anterior - 28);
+        this.root.getChildren().remove(playerImage);
+        this.root.getChildren().add(playerImage);
     }
 
     private void inicializarRecorrido(){
@@ -71,6 +72,7 @@ public class Dibujador{
         this.recorrido.getElements().add(new LineTo(x_anterior, y_anterior - TAM_LINEA));
         actualizarXeYPrevios();
         dibujarCirculo();
+        actualizarugadorEnPantalla();
     }
 
     public void dibujarAbajo() {
@@ -82,6 +84,7 @@ public class Dibujador{
         this.recorrido.getElements().add(new LineTo(x_anterior, y_anterior + TAM_LINEA));
         actualizarXeYPrevios();
         dibujarCirculo();
+        actualizarugadorEnPantalla();
     }
 
     public void dibujarDerecha() {
@@ -93,6 +96,7 @@ public class Dibujador{
         this.recorrido.getElements().add(new LineTo(x_anterior + TAM_LINEA, y_anterior));
         actualizarXeYPrevios();
         dibujarCirculo();
+        actualizarugadorEnPantalla();
     }
     public void dibujarIzquierda() {
         if(x_anterior == 0){
@@ -103,26 +107,31 @@ public class Dibujador{
         this.recorrido.getElements().add(new LineTo(x_anterior - TAM_LINEA, y_anterior));
         actualizarXeYPrevios();
         dibujarCirculo();
+        actualizarugadorEnPantalla();
     }
 
     public void moverArriba() {
         this.recorrido.getElements().add(new MoveTo(x_anterior, y_anterior - TAM_LINEA));
         this.y_anterior = y_anterior - TAM_LINEA;
+        actualizarugadorEnPantalla();
     }
 
     public void moverAbajo() {
         this.recorrido.getElements().add(new MoveTo(x_anterior, y_anterior + TAM_LINEA));
         this.y_anterior = y_anterior + TAM_LINEA;
+        actualizarugadorEnPantalla();
     }
 
     public void moverDerecha() {
         this.recorrido.getElements().add(new MoveTo(x_anterior + TAM_LINEA, y_anterior));
         this.x_anterior = x_anterior + TAM_LINEA;
+        actualizarugadorEnPantalla();
     }
 
     public void moverIzquierda() {
         this.recorrido.getElements().add(new MoveTo(x_anterior - TAM_LINEA, y_anterior));
         this.x_anterior = x_anterior - TAM_LINEA;
+        actualizarugadorEnPantalla();
     }
 
 
@@ -138,7 +147,7 @@ public class Dibujador{
 
     public void actualizarXeYPrevios() {
         LineTo lineaPrevia = (LineTo) this.recorrido.getElements().get(this.recorrido.getElements().size() - 1);
-        x_anterior = lineaPrevia.getX();
-        y_anterior = lineaPrevia.getY();
+        this.x_anterior = lineaPrevia.getX();
+        this.y_anterior = lineaPrevia.getY();
     }
 }
