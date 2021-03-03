@@ -1,6 +1,9 @@
 package edu.fiuba.algo3.vista;
 
+import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -8,7 +11,7 @@ import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 
-public class Dibujador {
+public class Dibujador{
     private final int n = 10; //Numero de posibles segmentos
     private final int TAM_LINEA = 51; //Tamaño de cada linea
 
@@ -19,6 +22,7 @@ public class Dibujador {
 
     public Path recorrido;
     public Pane root;
+    public Group player;
 
     public Dibujador(){
         //Group grupo = new Group(path); Ejemplos de google dicen que hay que agregar el recorrido a un objeto de tipo grupo pero no veo cambio alguno, lo dejo por las dudas
@@ -35,6 +39,23 @@ public class Dibujador {
         this.x_anterior = posInicialRecorrido;
         this.y_anterior = posInicialRecorrido;
         inicializarRecorrido();
+
+        this.player = new Group();
+
+        ImageView playerImage = new ImageView();
+        playerImage.setScaleX(1);
+        playerImage.setScaleY(1);
+        playerImage.setFitHeight(64);
+        playerImage.setFitWidth(64);
+        playerImage.setImage(new Image("file:src/main/java/edu/fiuba/algo3/vista/Imagenes/playerTransparente.png"));
+
+        this.root.getChildren().add(playerImage);
+
+
+    }
+
+    private void agregarJugadorEnCanvas(Node view, int x, int y){
+
     }
 
     private void inicializarRecorrido(){
