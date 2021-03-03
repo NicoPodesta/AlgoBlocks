@@ -8,14 +8,13 @@ import javafx.scene.input.MouseEvent;
 
 public class BotonAbajoEventHandler extends BotonBloqueEventHandler {
 
-    public BotonAbajoEventHandler(ConjuntoBloques algoritmo, ContenedorPrincipal contenedor) {
-        super(algoritmo, contenedor);
+    public BotonAbajoEventHandler(ConjuntoBloques algoritmo) {
+        super(algoritmo);
     }
 
     @Override
     public void handle(MouseEvent event) {
         Bloque bloque = new BloqueAbajo();
         algoritmo.agregarBloque(bloque);
-        contenedor.agregarNombreBloque(bloque);
     }
 }

@@ -8,10 +8,9 @@ import javafx.scene.input.MouseEvent;
 public abstract class BotonBloqueEventHandler implements EventHandler<MouseEvent> {
 
     protected ConjuntoBloques algoritmo;
-    protected ContenedorPrincipal contenedor;
 
-    public BotonBloqueEventHandler(ConjuntoBloques algoritmo, ContenedorPrincipal contenedor) {
+    public BotonBloqueEventHandler(ConjuntoBloques algoritmo) {
         this.algoritmo = algoritmo;
-        this.contenedor = contenedor;
+
     }
 }

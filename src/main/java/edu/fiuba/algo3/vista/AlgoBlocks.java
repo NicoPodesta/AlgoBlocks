@@ -16,8 +16,8 @@ public class AlgoBlocks extends Application{
     @Override
     public void start(Stage stage) {
         stage.setTitle("AlgoBlocks");
-        ConjuntoBloques algoritmo = new ConjuntoBloques();
         Personaje personaje = new Personaje();
+        ConjuntoBloques algoritmo = new ConjuntoBloques();
         ArrayList<BloquePersonalizado> bloquesPersonalizados = new ArrayList<>();
         Dibujador dibujador = new Dibujador();
 

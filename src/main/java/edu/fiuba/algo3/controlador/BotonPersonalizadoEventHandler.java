@@ -12,9 +12,8 @@ public class BotonPersonalizadoEventHandler extends BotonBloqueEventHandler {
     private ArrayList<BloquePersonalizado> bloquesPersonalizados;
 
     public BotonPersonalizadoEventHandler(ConjuntoBloques algoritmo,
-                                          ArrayList<BloquePersonalizado> bloquesPersonalizados,
-                                          ContenedorPrincipal contenedor) {
-        super(algoritmo, contenedor);
+                                          ArrayList<BloquePersonalizado> bloquesPersonalizados) {
+        super(algoritmo);
         this.bloquesPersonalizados = bloquesPersonalizados;
     }
 

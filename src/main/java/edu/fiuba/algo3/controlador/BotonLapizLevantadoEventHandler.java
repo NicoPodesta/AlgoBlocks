@@ -9,14 +9,13 @@ import javafx.scene.input.MouseEvent;
 
 public class BotonLapizLevantadoEventHandler extends BotonBloqueEventHandler {
 
-    public BotonLapizLevantadoEventHandler(ConjuntoBloques algoritmo, ContenedorPrincipal contenedor) {
-        super(algoritmo, contenedor);
+    public BotonLapizLevantadoEventHandler(ConjuntoBloques algoritmo) {
+        super(algoritmo);
     }
 
     @Override
     public void handle(MouseEvent event) {
         Bloque bloque = new BloqueLapizLevantado();
         algoritmo.agregarBloque(bloque);
-        contenedor.agregarNombreBloque(bloque);
     }
 }

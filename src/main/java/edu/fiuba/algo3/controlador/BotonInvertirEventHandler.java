@@ -6,8 +6,8 @@ import javafx.scene.input.MouseEvent;
 
 public class BotonInvertirEventHandler extends BotonBloqueEventHandler {
 
-    public BotonInvertirEventHandler(ConjuntoBloques algoritmo, ContenedorPrincipal contenedor) {
-        super(algoritmo, contenedor);
+    public BotonInvertirEventHandler(ConjuntoBloques algoritmo ) {
+        super(algoritmo);
     }
 
     @Override

@@ -8,14 +8,13 @@ import javafx.scene.input.MouseEvent;
 
 public class BotonLapizApoyadoEventHandler extends BotonBloqueEventHandler {
 
-    public BotonLapizApoyadoEventHandler(ConjuntoBloques algoritmo, ContenedorPrincipal contenedor) {
-        super(algoritmo, contenedor);
+    public BotonLapizApoyadoEventHandler(ConjuntoBloques algoritmo) {
+        super(algoritmo);
     }
 
     @Override
     public void handle(MouseEvent event) {
         Bloque bloque = new BloqueLapizApoyado();
         algoritmo.agregarBloque(bloque);
-        contenedor.agregarNombreBloque(bloque);
     }
 }

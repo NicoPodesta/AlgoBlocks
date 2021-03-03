@@ -6,8 +6,8 @@ import javafx.scene.input.MouseEvent;
 
 public class BotonRepetirX2EventHandler extends BotonBloqueEventHandler {
 
-    public BotonRepetirX2EventHandler(ConjuntoBloques algoritmo, ContenedorPrincipal contenedor) {
-        super(algoritmo, contenedor);
+    public BotonRepetirX2EventHandler(ConjuntoBloques algoritmo) {
+        super(algoritmo);
     }
 
     @Override
