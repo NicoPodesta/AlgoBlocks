@@ -1,21 +1,20 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.vista.VistaPersonaje;
-import edu.fiuba.algo3.vista.VistaPizarra;
+import edu.fiuba.algo3.vista.Observer;
 
-public class Personaje {
+import java.util.ArrayList;
+
+public class Personaje implements Observable{
 
     private Lapiz lapiz;
     private Pizarra pizarra;
     private Posicion posicion;
     private Posicion posicionAnterior;
+    private ArrayList<Observer> observers;
 
-    private LapizApoyado lapizApoyado;
-    private LapizLevantado lapizLevantado;
 
     public Personaje() {
-        this.lapizApoyado = new LapizApoyado();
-        this.lapizLevantado = new LapizLevantado();
+        observers = new ArrayList<>();
         reiniciar();
     }
 
@@ -26,36 +25,40 @@ public class Personaje {
     }
 
     public Pizarra levantarLapiz() {
-        lapiz = this.lapizLevantado;
+        lapiz = new LapizLevantado();
         return pizarra;
     }
 
     public Pizarra apoyarLapiz() {
-        lapiz = this.lapizApoyado;
+        lapiz = new LapizApoyado();
         return pizarra;
     }
 
     public Pizarra moverHaciaArriba() {
         this.posicionAnterior = new Posicion(posicion);
         posicion.arriba();
+        notifyObserver();
         return actualizarPizarra(new Trazo(posicionAnterior, new Posicion(posicion)));
     }
 
     public Pizarra moverHaciaAbajo() {
         this.posicionAnterior = new Posicion(posicion);
         posicion.abajo();
+        notifyObserver();
         return actualizarPizarra(new Trazo(posicionAnterior, new Posicion(posicion)));
     }
 
     public Pizarra moverHaciaLaIzquierda() {
         this.posicionAnterior = new Posicion(posicion);
         posicion.izquierda();
+        notifyObserver();
         return actualizarPizarra(new Trazo(posicionAnterior, new Posicion(posicion)));
     }
 
     public Pizarra moverHaciaLaDerecha() {
         this.posicionAnterior = new Posicion(posicion);
         posicion.derecha();
+        notifyObserver();
         return actualizarPizarra(new Trazo(posicionAnterior, new Posicion(posicion)));
     }
 
@@ -68,6 +71,10 @@ public class Personaje {
         return pizarra;
     }
 
+    public void agregarObserverALaPizarra(Observer observer){
+        this.pizarra.addObserver(observer);
+    }
+
     public Posicion posicionActual() {
         return posicion;
     }
@@ -75,8 +82,13 @@ public class Personaje {
     public int getX(){return this.posicion.getX();}
     public int getY(){return this.posicion.getY();}
 
-    public void agregarObserver(VistaPersonaje vistaPersonaje, VistaPizarra vistaPizarra) {
-        this.lapizLevantado.addObserver(vistaPersonaje);
-        this.lapizApoyado.addObserver(vistaPizarra);
+    @Override
+    public void addObserver(Observer observer) {
+        observers.add(observer);
+    }
+
+    @Override
+    public void notifyObserver() {
+        observers.forEach(Observer::update);
     }
 }

@@ -1,12 +1,15 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.vista.Observer;
+
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Objects;
 
-public class Pizarra  {
+public class Pizarra implements Observable {
 
     private final HashSet<Trazo> trazosPintados;
-
+    private ArrayList<Observer> observers;
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -21,15 +24,25 @@ public class Pizarra  {
     }
 
     public Pizarra() {
+        observers = new ArrayList<>();
         trazosPintados = new HashSet<>();
     }
 
     public void pintarTrazo(Trazo trazo) {
         trazosPintados.add(trazo);
+        notifyObserver();
     }
 
     public HashSet<Trazo> obtenerTrazos(){
         return trazosPintados;
     }
+    @Override
+    public void addObserver(Observer observer) {
+        observers.add(observer);
+    }
 
+    @Override
+    public void notifyObserver() {
+        observers.forEach(Observer::update);
+    }
 }
