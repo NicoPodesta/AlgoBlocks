@@ -2,6 +2,7 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.controlador.BotonBorrarEventHandler;
 import edu.fiuba.algo3.controlador.BotonEjecutarEventHandler;
+import edu.fiuba.algo3.controlador.BotonGuardarAlgoritmoEventHandler;
 import edu.fiuba.algo3.modelo.Bloque;
 import edu.fiuba.algo3.modelo.BloquePersonalizado;
 import edu.fiuba.algo3.modelo.ConjuntoBloques;
@@ -26,15 +27,14 @@ public class ContenedorPrincipal extends BorderPane {
                                ArrayList<BloquePersonalizado> bloquesPersonalizados, Dibujador dibujador) {
         this.dibujador = dibujador;
         this.algoritmo = algoritmo;
-        this.contenedorBotones = new ContenedorBotones();
+        this.contenedorBotones = new ContenedorBotones(algoritmo, bloquesPersonalizados);
         this.contenedorAlgoritmo = new ContenedorAlgoritmo();
-        this.setLeft(nuevoContenedorBloques(personaje, bloquesPersonalizados, algoritmo));
+        this.setLeft(nuevoContenedorBloques());
         this.setCenter(nuevoContenedorPizzarra(personaje, bloquesPersonalizados));
     }
 
-    private HBox nuevoContenedorBloques(Personaje personaje, ArrayList<BloquePersonalizado> bloquesPersonalizados, ConjuntoBloques algoritmo) {
+    private HBox nuevoContenedorBloques() {
 
-        VBox contenedorBotones = this.contenedorBotones.crearContenedorBotones(algoritmo);
         contenedorBotones.setPrefWidth(256);
         contenedorBotones.setSpacing(10);
         contenedorBotones.setPadding(new Insets(15 , 0,0,60));
@@ -56,9 +56,8 @@ public class ContenedorPrincipal extends BorderPane {
         Button botonEjecutar = new Button("Ejecutar");
 
         botonBorrar.setOnMouseClicked(new BotonBorrarEventHandler(algoritmo, this));
-        /*botonGuardarAlgoritmo.setOnMouseClicked(new BotonGuardarAlgoritmoEventHandler(algoritmo, bloquesPersonalizados,
-                this));*/
-
+        botonGuardarAlgoritmo.setOnMouseClicked(new BotonGuardarAlgoritmoEventHandler(algoritmo,
+                bloquesPersonalizados));
         botonEjecutar.setOnMouseClicked(new BotonEjecutarEventHandler(algoritmo, personaje));
 
         HBox contenedorBotonesPizarra = new HBox(botonBorrar, botonGuardarAlgoritmo, botonEjecutar);
@@ -76,7 +75,7 @@ public class ContenedorPrincipal extends BorderPane {
         this.contenedorAlgoritmo.agregar(new Button(bloque.obtenerNombre()));
     }
 
-   /* // la idea es que los conjuntos de bloques sean azules y se puedan clickear para ver su contenido
+    /* la idea es que los conjuntos de bloques sean azules y se puedan clickear para ver su contenido
     public void agregarNombreConjuntoBloques(ConjuntoBloques conjunto) {
         Label nuevoLabel = new Label(conjunto.obtenerNombre());
         nuevoLabel.setTextFill(Color.BLUE);

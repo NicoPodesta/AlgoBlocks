@@ -10,6 +10,5 @@ public abstract class BotonBloqueEventHandler implements EventHandler<MouseEvent
 
     public BotonBloqueEventHandler(ConjuntoBloques algoritmo) {
         this.algoritmo = algoritmo;
-
     }
 }

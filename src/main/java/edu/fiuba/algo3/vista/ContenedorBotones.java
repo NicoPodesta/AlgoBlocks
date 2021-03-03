@@ -1,18 +1,21 @@
 package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.controlador.*;
+import edu.fiuba.algo3.modelo.BloquePersonalizado;
 import edu.fiuba.algo3.modelo.ConjuntoBloques;
+import edu.fiuba.algo3.modelo.Observable;
+import javafx.collections.ObservableList;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
-public class ContenedorBotones {
+import java.util.ArrayList;
 
+public class ContenedorBotones extends VBox {
 
-    public ContenedorBotones(){
-    }
+    public ContenedorBotones(ConjuntoBloques algoritmo, ArrayList<BloquePersonalizado> bloquesPersonalizados) {
 
-    public VBox crearContenedorBotones(ConjuntoBloques algoritmo){
         Label tituloBloques = new Label("Bloques disponibles");
 
         Button bloqueArriba = new Button("Arriba");
@@ -32,11 +35,22 @@ public class ContenedorBotones {
         bloqueIzquierda.setOnMouseClicked(new BotonIzquierdaEventHandler(algoritmo));
         bloqueLevantarLapiz.setOnMouseClicked(new BotonLapizLevantadoEventHandler(algoritmo));
         bloqueApoyarLapiz.setOnMouseClicked(new BotonLapizApoyadoEventHandler(algoritmo));
-        bloqueRepetirX2.setOnMouseClicked(new BotonRepetirX2EventHandler(algoritmo));
-        bloqueRepetirX3.setOnMouseClicked(new BotonRepetirX3EventHandler(algoritmo));
-        bloqueInvertir.setOnMouseClicked(new BotonInvertirEventHandler(algoritmo));
-        //bloquePersonalizado.setOnMouseClicked(new BotonPersonalizadoEventHandler(algoritmo));
+        bloqueRepetirX2.setOnMouseClicked(new BotonRepetirX2EventHandler(algoritmo, bloquesPersonalizados));
+        bloqueRepetirX3.setOnMouseClicked(new BotonRepetirX3EventHandler(algoritmo, bloquesPersonalizados));
+        bloqueInvertir.setOnMouseClicked(new BotonInvertirEventHandler(algoritmo, bloquesPersonalizados));
+        bloquePersonalizado.setOnMouseClicked(new BotonPersonalizadoEventHandler(algoritmo, bloquesPersonalizados));
 
-        return new VBox(tituloBloques, bloqueAbajo, bloqueArriba, bloqueDerecha, bloqueIzquierda, bloqueLevantarLapiz, bloqueApoyarLapiz, bloqueRepetirX2, bloqueRepetirX3, bloqueInvertir);
+        ObservableList<Node> nodos = this.getChildren();
+        nodos.add(tituloBloques);
+        nodos.add(bloqueAbajo);
+        nodos.add(bloqueArriba);
+        nodos.add(bloqueDerecha);
+        nodos.add(bloqueIzquierda);
+        nodos.add(bloqueLevantarLapiz);
+        nodos.add(bloqueApoyarLapiz);
+        nodos.add(bloqueRepetirX2);
+        nodos.add(bloqueRepetirX3);
+        nodos.add(bloqueInvertir);
+        nodos.add(bloquePersonalizado);
     }
 }
