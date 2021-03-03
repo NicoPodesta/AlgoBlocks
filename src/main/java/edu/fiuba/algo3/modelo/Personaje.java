@@ -7,7 +7,7 @@ public class Personaje {
 
     private Lapiz lapiz;
     private Pizarra pizarra;
-    private final Posicion posicion;
+    private Posicion posicion;
     private Posicion posicionAnterior;
 
     private LapizApoyado lapizApoyado;
@@ -16,10 +16,13 @@ public class Personaje {
     public Personaje() {
         this.lapizApoyado = new LapizApoyado();
         this.lapizLevantado = new LapizLevantado();
+        reiniciar();
+    }
 
+    public void reiniciar() {
         this.levantarLapiz();
-        this.pizarra = new Pizarra();
         this.posicion = new Posicion(0,0);
+        this.pizarra = new Pizarra();
     }
 
     public Pizarra levantarLapiz() {
