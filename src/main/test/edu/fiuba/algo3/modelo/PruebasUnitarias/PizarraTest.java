@@ -60,19 +60,4 @@ public class PizarraTest {
         assertEquals(pizarra1, pizarra2);
     }
 
-    @Test
-    public void laPizarraNoDistingueDireccionDeLosTrazos() {
-        Trazo trazo1 = new Trazo(new Posicion(0,0),new Posicion(1,0));
-        Trazo trazo2 = new Trazo(new Posicion(1,0),new Posicion(0,0));
-        Pizarra pizarra1 = new Pizarra();
-        Pizarra pizarra2 = new Pizarra();
-
-        pizarra1.pintarTrazo(trazo1);
-
-        pizarra2.pintarTrazo(trazo2);
-
-        assertEquals(pizarra1, pizarra2);
-    }
-
-
 }
