@@ -39,7 +39,7 @@ public class Pizarra implements Observable {
     }
 
     @Override
-    public void notifyObserver(String s) {
-        observers.stream().forEach(observer -> observer.update(s));
+    public void notifyObserver() {
+        observers.forEach(observer -> observer.update());
     }
 }

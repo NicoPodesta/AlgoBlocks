@@ -43,7 +43,7 @@ public class Dibujador {
         this.vistaLapiz = this.vistaLapizApoyado;
     }
 
-    public void moverseArriba(){
+    public void dibujarArriba(){
         this.vistaLapiz.dibujarArriba();
     }
 

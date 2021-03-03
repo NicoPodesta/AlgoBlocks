@@ -20,41 +20,39 @@ public class Personaje implements Observable {
 
     public Pizarra levantarLapiz() {
         lapiz = new LapizLevantado();
-        notifyObserver("levantarLapiz");
         return pizarra;
     }
 
     public Pizarra apoyarLapiz() {
         lapiz = new LapizApoyado();
-        notifyObserver("apoyarLapiz");
         return pizarra;
     }
 
     public Pizarra moverHaciaArriba() {
         Posicion posicionAnterior = new Posicion(posicion);
         posicion.arriba();
-        notifyObserver("arriba");
+        notifyObserver();
         return actualizarPizarra(new Trazo(posicionAnterior, new Posicion(posicion)));
     }
 
     public Pizarra moverHaciaAbajo() {
         Posicion posicionAnterior = new Posicion(posicion);
         posicion.abajo();
-        notifyObserver("abajo");
+        notifyObserver();
         return actualizarPizarra(new Trazo(posicionAnterior, new Posicion(posicion)));
     }
 
     public Pizarra moverHaciaLaIzquierda() {
         Posicion posicionAnterior = new Posicion(posicion);
         posicion.izquierda();
-        notifyObserver("izquierda");
+        notifyObserver();
         return actualizarPizarra(new Trazo(posicionAnterior, new Posicion(posicion)));
     }
 
     public Pizarra moverHaciaLaDerecha() {
         Posicion posicionAnterior = new Posicion(posicion);
         posicion.derecha();
-        notifyObserver("derecha");
+        notifyObserver();
         return actualizarPizarra(new Trazo(posicionAnterior, new Posicion(posicion)));
     }
 
@@ -77,8 +75,8 @@ public class Personaje implements Observable {
     }
 
     @Override
-    public void notifyObserver(String s) {
-        observers.stream().forEach(observer -> observer.update(s));
+    public void notifyObserver() {
+        observers.forEach(observer -> observer.update());
     }
 
     public void addObserverPizarra(Observer observer) {
