@@ -9,6 +9,7 @@ public class Personaje implements Observable {
     private Lapiz lapiz;
     private Pizarra pizarra;
     private final Posicion posicion;
+    private Posicion posicionAnterior;
     private ArrayList<Observer> observers;
 
     public Personaje() {
@@ -29,28 +30,28 @@ public class Personaje implements Observable {
     }
 
     public Pizarra moverHaciaArriba() {
-        Posicion posicionAnterior = new Posicion(posicion);
+        this.posicionAnterior = new Posicion(posicion);
         posicion.arriba();
         notifyObserver();
         return actualizarPizarra(new Trazo(posicionAnterior, new Posicion(posicion)));
     }
 
     public Pizarra moverHaciaAbajo() {
-        Posicion posicionAnterior = new Posicion(posicion);
+        this.posicionAnterior = new Posicion(posicion);
         posicion.abajo();
         notifyObserver();
         return actualizarPizarra(new Trazo(posicionAnterior, new Posicion(posicion)));
     }
 
     public Pizarra moverHaciaLaIzquierda() {
-        Posicion posicionAnterior = new Posicion(posicion);
+        this.posicionAnterior = new Posicion(posicion);
         posicion.izquierda();
         notifyObserver();
         return actualizarPizarra(new Trazo(posicionAnterior, new Posicion(posicion)));
     }
 
     public Pizarra moverHaciaLaDerecha() {
-        Posicion posicionAnterior = new Posicion(posicion);
+        this.posicionAnterior = new Posicion(posicion);
         posicion.derecha();
         notifyObserver();
         return actualizarPizarra(new Trazo(posicionAnterior, new Posicion(posicion)));
@@ -65,6 +66,8 @@ public class Personaje implements Observable {
         return posicion;
     }
 
+    public int getX(){return this.posicion.getX();}
+    public int getY(){return this.posicion.getY();}
 
     @Override
     public void addObserver(Observer observer) {
@@ -73,10 +76,7 @@ public class Personaje implements Observable {
 
     @Override
     public void notifyObserver() {
-        observers.forEach(observer -> observer.update());
+        observers.forEach(Observer::update);
     }
 
-    public void addObserverPizarra(Observer observer) {
-        pizarra.addObserver(observer);
-    }
 }

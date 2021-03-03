@@ -21,7 +21,7 @@ public class AlgoBlocks extends Application{
         ArrayList<BloquePersonalizado> bloquesPersonalizados = new ArrayList<>();
         Dibujador dibujador = new Dibujador();
 
-        vistaPersonaje = new VistaPersonaje(dibujador);
+        vistaPersonaje = new VistaPersonaje(dibujador, personaje);
         personaje.addObserver(vistaPersonaje);
 
         ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(algoritmo, personaje, bloquesPersonalizados,

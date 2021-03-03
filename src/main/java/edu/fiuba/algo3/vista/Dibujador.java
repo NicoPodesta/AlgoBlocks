@@ -110,24 +110,36 @@ public class Dibujador{
     }
 
     public void moverArriba() {
+        if(y_anterior == 0){
+            y_anterior = n * TAM_LINEA;
+        }
         this.recorrido.getElements().add(new MoveTo(x_anterior, y_anterior - TAM_LINEA));
         this.y_anterior = y_anterior - TAM_LINEA;
         actualizarugadorEnPantalla();
     }
 
     public void moverAbajo() {
+        if(y_anterior == n * TAM_LINEA){
+            y_anterior = 0;
+        }
         this.recorrido.getElements().add(new MoveTo(x_anterior, y_anterior + TAM_LINEA));
         this.y_anterior = y_anterior + TAM_LINEA;
         actualizarugadorEnPantalla();
     }
 
     public void moverDerecha() {
+        if(x_anterior == n * TAM_LINEA){
+            x_anterior = 0;
+        }
         this.recorrido.getElements().add(new MoveTo(x_anterior + TAM_LINEA, y_anterior));
         this.x_anterior = x_anterior + TAM_LINEA;
         actualizarugadorEnPantalla();
     }
 
     public void moverIzquierda() {
+        if(x_anterior == 0){
+            x_anterior = n * TAM_LINEA;
+        }
         this.recorrido.getElements().add(new MoveTo(x_anterior - TAM_LINEA, y_anterior));
         this.x_anterior = x_anterior - TAM_LINEA;
         actualizarugadorEnPantalla();

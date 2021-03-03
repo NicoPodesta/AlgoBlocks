@@ -45,4 +45,9 @@ public class Posicion {
     public void derecha() {
         x = x + 1;
     }
+
+    public int getX(){
+        return this.x;
+    }
+    public int getY(){return this.y;}
 }
