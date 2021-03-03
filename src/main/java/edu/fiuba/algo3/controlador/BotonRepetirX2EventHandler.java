@@ -1,8 +1,12 @@
 package edu.fiuba.algo3.controlador;
 
+import edu.fiuba.algo3.modelo.BloqueRepetir;
 import edu.fiuba.algo3.modelo.ConjuntoBloques;
+import edu.fiuba.algo3.vista.ContenedorConjuntoBloques;
 import edu.fiuba.algo3.vista.ContenedorPrincipal;
+import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 public class BotonRepetirX2EventHandler extends BotonBloqueEventHandler {
 
@@ -12,6 +16,9 @@ public class BotonRepetirX2EventHandler extends BotonBloqueEventHandler {
 
     @Override
     public void handle(MouseEvent event) {
-        //abrir ventana para generar conjuntos bloques
+        BloqueRepetir bloqueRepetir = new BloqueRepetir(2);
+        Stage stage = new Stage();
+        stage.setScene(new Scene(new ContenedorConjuntoBloques(algoritmo, bloqueRepetir),1024,668));
+        stage.show();
     }
 }

@@ -4,25 +4,19 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
-public class ContenedorAlgoritmo {
-
-    private VBox contenedor;
+public class ContenedorAlgoritmo extends VBox {
 
     public ContenedorAlgoritmo(){
-        this.contenedor = new VBox(new Label("Algoritmo Actual"));
-    }
-
-    public VBox obtenerContenedor(){
-        return contenedor;
+        super(new Label("Algoritmo Actual"));
     }
 
     public void agregar(Button button){
-        this.contenedor.getChildren().add(button);
+        this.getChildren().add(button);
     }
 
     public void removerUltimo(){
-        if(this.contenedor.getChildren().size() > 1){
-            this.contenedor.getChildren().remove(this.contenedor.getChildren().size()-1);
+        if(this.getChildren().size() > 1){
+            this.getChildren().remove(this.getChildren().size()-1);
         }
     }
 }

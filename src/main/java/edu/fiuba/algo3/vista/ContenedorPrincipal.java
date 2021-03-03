@@ -39,7 +39,7 @@ public class ContenedorPrincipal extends BorderPane {
         contenedorBotones.setPadding(new Insets(15 , 0,0,60));
         contenedorBotones.setStyle("-fx-border-color: black;-fx-border-width: 2;");
 
-        VBox contenedorAlgoritmo = this.contenedorAlgoritmo.obtenerContenedor();
+        VBox contenedorAlgoritmo = new ContenedorAlgoritmo();
         contenedorAlgoritmo.setPrefWidth(256);
         contenedorAlgoritmo.setSpacing(10);
         contenedorAlgoritmo.setPadding(new Insets(15 , 0,0,85));

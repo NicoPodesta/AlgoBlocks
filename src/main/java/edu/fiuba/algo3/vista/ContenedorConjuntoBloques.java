@@ -11,15 +11,14 @@ public class ContenedorConjuntoBloques extends BorderPane {
 
     final private ConjuntoBloques algoritmo;
     final private ContenedorBotones contenedor;
-    private  ContenedorAlgoritmo contenedorAlgoritmos;
+    private ContenedorAlgoritmo contenedorAlgoritmos;
 
-
-    public ContenedorConjuntoBloques(ConjuntoBloques algoritmo){
+    public ContenedorConjuntoBloques(ConjuntoBloques algoritmo, ConjuntoBloques conjunto){
         this.algoritmo = algoritmo;
         this.contenedor = new ContenedorBotones();
         this.contenedorAlgoritmos = new ContenedorAlgoritmo();
         this.agregarBotones(this.contenedor.crearContenedorBotones(algoritmo)); //ver para los dos de setear el tamaño correcto
-        this.agregarAlgoritmo(this.contenedorAlgoritmos.obtenerContenedor());
+        this.agregarAlgoritmo(contenedorAlgoritmos);
     }
 
     private void agregarBotones(VBox contenedorBotones){
