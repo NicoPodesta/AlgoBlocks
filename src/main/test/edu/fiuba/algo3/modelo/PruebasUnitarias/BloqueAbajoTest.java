@@ -33,4 +33,5 @@ public class BloqueAbajoTest {
         BloqueAbajo bloque = new BloqueAbajo();
         assertEquals(bloque.obtenerNombre(), "Abajo");
     }
+
 }

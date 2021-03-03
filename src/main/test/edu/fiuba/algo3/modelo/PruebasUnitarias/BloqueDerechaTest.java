@@ -32,4 +32,5 @@ public class BloqueDerechaTest {
         BloqueDerecha bloque = new BloqueDerecha();
         assertEquals(bloque.obtenerNombre(), "Derecha");
     }
+
 }

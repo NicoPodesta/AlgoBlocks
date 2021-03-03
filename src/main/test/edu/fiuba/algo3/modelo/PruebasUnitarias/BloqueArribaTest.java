@@ -32,4 +32,6 @@ public class BloqueArribaTest {
         BloqueArriba bloque = new BloqueArriba();
         assertEquals(bloque.obtenerNombre(), "Arriba");
     }
+
+
 }

@@ -75,4 +75,5 @@ public class PosicionTest {
         Posicion nuevaPosicion = new Posicion(5,5);
         assertEquals(posicion, nuevaPosicion);
     }
+
 }
