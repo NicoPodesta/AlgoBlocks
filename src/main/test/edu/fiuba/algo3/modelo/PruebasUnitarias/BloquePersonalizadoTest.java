@@ -33,12 +33,10 @@ public class BloquePersonalizadoTest {
         BloquePersonalizado personalizado = new BloquePersonalizado("Nuevo Algoritmo", algoritmo);
 
         Pizarra pizarra = new Pizarra();
-        Posicion posicion = new Posicion(0,0);
-        pizarra.pintarTrazo(posicion);
-        posicion.derecha();
-        pizarra.pintarTrazo(posicion);
-        posicion.abajo();
-        pizarra.pintarTrazo(posicion);
+        Trazo trazo1 = new Trazo( new Posicion(0,0),  new Posicion(1,0));
+        Trazo trazo2 = new Trazo( new Posicion(1,0),  new Posicion(1,1));
+        pizarra.pintarTrazo(trazo1);
+        pizarra.pintarTrazo(trazo2);
 
 
         assertEquals(personalizado.ejecutar(personaje),pizarra);
@@ -59,12 +57,10 @@ public class BloquePersonalizadoTest {
 
 
         Pizarra pizarra = new Pizarra();
-        Posicion posicion = new Posicion(0,0);
-        pizarra.pintarTrazo(posicion);
-        posicion.derecha();
-        pizarra.pintarTrazo(posicion);
-        posicion.abajo();
-        pizarra.pintarTrazo(posicion);
+        Trazo trazo1 = new Trazo( new Posicion(0,0),  new Posicion(1,0));
+        Trazo trazo2 = new Trazo( new Posicion(1,0),  new Posicion(1,1));
+        pizarra.pintarTrazo(trazo1);
+        pizarra.pintarTrazo(trazo2);
 
 
         assertEquals(personalizado.ejecutar(personaje), pizarra);
@@ -99,11 +95,8 @@ public class BloquePersonalizadoTest {
 
 
         Pizarra pizarra = new Pizarra();
-        Posicion posicion = new Posicion(0,0);
-        pizarra.pintarTrazo(posicion);
-        posicion.abajo();
-        pizarra.pintarTrazo(posicion);
-
+        Trazo trazo = new Trazo( new Posicion(0,0),  new Posicion(0,1));
+        pizarra.pintarTrazo(trazo);
 
         assertEquals(personalizado.ejecutar(personaje), pizarra);
     }
@@ -124,12 +117,10 @@ public class BloquePersonalizadoTest {
 
 
         Pizarra pizarra = new Pizarra();
-        Posicion posicion = new Posicion(0,0);
-        pizarra.pintarTrazo(posicion);
-        posicion.izquierda();
-        pizarra.pintarTrazo(posicion);
-        posicion.arriba();
-        pizarra.pintarTrazo(posicion);
+        Trazo trazo1 = new Trazo( new Posicion(0,0),  new Posicion(-1,0));
+        Trazo trazo2 = new Trazo( new Posicion(-1,0),  new Posicion(-1,-1));
+        pizarra.pintarTrazo(trazo1);
+        pizarra.pintarTrazo(trazo2);
 
         assertEquals(personalizado.ejecutarInvertido(personaje), pizarra);
     }
@@ -155,14 +146,12 @@ public class BloquePersonalizadoTest {
         personalizadoA.agregarBloque(personalizadoB);
 
         Pizarra pizarra = new Pizarra();
-        Posicion posicion = new Posicion(0,0);
-        pizarra.pintarTrazo(posicion);
-        posicion.derecha();
-        pizarra.pintarTrazo(posicion);
-        posicion.abajo();
-        pizarra.pintarTrazo(posicion);
-        posicion.derecha();
-        pizarra.pintarTrazo(posicion);
+        Trazo trazo1 = new Trazo( new Posicion(0,0),  new Posicion(1,0));
+        Trazo trazo2 = new Trazo( new Posicion(1,0),  new Posicion(1,1));
+        Trazo trazo3 = new Trazo( new Posicion(1,1),  new Posicion(2,1));
+        pizarra.pintarTrazo(trazo1);
+        pizarra.pintarTrazo(trazo2);
+        pizarra.pintarTrazo(trazo3);
 
         assertEquals(algoritmoA.ejecutar(personaje), pizarra);
     }
@@ -187,11 +176,8 @@ public class BloquePersonalizadoTest {
         personalizado.removerUltimoBloque();
 
         Pizarra pizarra = new Pizarra();
-        Posicion posicion = new Posicion(0,0);
-        pizarra.pintarTrazo(posicion);
-        posicion.derecha();
-        pizarra.pintarTrazo(posicion);
-
+        Trazo trazo = new Trazo( new Posicion(0,0),  new Posicion(1,0));
+        pizarra.pintarTrazo(trazo);
 
         assertEquals(personalizado.ejecutar(personaje), pizarra);
     }
@@ -231,4 +217,5 @@ public class BloquePersonalizadoTest {
         }
         catch (BloqueInexistenteException expected){ }
     }
+
 }
