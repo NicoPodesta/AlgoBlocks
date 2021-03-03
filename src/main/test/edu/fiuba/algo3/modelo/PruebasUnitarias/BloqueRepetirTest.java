@@ -21,21 +21,18 @@ public class BloqueRepetirTest {
         BloqueAbajo abajo = new BloqueAbajo();
         Personaje personaje = new Personaje();
         bloqueLapiz.ejecutar(personaje);
-        repeticion.agregarBloque(derecha);
         repeticion.agregarBloque(abajo);
+        repeticion.agregarBloque(derecha);
 
         Pizarra pizarra = new Pizarra();
-        Posicion posicion = new Posicion(0,0);
-        pizarra.pintarTrazo(posicion);
         for (int i = 0; i < 2; ++i){
-            posicion.derecha();
-            pizarra.pintarTrazo(posicion);
-            posicion.abajo();
-            pizarra.pintarTrazo(posicion);
+            pizarra.pintarTrazo(new Trazo(new Posicion(i,i),new Posicion(i,i+1)));
+            pizarra.pintarTrazo(new Trazo(new Posicion(i,i+1),new Posicion(i+1,i+1)));
         }
 
         assertEquals(repeticion.ejecutar(personaje),pizarra);
     }
+
 
     @Test
     public void seAgreganVariosBloquesYSeRemueven() {
@@ -61,15 +58,13 @@ public class BloqueRepetirTest {
         }
 
         Pizarra pizarra = new Pizarra();
-        Posicion posicion = new Posicion(0,0);
-        pizarra.pintarTrazo(posicion);
         for (int i = 0; i < 3; ++i) {
-            posicion.abajo();
-            pizarra.pintarTrazo(posicion);
+            pizarra.pintarTrazo(new Trazo(new Posicion(0,i),new Posicion(0,i+1)));
         }
 
         assertEquals(repeticion.ejecutar(personaje), pizarra);
     }
+
 
     @Test
     public void ejecutarInvertidoInvierteLosBloquesEItera() {
@@ -83,14 +78,10 @@ public class BloqueRepetirTest {
         repeticion.agregarBloque(abajo);
 
         Pizarra pizarra = new Pizarra();
-        Posicion posicion = new Posicion(0,0);
-        pizarra.pintarTrazo(posicion);
-        for (int i = 0; i < 2; ++i) {
-            posicion.izquierda();
-            pizarra.pintarTrazo( posicion);
-            posicion.arriba();
-            pizarra.pintarTrazo(posicion);
-        }
+        pizarra.pintarTrazo(new Trazo(new Posicion(0,0),new Posicion(-1,0)));
+        pizarra.pintarTrazo(new Trazo(new Posicion(-1,0),new Posicion(-1,-1)));
+        pizarra.pintarTrazo(new Trazo(new Posicion(-1,-1),new Posicion(-2,-1)));
+        pizarra.pintarTrazo(new Trazo(new Posicion(-2,-1),new Posicion(-2,-2)));
 
         assertEquals(repeticion.ejecutarInvertido(personaje), pizarra);
     }
@@ -98,7 +89,7 @@ public class BloqueRepetirTest {
     @Test
     public void seAnidanDosBloquesDeRepeticion() {
         BloqueRepetir repeticionI = new BloqueRepetir(2);
-        BloqueRepetir repeticionJ = new BloqueRepetir(3);
+        BloqueRepetir repeticionJ = new BloqueRepetir(2);
         BloqueLapizApoyado bloqueLapiz = new BloqueLapizApoyado();
         BloqueDerecha derecha = new BloqueDerecha();
         BloqueAbajo abajo = new BloqueAbajo();
@@ -109,16 +100,13 @@ public class BloqueRepetirTest {
         repeticionI.agregarBloque(repeticionJ);
 
         Pizarra pizarra = new Pizarra();
-        Posicion posicion = new Posicion(0,0);
-        pizarra.pintarTrazo(posicion);
-        for (int i = 0; i < 2; ++i) {
-            posicion.derecha();
-            pizarra.pintarTrazo(posicion);
-            for (int j = 0; j < 3; ++j) {
-                posicion.abajo();
-                pizarra.pintarTrazo(posicion);
-            }
-        }
+
+        pizarra.pintarTrazo(new Trazo(new Posicion(0,0),new Posicion(1,0)));
+        pizarra.pintarTrazo(new Trazo(new Posicion(1,0),new Posicion(1,1)));
+        pizarra.pintarTrazo(new Trazo(new Posicion(1,1),new Posicion(1,2)));
+        pizarra.pintarTrazo(new Trazo(new Posicion(1,2),new Posicion(2,2)));
+        pizarra.pintarTrazo(new Trazo(new Posicion(2,2),new Posicion(2,3)));
+        pizarra.pintarTrazo(new Trazo(new Posicion(2,3),new Posicion(2,4)));
 
         assertEquals(repeticionI.ejecutar(personaje), pizarra);
     }
@@ -145,12 +133,9 @@ public class BloqueRepetirTest {
         repeticion.removerUltimoBloque();
 
         Pizarra pizarra = new Pizarra();
-        Posicion posicion = new Posicion(0,0);
-        pizarra.pintarTrazo(posicion);
-        for (int i = 0; i < 3; ++i) {
-            posicion.derecha();
-            pizarra.pintarTrazo(posicion);
-        }
+        pizarra.pintarTrazo(new Trazo(new Posicion(0,0),new Posicion(1,0)));
+        pizarra.pintarTrazo(new Trazo(new Posicion(1,0),new Posicion(2,0)));
+        pizarra.pintarTrazo(new Trazo(new Posicion(2,0),new Posicion(3,0)));
 
         assertEquals(repeticion.ejecutar(personaje), pizarra);
     }
@@ -180,6 +165,5 @@ public class BloqueRepetirTest {
         }
         catch (BloqueInexistenteException expected){ }
     }
-
 
 }
