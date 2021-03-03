@@ -1,24 +1,27 @@
 package edu.fiuba.algo3.vista;
 
+import edu.fiuba.algo3.controlador.BotonTerminadoEventHandler;
 import edu.fiuba.algo3.modelo.Bloque;
 import edu.fiuba.algo3.modelo.ConjuntoBloques;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 public class ContenedorConjuntoBloques extends BorderPane {
 
-    final private ConjuntoBloques algoritmo;
-    final private ContenedorBotones contenedor;
+    private ContenedorBotones contenedor;
     private ContenedorAlgoritmo contenedorAlgoritmos;
 
-    public ContenedorConjuntoBloques(ConjuntoBloques algoritmo, ConjuntoBloques conjunto){
-        this.algoritmo = algoritmo;
+    public ContenedorConjuntoBloques(ConjuntoBloques algoritmo, ConjuntoBloques conjunto, Stage stage){
         this.contenedor = new ContenedorBotones();
         this.contenedorAlgoritmos = new ContenedorAlgoritmo();
         this.agregarBotones(this.contenedor.crearContenedorBotones(algoritmo)); //ver para los dos de setear el tamaño correcto
         this.agregarAlgoritmo(contenedorAlgoritmos);
+        Button botonTerminado = new Button("Terminado");
+        botonTerminado.setOnMouseClicked(new BotonTerminadoEventHandler(algoritmo, conjunto, stage));
+        this.setRight(botonTerminado);
     }
 
     private void agregarBotones(VBox contenedorBotones){

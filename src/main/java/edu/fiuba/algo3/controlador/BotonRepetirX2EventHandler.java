@@ -18,7 +18,7 @@ public class BotonRepetirX2EventHandler extends BotonBloqueEventHandler {
     public void handle(MouseEvent event) {
         BloqueRepetir bloqueRepetir = new BloqueRepetir(2);
         Stage stage = new Stage();
-        stage.setScene(new Scene(new ContenedorConjuntoBloques(algoritmo, bloqueRepetir),1024,668));
+        stage.setScene(new Scene(new ContenedorConjuntoBloques(algoritmo, bloqueRepetir, stage),1024,668));
         stage.show();
     }
 }

@@ -19,7 +19,7 @@ public class BotonInvertirEventHandler extends BotonBloqueEventHandler {
     public void handle(MouseEvent event) {
         BloqueInvertir bloqueinvertir = new BloqueInvertir();
         Stage stage = new Stage();
-        stage.setScene(new Scene(new ContenedorConjuntoBloques(algoritmo, bloqueinvertir),1024,668));
+        stage.setScene(new Scene(new ContenedorConjuntoBloques(algoritmo, bloqueinvertir, stage),1024,668));
         stage.show();
     }
 }
