@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.modelo.entrega2;
 
 import edu.fiuba.algo3.modelo.*;
-import jdk.jshell.PersistentSnippet;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -87,5 +86,4 @@ public class Entrega2Test {
 
         assertEquals(algoritmo.ejecutar(personaje),pizarra);
     }
-
 }
