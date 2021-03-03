@@ -27,12 +27,8 @@ public class ConjuntoBloquesTest {
         algoritmo.agregarBloque(abajo);
 
         Pizarra pizarra = new Pizarra();
-        Posicion posicion = new Posicion(0,0);
-        pizarra.pintarTrazo(posicion);
-        posicion.derecha();
-        pizarra.pintarTrazo(posicion);
-        posicion.abajo();
-        pizarra.pintarTrazo(posicion);
+        pizarra.pintarTrazo(new Trazo(new Posicion(0,0),new Posicion(1,0)));
+        pizarra.pintarTrazo(new Trazo(new Posicion(1,0),new Posicion(1,1)));
 
 
         assertEquals(algoritmo.ejecutar(personaje), pizarra);
@@ -64,10 +60,7 @@ public class ConjuntoBloquesTest {
         }
 
         Pizarra pizarra = new Pizarra();
-        Posicion posicion = new Posicion(0,0);
-        pizarra.pintarTrazo(posicion);
-        posicion.abajo();
-        pizarra.pintarTrazo(posicion);
+        pizarra.pintarTrazo(new Trazo(new Posicion(0,0),new Posicion(0,1)));
 
 
         assertEquals(algoritmo.ejecutar(personaje), pizarra);
@@ -84,7 +77,6 @@ public class ConjuntoBloquesTest {
         algoritmo.agregarBloque(bloqueLapiz);
         algoritmo.agregarBloque(derecha);
         algoritmo.agregarBloque(abajo);
-
 
         Pizarra pizarra = new Pizarra();
 
@@ -107,12 +99,8 @@ public class ConjuntoBloquesTest {
 
 
         Pizarra pizarra = new Pizarra();
-        Posicion posicion = new Posicion(0,0);
-        pizarra.pintarTrazo(posicion);
-        posicion.derecha();
-        pizarra.pintarTrazo(posicion);
-        posicion.abajo();
-        pizarra.pintarTrazo(posicion);
+        pizarra.pintarTrazo(new Trazo(new Posicion(0,0),new Posicion(1,0)));
+        pizarra.pintarTrazo(new Trazo(new Posicion(1,0),new Posicion(1,1)));
 
         assertEquals(algoritmoA.ejecutar(personaje), pizarra);
     }
@@ -151,11 +139,7 @@ public class ConjuntoBloquesTest {
         algoritmo.removerUltimoBloque();
 
         Pizarra pizarra = new Pizarra();
-        Posicion posicion = new Posicion(0,0);
-        pizarra.pintarTrazo(posicion);
-        posicion.derecha();
-        pizarra.pintarTrazo(posicion);
-
+        pizarra.pintarTrazo(new Trazo(new Posicion(0,0),new Posicion(1,0)));
 
         assertEquals(algoritmo.ejecutar(personaje), pizarra);
     }
