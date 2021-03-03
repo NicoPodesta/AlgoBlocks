@@ -25,7 +25,7 @@ public class PizarraTest {
     }
 
     @Test
-    public void losTrazosSePintanCorrectamenteNoImportaElOrden() {
+    public void loTrazosPintanCorrectamenteNoImportaElOrden() {
         Trazo trazo1 = new Trazo(new Posicion(0,0),new Posicion(4,20));
         Trazo trazo2 = new Trazo(new Posicion(1,2),new Posicion(2,22));
         Trazo trazo3 = new Trazo(new Posicion(2,3),new Posicion(4,20));
@@ -59,5 +59,20 @@ public class PizarraTest {
 
         assertEquals(pizarra1, pizarra2);
     }
+
+    @Test
+    public void laPizarraNoDistingueDireccionDeLosTrazos() {
+        Trazo trazo1 = new Trazo(new Posicion(0,0),new Posicion(1,0));
+        Trazo trazo2 = new Trazo(new Posicion(1,0),new Posicion(0,0));
+        Pizarra pizarra1 = new Pizarra();
+        Pizarra pizarra2 = new Pizarra();
+
+        pizarra1.pintarTrazo(trazo1);
+
+        pizarra2.pintarTrazo(trazo2);
+
+        assertEquals(pizarra1, pizarra2);
+    }
+
 
 }

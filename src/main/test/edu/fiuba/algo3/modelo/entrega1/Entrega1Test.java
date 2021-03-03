@@ -51,7 +51,7 @@ public class Entrega1Test {
         bloqueArriba.ejecutar(personaje);
         bloqueDerecha.ejecutar(personaje);
         Pizarra pizarra = new Pizarra();
-        assertEquals(personaje.pizarraActual(),pizarra);
+        assertEquals(bloqueDerecha.ejecutar(personaje),pizarra);
     }
 
     @Test
@@ -60,15 +60,20 @@ public class Entrega1Test {
         BloqueLapizApoyado bloque = new BloqueLapizApoyado();
         BloqueArriba bloqueArriba = new BloqueArriba();
         BloqueDerecha bloqueDerecha = new BloqueDerecha();
+
         bloque.ejecutar(personaje);
         bloqueArriba.ejecutar(personaje);
         bloqueDerecha.ejecutar(personaje);
-        bloque.ejecutar(personaje);
+
         Pizarra pizarra = new Pizarra();
-        pizarra.pintarTrazo(new Posicion(0,0));
-        pizarra.pintarTrazo(new Posicion(0,-1));
-        pizarra.pintarTrazo(new Posicion(1,-1));
-        assertEquals(personaje.pizarraActual(), pizarra);
+        Trazo trazo1 = new Trazo( new Posicion(0,0), new Posicion(0,-1));
+        Trazo trazo2 = new Trazo( new Posicion(0,-1), new Posicion(1,-1));
+        Trazo trazo3 = new Trazo( new Posicion(1,-1), new Posicion(2,-1));
+        pizarra.pintarTrazo(trazo1);
+        pizarra.pintarTrazo(trazo2);
+        pizarra.pintarTrazo(trazo3);
+
+        assertEquals(bloqueDerecha.ejecutar(personaje), pizarra);
     }
 
     @Test
@@ -79,16 +84,17 @@ public class Entrega1Test {
         BloqueAbajo bloqueAbajo = new BloqueAbajo();
         BloqueDerecha bloqueDerecha = new BloqueDerecha();
         bloqueAbajo.ejecutar(personaje);
-        bloqueDerecha.ejecutar(personaje);
 
-        assertEquals(personaje.pizarraActual(), pizarra);
+        assertEquals(bloqueDerecha.ejecutar(personaje), pizarra);
 
         BloqueLapizApoyado bloqueApoyado = new BloqueLapizApoyado();
         bloqueApoyado.ejecutar(personaje);
-        bloqueDerecha.ejecutar(personaje);
-        pizarra.pintarTrazo(new Posicion(1, 1));
-        pizarra.pintarTrazo(new Posicion(2,1));
 
-        assertEquals(personaje.pizarraActual(), pizarra);
+        Trazo trazo = new Trazo(new Posicion(1,1) , new Posicion(2,1));
+        pizarra.pintarTrazo(trazo);
+
+        assertEquals(bloqueDerecha.ejecutar(personaje), pizarra);
     }
+
+
 }
