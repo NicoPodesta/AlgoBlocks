@@ -39,4 +39,5 @@ public class PersonajeTest {
         Posicion coordenadas = new Posicion(0,1);
         assertEquals(personaje.posicionActual(), coordenadas);
     }
+
 }
