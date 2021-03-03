@@ -17,8 +17,11 @@ public class Trazo {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Trazo trazo = (Trazo) o;
-        return (Objects.equals(posicionA, trazo.posicionA) && Objects.equals(posicionB, trazo.posicionB))
-                || (Objects.equals(posicionA, trazo.posicionB) && Objects.equals(posicionB, trazo.posicionA));
+        boolean posicionesIgualesMismoSentido = Objects.equals(posicionA, trazo.posicionA) &&
+                Objects.equals(posicionB, trazo.posicionB);
+        boolean posicionesIgualesDistintoSentido = Objects.equals(posicionA, trazo.posicionB) &&
+                Objects.equals(posicionB, trazo.posicionA);
+        return posicionesIgualesMismoSentido || posicionesIgualesDistintoSentido;
     }
 
     @Override
