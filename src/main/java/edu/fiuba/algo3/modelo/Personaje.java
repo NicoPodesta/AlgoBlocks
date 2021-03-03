@@ -28,35 +28,39 @@ public class Personaje implements Observable {
     public Pizarra apoyarLapiz() {
         lapiz = new LapizApoyado();
         notifyObserver("apoyarLapiz");
-        return actualizarPizarra();
+        return pizarra;
     }
 
     public Pizarra moverHaciaArriba() {
+        Posicion posicionAnterior = new Posicion(posicion);
         posicion.arriba();
         notifyObserver("arriba");
-        return actualizarPizarra();
+        return actualizarPizarra(new Trazo(posicionAnterior, new Posicion(posicion)));
     }
 
     public Pizarra moverHaciaAbajo() {
+        Posicion posicionAnterior = new Posicion(posicion);
         posicion.abajo();
         notifyObserver("abajo");
-        return actualizarPizarra();
+        return actualizarPizarra(new Trazo(posicionAnterior, new Posicion(posicion)));
     }
 
     public Pizarra moverHaciaLaIzquierda() {
+        Posicion posicionAnterior = new Posicion(posicion);
         posicion.izquierda();
         notifyObserver("izquierda");
-        return actualizarPizarra();
+        return actualizarPizarra(new Trazo(posicionAnterior, new Posicion(posicion)));
     }
 
     public Pizarra moverHaciaLaDerecha() {
+        Posicion posicionAnterior = new Posicion(posicion);
         posicion.derecha();
         notifyObserver("derecha");
-        return actualizarPizarra();
+        return actualizarPizarra(new Trazo(posicionAnterior, new Posicion(posicion)));
     }
 
-    private Pizarra actualizarPizarra() {
-        lapiz.pintar(posicion, pizarra);
+    private Pizarra actualizarPizarra(Trazo trazo) {
+        lapiz.pintar(trazo, pizarra);
         return pizarra;
     }
 

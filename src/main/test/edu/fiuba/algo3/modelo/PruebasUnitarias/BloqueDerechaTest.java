@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.modelo.PruebasUnitarias;
 
-import edu.fiuba.algo3.modelo.BloqueAbajo;
 import edu.fiuba.algo3.modelo.BloqueDerecha;
 import edu.fiuba.algo3.modelo.Personaje;
 import edu.fiuba.algo3.modelo.Posicion;

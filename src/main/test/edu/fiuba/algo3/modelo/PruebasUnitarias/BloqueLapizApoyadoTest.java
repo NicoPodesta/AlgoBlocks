@@ -15,7 +15,7 @@ public class BloqueLapizApoyadoTest {
         bloqueDerecha.ejecutar(personaje);
         Pizarra pizarra = new Pizarra();
         Posicion posicion = new Posicion(1,0);
-        pizarra.pintarPosicion(posicion);
+        pizarra.pintarTrazo(posicion);
         assertEquals(bloqueLapiz.ejecutar(personaje), pizarra);
     }
 

@@ -65,9 +65,9 @@ public class Entrega1Test {
         bloqueDerecha.ejecutar(personaje);
         bloque.ejecutar(personaje);
         Pizarra pizarra = new Pizarra();
-        pizarra.pintarPosicion(new Posicion(0,0));
-        pizarra.pintarPosicion(new Posicion(0,-1));
-        pizarra.pintarPosicion(new Posicion(1,-1));
+        pizarra.pintarTrazo(new Posicion(0,0));
+        pizarra.pintarTrazo(new Posicion(0,-1));
+        pizarra.pintarTrazo(new Posicion(1,-1));
         assertEquals(personaje.pizarraActual(), pizarra);
     }
 
@@ -86,8 +86,8 @@ public class Entrega1Test {
         BloqueLapizApoyado bloqueApoyado = new BloqueLapizApoyado();
         bloqueApoyado.ejecutar(personaje);
         bloqueDerecha.ejecutar(personaje);
-        pizarra.pintarPosicion(new Posicion(1, 1));
-        pizarra.pintarPosicion(new Posicion(2,1));
+        pizarra.pintarTrazo(new Posicion(1, 1));
+        pizarra.pintarTrazo(new Posicion(2,1));
 
         assertEquals(personaje.pizarraActual(), pizarra);
     }

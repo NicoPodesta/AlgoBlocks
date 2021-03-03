@@ -3,7 +3,6 @@ package edu.fiuba.algo3.vista;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.LineTo;
 import javafx.scene.shape.Path;
 
 public class Dibujador {

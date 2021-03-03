@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.PruebasUnitarias;
 import edu.fiuba.algo3.modelo.LapizLevantado;
 import edu.fiuba.algo3.modelo.Pizarra;
 import edu.fiuba.algo3.modelo.Posicion;
+import edu.fiuba.algo3.modelo.Trazo;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -12,9 +13,9 @@ public class LapizLevantadoTest {
     @Test
     public void elLapizLevantadoNoPintaSobreLaPizarra() {
         LapizLevantado lapiz = new LapizLevantado();
-        Posicion posicion = new Posicion(1,1);
+        Trazo trazo = new Trazo(new Posicion(0,0), new Posicion(1,0));
         Pizarra pizarra1 = new Pizarra();
-        lapiz.pintar(posicion, pizarra1);
+        lapiz.pintar(trazo, pizarra1);
 
         Pizarra pizarra2 = new Pizarra();
 

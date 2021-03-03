@@ -28,11 +28,11 @@ public class ConjuntoBloquesTest {
 
         Pizarra pizarra = new Pizarra();
         Posicion posicion = new Posicion(0,0);
-        pizarra.pintarPosicion(posicion);
+        pizarra.pintarTrazo(posicion);
         posicion.derecha();
-        pizarra.pintarPosicion(posicion);
+        pizarra.pintarTrazo(posicion);
         posicion.abajo();
-        pizarra.pintarPosicion(posicion);
+        pizarra.pintarTrazo(posicion);
 
 
         assertEquals(algoritmo.ejecutar(personaje), pizarra);
@@ -65,9 +65,9 @@ public class ConjuntoBloquesTest {
 
         Pizarra pizarra = new Pizarra();
         Posicion posicion = new Posicion(0,0);
-        pizarra.pintarPosicion(posicion);
+        pizarra.pintarTrazo(posicion);
         posicion.abajo();
-        pizarra.pintarPosicion(posicion);
+        pizarra.pintarTrazo(posicion);
 
 
         assertEquals(algoritmo.ejecutar(personaje), pizarra);
@@ -108,11 +108,11 @@ public class ConjuntoBloquesTest {
 
         Pizarra pizarra = new Pizarra();
         Posicion posicion = new Posicion(0,0);
-        pizarra.pintarPosicion(posicion);
+        pizarra.pintarTrazo(posicion);
         posicion.derecha();
-        pizarra.pintarPosicion(posicion);
+        pizarra.pintarTrazo(posicion);
         posicion.abajo();
-        pizarra.pintarPosicion(posicion);
+        pizarra.pintarTrazo(posicion);
 
         assertEquals(algoritmoA.ejecutar(personaje), pizarra);
     }
@@ -152,9 +152,9 @@ public class ConjuntoBloquesTest {
 
         Pizarra pizarra = new Pizarra();
         Posicion posicion = new Posicion(0,0);
-        pizarra.pintarPosicion(posicion);
+        pizarra.pintarTrazo(posicion);
         posicion.derecha();
-        pizarra.pintarPosicion(posicion);
+        pizarra.pintarTrazo(posicion);
 
 
         assertEquals(algoritmo.ejecutar(personaje), pizarra);

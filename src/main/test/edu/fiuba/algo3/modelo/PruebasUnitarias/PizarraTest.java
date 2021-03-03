@@ -15,11 +15,11 @@ public class PizarraTest {
         Pizarra pizarra1 = new Pizarra();
         Pizarra pizarra2 = new Pizarra();
 
-        pizarra1.pintarPosicion(posicion1);
-        pizarra1.pintarPosicion(posicion2);
+        pizarra1.pintarTrazo(posicion1);
+        pizarra1.pintarTrazo(posicion2);
 
-        pizarra2.pintarPosicion(posicion1);
-        pizarra2.pintarPosicion(posicion2);
+        pizarra2.pintarTrazo(posicion1);
+        pizarra2.pintarTrazo(posicion2);
 
         assertEquals(pizarra1, pizarra2);
     }
@@ -32,13 +32,13 @@ public class PizarraTest {
         Pizarra pizarra1 = new Pizarra();
         Pizarra pizarra2 = new Pizarra();
 
-        pizarra1.pintarPosicion(posicion3);
-        pizarra1.pintarPosicion(posicion2);
-        pizarra1.pintarPosicion(posicion1);
+        pizarra1.pintarTrazo(posicion3);
+        pizarra1.pintarTrazo(posicion2);
+        pizarra1.pintarTrazo(posicion1);
 
-        pizarra2.pintarPosicion(posicion1);
-        pizarra2.pintarPosicion(posicion3);
-        pizarra2.pintarPosicion(posicion2);
+        pizarra2.pintarTrazo(posicion1);
+        pizarra2.pintarTrazo(posicion3);
+        pizarra2.pintarTrazo(posicion2);
 
         assertEquals(pizarra1, pizarra2);
     }
@@ -49,12 +49,12 @@ public class PizarraTest {
         Pizarra pizarra1 = new Pizarra();
         Pizarra pizarra2 = new Pizarra();
 
-        pizarra1.pintarPosicion(posicion1);
+        pizarra1.pintarTrazo(posicion1);
 
-        pizarra2.pintarPosicion(posicion1);
-        pizarra2.pintarPosicion(posicion1);
-        pizarra2.pintarPosicion(posicion1);
-        pizarra2.pintarPosicion(posicion1);
+        pizarra2.pintarTrazo(posicion1);
+        pizarra2.pintarTrazo(posicion1);
+        pizarra2.pintarTrazo(posicion1);
+        pizarra2.pintarTrazo(posicion1);
 
 
         assertEquals(pizarra1, pizarra2);

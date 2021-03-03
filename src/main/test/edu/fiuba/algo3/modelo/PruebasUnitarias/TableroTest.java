@@ -110,10 +110,10 @@ public class TableroTest {
         }
 
         Pizarra pizarraFinal = new Pizarra();
-        pizarraFinal.pintarPosicion(new Posicion(0,0));
-        pizarraFinal.pintarPosicion(new Posicion(0,1));
-        pizarraFinal.pintarPosicion(new Posicion(0,2));
-        pizarraFinal.pintarPosicion(new Posicion(1,2));
+        pizarraFinal.pintarTrazo(new Posicion(0,0));
+        pizarraFinal.pintarTrazo(new Posicion(0,1));
+        pizarraFinal.pintarTrazo(new Posicion(0,2));
+        pizarraFinal.pintarTrazo(new Posicion(1,2));
 
         try {
             tablero.agregarBloqueAlAlgoritmo(tablero.obtenerBloquePersonalizado("Letra L"));

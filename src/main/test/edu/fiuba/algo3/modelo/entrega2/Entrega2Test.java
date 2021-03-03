@@ -30,9 +30,9 @@ public class Entrega2Test {
         tablero.agregarBloqueAlAlgoritmo(new BloqueAbajo());
         tablero.agregarBloqueAlAlgoritmo(new BloqueDerecha());
         Pizarra pizarra = new Pizarra();
-        pizarra.pintarPosicion(new Posicion(0,0));
-        pizarra.pintarPosicion(new Posicion(0,1));
-        pizarra.pintarPosicion(new Posicion(1,1));
+        pizarra.pintarTrazo(new Posicion(0,0));
+        pizarra.pintarTrazo(new Posicion(0,1));
+        pizarra.pintarTrazo(new Posicion(1,1));
         assertEquals(tablero.ejecutarAlgoritmo(),pizarra);
     }
 
@@ -45,9 +45,9 @@ public class Entrega2Test {
         tablero.agregarBloqueAlAlgoritmo(bloqueApoyarLapiz);
         tablero.agregarBloqueAlAlgoritmo(bloqueRepeticion);
         Pizarra pizarra = new Pizarra();
-        pizarra.pintarPosicion(new Posicion(0,0));
-        pizarra.pintarPosicion(new Posicion(1,0));
-        pizarra.pintarPosicion(new Posicion(2,0));
+        pizarra.pintarTrazo(new Posicion(0,0));
+        pizarra.pintarTrazo(new Posicion(1,0));
+        pizarra.pintarTrazo(new Posicion(2,0));
         assertEquals(tablero.ejecutarAlgoritmo(),pizarra);
     }
 
@@ -61,13 +61,13 @@ public class Entrega2Test {
         tablero.agregarBloqueAlAlgoritmo(bloqueApoyarLapiz);
         tablero.agregarBloqueAlAlgoritmo(bloqueRepeticion);
         Pizarra pizarra = new Pizarra();
-        pizarra.pintarPosicion(new Posicion(0,0));
-        pizarra.pintarPosicion(new Posicion(0,1));
-        pizarra.pintarPosicion(new Posicion(1,1));
-        pizarra.pintarPosicion(new Posicion(1,2));
-        pizarra.pintarPosicion(new Posicion(2,2));
-        pizarra.pintarPosicion(new Posicion(2,3));
-        pizarra.pintarPosicion(new Posicion(3,3));
+        pizarra.pintarTrazo(new Posicion(0,0));
+        pizarra.pintarTrazo(new Posicion(0,1));
+        pizarra.pintarTrazo(new Posicion(1,1));
+        pizarra.pintarTrazo(new Posicion(1,2));
+        pizarra.pintarTrazo(new Posicion(2,2));
+        pizarra.pintarTrazo(new Posicion(2,3));
+        pizarra.pintarTrazo(new Posicion(3,3));
         assertEquals(tablero.ejecutarAlgoritmo(),pizarra);
     }
 }

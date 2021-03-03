@@ -24,7 +24,7 @@ public class Pizarra {
         trazosPintados = new HashSet<>();
     }
 
-    public void pintarPosicion(Trazo trazo) {
+    public void pintarTrazo(Trazo trazo) {
         trazosPintados.add(trazo);
     }
 }
