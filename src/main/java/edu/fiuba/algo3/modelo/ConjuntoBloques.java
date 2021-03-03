@@ -1,7 +1,8 @@
 package edu.fiuba.algo3.modelo;
 
-import java.util.ArrayList;
 import edu.fiuba.algo3.vista.Observer;
+
+import java.util.ArrayList;
 
 
 public class ConjuntoBloques implements Bloque, Observable {

@@ -2,7 +2,6 @@ package edu.fiuba.algo3.controlador;
 
 import edu.fiuba.algo3.modelo.ConjuntoBloques;
 import edu.fiuba.algo3.modelo.Personaje;
-import edu.fiuba.algo3.vista.ContenedorPrincipal;
 import edu.fiuba.algo3.vista.Dibujador;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;

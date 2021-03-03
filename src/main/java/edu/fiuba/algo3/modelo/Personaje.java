@@ -1,10 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.vista.Observer;
 import edu.fiuba.algo3.vista.VistaPersonaje;
 import edu.fiuba.algo3.vista.VistaPizarra;
-
-import java.util.ArrayList;
 
 public class Personaje {
 

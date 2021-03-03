@@ -1,8 +1,5 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.vista.Observer;
-
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Objects;
 
