@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.vista;
 
-public class VistaPersonaje implements Observer{
+public class VistaPersonaje implements Observer {
 
     private Dibujador dibujador;
 

@@ -10,5 +10,4 @@ public interface VistaLapiz {
     void dibujarDerecha();
     void dibujarIzquierda();
     void actualizarXeYPrevios();
-
 }
