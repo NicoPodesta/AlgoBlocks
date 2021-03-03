@@ -12,6 +12,14 @@ public class Trazo {
         this.posicionB = posicionB;
     }
 
+    public Posicion getPosicionA() {
+        return posicionA;
+    }
+
+    public Posicion getPosicionB() {
+        return posicionB;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

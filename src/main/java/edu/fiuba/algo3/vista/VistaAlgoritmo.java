@@ -13,6 +13,7 @@ public class VistaAlgoritmo implements Observer{
         this.contenedor = contenedor;
     }
 
+    @Override
     public void update(){
         try {
             this.contenedor.agregarNombreBloque(this.algoritmo.obtenerUltimoBloque());

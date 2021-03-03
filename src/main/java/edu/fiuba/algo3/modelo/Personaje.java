@@ -62,6 +62,14 @@ public class Personaje implements Observable {
         return pizarra;
     }
 
+    public Pizarra obtenerPizarra(){
+        return pizarra;
+    }
+
+    public void agregarObserverALaPizarra(Observer observer){
+        this.pizarra.addObserver(observer);
+    }
+
     public Posicion posicionActual() {
         return posicion;
     }

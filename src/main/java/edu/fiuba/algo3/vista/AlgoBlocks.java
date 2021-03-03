@@ -14,6 +14,7 @@ public class AlgoBlocks extends Application{
     private VistaPersonaje vistaPersonaje;
     private VistaAlgoritmo vistaAlgoritmo;
     private ContenedorPrincipal contenedorPrincipal;
+    private VistaPizarra vistaPizarra;
 
     @Override
     public void start(Stage stage) {
@@ -27,6 +28,9 @@ public class AlgoBlocks extends Application{
 
         vistaPersonaje = new VistaPersonaje(dibujador, personaje);
         personaje.addObserver(vistaPersonaje);
+
+        vistaPizarra = new VistaPizarra(personaje.obtenerPizarra(), dibujador);
+        personaje.agregarObserverALaPizarra(vistaPizarra);
 
         vistaAlgoritmo = new VistaAlgoritmo(algoritmo, contenedorPrincipal);
         algoritmo.addObserver(vistaAlgoritmo);

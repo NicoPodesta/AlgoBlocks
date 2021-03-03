@@ -31,7 +31,14 @@ public class Pizarra implements Observable {
 
     public void pintarTrazo(Trazo trazo) {
         trazosPintados.add(trazo);
+        notifyObserver();
     }
+
+    public HashSet<Trazo> obtenerTrazos(){
+        return trazosPintados;
+    }
+
+
 
     @Override
     public void addObserver(Observer observer) {
@@ -40,6 +47,6 @@ public class Pizarra implements Observable {
 
     @Override
     public void notifyObserver() {
-        observers.forEach(observer -> observer.update());
+        observers.forEach(Observer::update);
     }
 }
