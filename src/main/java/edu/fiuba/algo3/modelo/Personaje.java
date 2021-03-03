@@ -68,9 +68,6 @@ public class Personaje implements Observable {
         return posicion;
     }
 
-    public Pizarra pizarraActual() {
-        return pizarra;
-    }
 
     @Override
     public void addObserver(Observer observer) {

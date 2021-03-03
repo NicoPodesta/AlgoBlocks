@@ -27,12 +27,10 @@ public class BloqueInvertirTest {
         invertir.agregarBloque(abajo);
 
         Pizarra pizarra = new Pizarra();
-        Posicion posicion = new Posicion(0,0);
-        pizarra.pintarTrazo(posicion);
-        posicion.izquierda();
-        pizarra.pintarTrazo(posicion);
-        posicion.arriba();
-        pizarra.pintarTrazo(posicion);
+        Trazo trazo1 = new Trazo( new Posicion(0,0),  new Posicion(-1,0));
+        Trazo trazo2 = new Trazo( new Posicion(-1,0),  new Posicion(-1,-1));
+        pizarra.pintarTrazo(trazo1);
+        pizarra.pintarTrazo(trazo2);
 
 
         assertEquals(invertir.ejecutar(personaje), pizarra);
@@ -52,12 +50,10 @@ public class BloqueInvertirTest {
 
 
         Pizarra pizarra = new Pizarra();
-        Posicion posicion = new Posicion(0,0);
-        pizarra.pintarTrazo(posicion);
-        posicion.derecha();
-        pizarra.pintarTrazo(posicion);
-        posicion.abajo();
-        pizarra.pintarTrazo(posicion);
+        Trazo trazo1 = new Trazo( new Posicion(0,0),  new Posicion(1,0));
+        Trazo trazo2 = new Trazo( new Posicion(1,0),  new Posicion(1,1));
+        pizarra.pintarTrazo(trazo1);
+        pizarra.pintarTrazo(trazo2);
 
         assertEquals(invertir.ejecutarInvertido(personaje), pizarra);
     }
@@ -78,12 +74,10 @@ public class BloqueInvertirTest {
 
 
         Pizarra pizarra = new Pizarra();
-        Posicion posicion = new Posicion(0,0);
-        pizarra.pintarTrazo(posicion);
-        posicion.derecha();
-        pizarra.pintarTrazo(posicion);
-        posicion.abajo();
-        pizarra.pintarTrazo(posicion);
+        Trazo trazo1 = new Trazo( new Posicion(0,0),  new Posicion(1,0));
+        Trazo trazo2 = new Trazo( new Posicion(1,0),  new Posicion(1,1));
+        pizarra.pintarTrazo(trazo1);
+        pizarra.pintarTrazo(trazo2);
 
         assertEquals(invertirA.ejecutar(personaje), pizarra);
     }
@@ -111,11 +105,8 @@ public class BloqueInvertirTest {
         invertir.removerUltimoBloque();
 
         Pizarra pizarra = new Pizarra();
-        Posicion posicion = new Posicion(0,0);
-        pizarra.pintarTrazo(posicion);
-        posicion.izquierda();
-        pizarra.pintarTrazo(posicion);
-
+        Trazo trazo = new Trazo( new Posicion(0,0),  new Posicion(-1,0));
+        pizarra.pintarTrazo(trazo);
 
         assertEquals(invertir.ejecutar(personaje), pizarra);
     }
