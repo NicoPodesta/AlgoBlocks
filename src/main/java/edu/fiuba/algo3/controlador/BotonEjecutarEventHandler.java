@@ -6,8 +6,10 @@ import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
 public class BotonEjecutarEventHandler implements EventHandler<MouseEvent> {
-    ConjuntoBloques algoritmo;
-    Personaje personaje;
+
+    private ConjuntoBloques algoritmo;
+    private Personaje personaje;
+
     public BotonEjecutarEventHandler(ConjuntoBloques algoritmo, Personaje personaje) {
         this.algoritmo = algoritmo;
         this.personaje = personaje;
