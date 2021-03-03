@@ -2,7 +2,11 @@ package edu.fiuba.algo3.controlador;
 
 import edu.fiuba.algo3.modelo.BloquePersonalizado;
 import edu.fiuba.algo3.modelo.ConjuntoBloques;
+import edu.fiuba.algo3.vista.ContenedorBloquePersonalizado;
+import edu.fiuba.algo3.vista.ContenedorGuardarAlgoritmo;
+import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 import java.util.ArrayList;
 
@@ -18,6 +22,9 @@ public class BotonPersonalizadoEventHandler extends BotonBloqueEventHandler {
 
     @Override
     public void handle(MouseEvent event) {
-        //abrir ventana para seleccionar bloques personalizados
+        Stage stage = new Stage();
+        stage.setScene(new Scene(new ContenedorBloquePersonalizado(algoritmo, bloquesPersonalizados, stage),
+                1024,668));
+        stage.show();
     }
 }
