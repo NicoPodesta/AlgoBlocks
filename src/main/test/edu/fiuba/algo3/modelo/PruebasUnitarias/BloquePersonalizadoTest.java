@@ -194,12 +194,10 @@ public class BloquePersonalizadoTest {
     public void quitarUltimoBloqueABloqueVacioNoHaceNada() {
         ConjuntoBloques algoritmo = new ConjuntoBloques();
         BloquePersonalizado personalizado = new BloquePersonalizado("Nuevo Algoritmo", algoritmo);
-        try {
+
+        assertThrows(AlgoritmoVacioException.class, () -> {
             personalizado.removerUltimoBloque();
-        }catch (AlgoritmoVacioException o){
-            fail();
-        };
-        assertTrue(personalizado.estaVacio());
+        });
     }
 
     @Test

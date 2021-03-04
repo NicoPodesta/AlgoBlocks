@@ -154,13 +154,9 @@ public class ConjuntoBloquesTest {
 
     @Test
     public void quitarUltimoBloqueABloqueVacioNoHaceNada() {
-        ConjuntoBloques algoritmo = new ConjuntoBloques();
-        try {
-            algoritmo.removerUltimoBloque();
-        }catch (AlgoritmoVacioException o){
-            fail();
-        }
-        assertTrue(algoritmo.estaVacio());
+        assertThrows(AlgoritmoVacioException.class, () -> {
+            new ConjuntoBloques().removerUltimoBloque();
+        });
     }
 
     @Test

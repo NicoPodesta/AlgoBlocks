@@ -122,13 +122,9 @@ public class BloqueInvertirTest {
 
     @Test
     public void quitarUltimoBloqueABloqueVacioNoHaceNada() {
-        BloqueInvertir invertir = new BloqueInvertir();
-        try {
-            invertir.removerUltimoBloque();
-        }catch (AlgoritmoVacioException o){
-            fail();
-        }
-        assertTrue(invertir.estaVacio());
+        assertThrows(AlgoritmoVacioException.class, () -> {
+            new BloqueInvertir().removerUltimoBloque();
+        });
     }
 
     @Test

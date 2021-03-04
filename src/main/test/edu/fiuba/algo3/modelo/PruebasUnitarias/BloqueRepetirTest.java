@@ -118,13 +118,9 @@ public class BloqueRepetirTest {
 
     @Test
     public void quitarUltimoBloqueABloqueVacioNoHaceNada() {
-        BloqueRepetir repeticion = new BloqueRepetir(3);
-        try {
-            repeticion.removerUltimoBloque();
-        }catch (AlgoritmoVacioException o){
-            fail();
-        }
-        assertTrue(repeticion.estaVacio());
+        assertThrows(AlgoritmoVacioException.class, () -> {
+            new BloqueRepetir(3).removerUltimoBloque();
+        });
     }
 
     @Test
