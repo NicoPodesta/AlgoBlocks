@@ -36,4 +36,8 @@ public class Trazo {
     public int hashCode() {
         return Objects.hash(posicionA, posicionB);
     }
+
+    public boolean estaDesfasado() {
+        return (posicionA.getX() - posicionB.getX() == 0) || (posicionA.getY() - posicionB.getY() == 0);
+    }
 }

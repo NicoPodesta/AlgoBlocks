@@ -4,6 +4,8 @@ import java.util.Objects;
 
 public class Posicion {
 
+    private final int NMAX = 5;
+
     private int x;
     private int y;
 
@@ -31,23 +33,42 @@ public class Posicion {
     }
 
     public void arriba() {
-        y = y - 1;
+        if(y == -NMAX) {
+            y = NMAX;
+        } else {
+            y = y - 1;
+        }
     }
 
     public void abajo() {
-        y = y + 1;
+        if(y == NMAX) {
+            y = -NMAX;
+        } else {
+            y = y + 1;
+        }
     }
 
     public void izquierda() {
-        x = x - 1;
+        if(x == -NMAX) {
+            x = NMAX;
+        } else {
+            x = x - 1;
+        }
     }
 
     public void derecha() {
-        x = x + 1;
+        if(x == NMAX) {
+            x = -NMAX;
+        } else {
+            x = x + 1;
+        }
     }
 
-    public int getX(){
-        return this.x;
+    public int getX() {
+        return x;
     }
-    public int getY(){return this.y;}
+
+    public int getY() {
+        return y;
+    }
 }

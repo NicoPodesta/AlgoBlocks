@@ -56,9 +56,11 @@ public class VistaPizarra implements Observer {
             int yPosA = posInicial + TAM_LINEA * trazo.getPosicionA().getY();
             int xPosB = posInicial + TAM_LINEA * trazo.getPosicionB().getX();
             int yPosB = posInicial + TAM_LINEA * trazo.getPosicionB().getY();
-            recorrido.getElements().add(new MoveTo(xPosA, yPosA));
+            if(!trazo.estaDesfasado()) {
+                recorrido.getElements().add(new MoveTo(xPosA, yPosA));
+                recorrido.getElements().add(new LineTo(xPosB, yPosB));
+            }
             dibujarCirculo(xPosA, yPosA);
-            recorrido.getElements().add(new LineTo(xPosB, yPosB));
             dibujarCirculo(xPosB, yPosB);
         }
     }
