@@ -1,16 +1,13 @@
 package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.controlador.BotonAgregarEventHandler;
-import edu.fiuba.algo3.modelo.BloquePersonalizado;
 import edu.fiuba.algo3.modelo.ConjuntoBloques;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
-import java.util.ArrayList;
 
 public class ContenedorGuardarAlgoritmo extends GridPane {
 

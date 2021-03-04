@@ -5,12 +5,8 @@ import edu.fiuba.algo3.modelo.BloquePersonalizado;
 import edu.fiuba.algo3.modelo.ConjuntoBloques;
 import edu.fiuba.algo3.vista.ContenedorBotones;
 import javafx.event.EventHandler;
-import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
-
-import java.util.ArrayList;
 
 public class BotonAgregarEventHandler implements EventHandler<MouseEvent> {
 
