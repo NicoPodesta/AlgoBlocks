@@ -26,8 +26,7 @@ public class BotonAgregarEventHandler implements EventHandler<MouseEvent> {
 
     @Override
     public void handle(MouseEvent event) {
-        BloquePersonalizado bloque = new BloquePersonalizado(texto.getText(), algoritmo);
-        bloquesPersonalizados.add(bloque);
+        bloquesPersonalizados.add(new BloquePersonalizado(texto.getText(), algoritmo));
         stage.close();
     }
 }
