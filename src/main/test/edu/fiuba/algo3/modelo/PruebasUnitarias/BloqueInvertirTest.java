@@ -140,14 +140,72 @@ public class BloqueInvertirTest {
         assertTrue(invertir.estaVacio());
     }
 
-    /*@Test
-    public void seRemueveBloqueInexistenteYSeLanzaExcepcionCorrecta() {
+    @Test
+    public void seAgreganVariosBloquesYSeObtieneElUltimoCorrectamente() {
+        BloqueInvertir invertir = new BloqueInvertir();
+        BloqueLapizApoyado bloqueLapiz = new BloqueLapizApoyado();
+        BloqueDerecha derecha = new BloqueDerecha();
+        BloqueAbajo abajo = new BloqueAbajo();
+
+        invertir.agregarBloque(bloqueLapiz);
+        invertir.agregarBloque(derecha);
+        invertir.agregarBloque(abajo);
+
         try {
-            BloqueInvertir invertir = new BloqueInvertir();
-            BloqueDerecha derecha = new BloqueDerecha();
-            invertir.removerBloque(derecha);
+            Bloque bloque = invertir.obtenerUltimoBloque();
+            assertEquals(bloque,abajo);
+        }catch (AlgoritmoVacioException o){
+            fail();
         }
-        catch (BloqueInexistenteException expected){ }
-    }*/
+
+    }
+
+    @Test
+    public void seObtieneUltimoBloqueDeAlgoritmoVacioYSeLanzaExcepcion() {
+        assertThrows(AlgoritmoVacioException.class, () -> {
+            new BloqueInvertir().obtenerUltimoBloque();
+        });
+    }
+
+    @Test
+    public void seAgreganVariosBloquesYSeEliminanTodos() {
+        BloqueInvertir invertir = new BloqueInvertir();
+        BloqueLapizApoyado bloqueLapiz = new BloqueLapizApoyado();
+        BloqueDerecha derecha = new BloqueDerecha();
+        BloqueAbajo abajo = new BloqueAbajo();
+
+        invertir.agregarBloque(bloqueLapiz);
+        invertir.agregarBloque(derecha);
+        invertir.agregarBloque(abajo);
+
+        invertir.removerAlgoritmo();
+        assertTrue(invertir.estaVacio());
+    }
+
+    @Test
+    public void removuevoTodosLosBloqueDeUnConjuntoVacio() {
+        BloqueInvertir invertir = new BloqueInvertir();
+        invertir.removerAlgoritmo();
+        assertTrue(invertir.estaVacio());
+    }
+
+    @Test
+    public void seClonaUnConjunto() {
+        BloqueInvertir invertir = new BloqueInvertir();
+        BloqueLapizApoyado bloqueLapiz = new BloqueLapizApoyado();
+        BloqueDerecha derecha = new BloqueDerecha();
+        BloqueAbajo abajo = new BloqueAbajo();
+        Personaje personaje1 = new Personaje();
+        Personaje personaje2 = new Personaje();
+
+        invertir.agregarBloque(bloqueLapiz);
+        invertir.agregarBloque(derecha);
+        invertir.agregarBloque(abajo);
+
+        invertir.removerAlgoritmo();
+        ConjuntoBloques nuevoConjunto = new ConjuntoBloques();
+        invertir.clonar(nuevoConjunto);
+        assertEquals(invertir.ejecutar(personaje1),nuevoConjunto.ejecutar(personaje2));
+    }
 
 }
