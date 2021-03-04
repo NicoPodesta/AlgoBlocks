@@ -2,7 +2,6 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.modelo.BloquePersonalizado;
 import edu.fiuba.algo3.modelo.ConjuntoBloques;
-import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 

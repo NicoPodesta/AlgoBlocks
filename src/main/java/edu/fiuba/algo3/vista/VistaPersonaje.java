@@ -1,39 +1,39 @@
 package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.modelo.Personaje;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
+import java.util.concurrent.TimeUnit;
 
 public class VistaPersonaje implements Observer {
 
-    private Dibujador dibujador;
     private Personaje personaje;
+    private ImageView playerImage;
 
-    private int xAnterior;
-    private int yAnterior;
+    private final int n = 10; //Numero de posibles segmentos
+    private final int TAM_LINEA = 51; //Tamaño de cada linea
+    private final int posInicialX = (n * TAM_LINEA)/2 - 64;
+    private final int posInicialY = (n * TAM_LINEA)/2 - 32;
 
-    public VistaPersonaje(Dibujador dibujador, Personaje personaje){
-        this.dibujador = dibujador;
+    public VistaPersonaje(Personaje personaje, VistaPizarra vistaPizarra) {
         this.personaje = personaje;
-        this.xAnterior = this.personaje.getX();
-        this.yAnterior = this.personaje.getY();
+        playerImage = new ImageView();
+        playerImage.setScaleY(1);
+        playerImage.setScaleX(1);
+        playerImage.setFitHeight(64);
+        playerImage.setFitWidth(64);
+        playerImage.setX(posInicialX);
+        playerImage.setY(posInicialY);
+        playerImage.setImage(new Image("file:src/main/java/edu/fiuba/algo3/vista/Imagenes/playerTransparente.png"));
+        vistaPizarra.setPlayerView(playerImage);
     }
 
     @Override
     public void update() {
-        int xActual = this.personaje.getX();
-        int yActual = this.personaje.getY();
-        if(yActual > yAnterior){
-            this.dibujador.moverAbajo();
-        }
-        else if (yActual < yAnterior){
-            this.dibujador.moverArriba();
-        }
-        else if (xActual > xAnterior){
-            this.dibujador.moverDerecha();
-        }
-        else if (xActual < xAnterior){
-            this.dibujador.moverIzquierda();
-        }
-        this.xAnterior = xActual;
-        this.yAnterior = yActual;
+        int xActual = personaje.getX();
+        int yActual = personaje.getY();
+        playerImage.setX(posInicialX + TAM_LINEA*xActual);
+        playerImage.setY(posInicialY + TAM_LINEA*yActual);
     }
 }
