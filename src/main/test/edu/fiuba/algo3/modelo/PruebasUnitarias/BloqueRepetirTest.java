@@ -136,4 +136,72 @@ public class BloqueRepetirTest {
         assertTrue(repeticion.estaVacio());
     }
 
+    @Test
+    public void seAgreganVariosBloquesYSeObtieneElUltimoCorrectamente() {
+        BloqueRepetir repeticion = new BloqueRepetir(2);
+        BloqueLapizApoyado bloqueLapiz = new BloqueLapizApoyado();
+        BloqueDerecha derecha = new BloqueDerecha();
+        BloqueAbajo abajo = new BloqueAbajo();
+
+        repeticion.agregarBloque(bloqueLapiz);
+        repeticion.agregarBloque(derecha);
+        repeticion.agregarBloque(abajo);
+
+        try {
+            Bloque bloque = repeticion.obtenerUltimoBloque();
+            assertEquals(bloque,abajo);
+        }catch (AlgoritmoVacioException o){
+            fail();
+        }
+
+    }
+
+    @Test
+    public void seObtieneUltimoBloqueDeAlgoritmoVacioYSeLanzaExcepcion() {
+        assertThrows(AlgoritmoVacioException.class, () -> {
+            new BloqueRepetir(2).obtenerUltimoBloque();
+        });
+    }
+
+    @Test
+    public void seAgreganVariosBloquesYSeEliminanTodos() {
+        BloqueRepetir repeticion = new BloqueRepetir(2);
+        BloqueLapizApoyado bloqueLapiz = new BloqueLapizApoyado();
+        BloqueDerecha derecha = new BloqueDerecha();
+        BloqueAbajo abajo = new BloqueAbajo();
+
+        repeticion.agregarBloque(bloqueLapiz);
+        repeticion.agregarBloque(derecha);
+        repeticion.agregarBloque(abajo);
+
+        repeticion.removerAlgoritmo();
+        assertTrue(repeticion.estaVacio());
+    }
+
+    @Test
+    public void removuevoTodosLosBloqueDeUnConjuntoVacio() {
+        BloqueRepetir repeticion = new BloqueRepetir(2);
+        repeticion.removerAlgoritmo();
+        assertTrue(repeticion.estaVacio());
+    }
+
+    @Test
+    public void seClonaUnConjunto() {
+        BloqueRepetir repeticion = new BloqueRepetir(2);
+        BloqueLapizApoyado bloqueLapiz = new BloqueLapizApoyado();
+        BloqueDerecha derecha = new BloqueDerecha();
+        BloqueAbajo abajo = new BloqueAbajo();
+        Personaje personaje1 = new Personaje();
+        Personaje personaje2 = new Personaje();
+
+        repeticion.agregarBloque(bloqueLapiz);
+        repeticion.agregarBloque(derecha);
+        repeticion.agregarBloque(abajo);
+
+        repeticion.removerAlgoritmo();
+        ConjuntoBloques nuevoConjunto = new ConjuntoBloques();
+        repeticion.clonar(nuevoConjunto);
+        assertEquals(repeticion.ejecutar(personaje1),nuevoConjunto.ejecutar(personaje2));
+    }
+
 }
