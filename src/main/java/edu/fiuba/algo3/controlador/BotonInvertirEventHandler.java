@@ -14,8 +14,8 @@ import java.util.ArrayList;
 
 public class BotonInvertirEventHandler extends BotonConjuntoBloquesEventHandler {
 
-    public BotonInvertirEventHandler(ConjuntoBloques algoritmo, BloquePersonalizado bloquePersonalizado) {
-        super(algoritmo, bloquePersonalizado);
+    public BotonInvertirEventHandler(ConjuntoBloques algoritmo) {
+        super(algoritmo);
     }
 
     @Override
@@ -23,7 +23,7 @@ public class BotonInvertirEventHandler extends BotonConjuntoBloquesEventHandler 
         BloqueInvertir bloqueinvertir = new BloqueInvertir();
         Stage stage = new Stage();
 
-        ContenedorConjuntoBloques contenedor = new ContenedorConjuntoBloques(algoritmo, bloqueinvertir, bloquePersonalizado, stage);
+        ContenedorConjuntoBloques contenedor = new ContenedorConjuntoBloques(algoritmo, bloqueinvertir, stage);
         VistaAlgoritmo vistaAlgoritmo = new VistaAlgoritmo(bloqueinvertir, contenedor);
         bloqueinvertir.addObserver(vistaAlgoritmo);
 

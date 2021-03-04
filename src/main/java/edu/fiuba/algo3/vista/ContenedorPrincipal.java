@@ -4,7 +4,6 @@ import edu.fiuba.algo3.controlador.BotonBorrarEventHandler;
 import edu.fiuba.algo3.controlador.BotonEjecutarEventHandler;
 import edu.fiuba.algo3.controlador.BotonGuardarAlgoritmoEventHandler;
 import edu.fiuba.algo3.modelo.Bloque;
-import edu.fiuba.algo3.modelo.BloquePersonalizado;
 import edu.fiuba.algo3.modelo.ConjuntoBloques;
 import edu.fiuba.algo3.modelo.Personaje;
 import javafx.geometry.Insets;
@@ -13,7 +12,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 
-import java.util.ArrayList;
 
 
 public class ContenedorPrincipal extends Contenedor {
@@ -24,11 +22,10 @@ public class ContenedorPrincipal extends Contenedor {
     private ContenedorAlgoritmo contenedorAlgoritmo;
     private BackgroundImage miFondoDePantalla;
 
-    public ContenedorPrincipal(ConjuntoBloques algoritmo, Personaje personaje,
-                               BloquePersonalizado bloquePersonalizado, VistaPizarra vistaPizarra) {
+    public ContenedorPrincipal(ConjuntoBloques algoritmo, Personaje personaje, VistaPizarra vistaPizarra) {
         this.vistaPizarra = vistaPizarra;
         this.algoritmo = algoritmo;
-        this.contenedorBotones = new ContenedorBotones(algoritmo, bloquePersonalizado);
+        this.contenedorBotones = new ContenedorBotones(algoritmo, this);
         miFondoDePantalla= new BackgroundImage(new Image("file:src/main/java/edu/fiuba/algo3/vista/Imagenes/fondo-algoritmo1.jpg",
                 32,32,false,false),
                 BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
@@ -39,7 +36,7 @@ public class ContenedorPrincipal extends Contenedor {
         this.contenedorAlgoritmo = new ContenedorAlgoritmo(labelAlgoritmo);
         this.contenedorAlgoritmo.setBackground(new Background(miFondoDePantalla));
         this.setLeft(nuevoContenedorBloques());
-        this.setCenter(nuevoContenedorPizzarra(personaje, bloquePersonalizado));
+        this.setCenter(nuevoContenedorPizzarra(personaje));
     }
 
     private HBox nuevoContenedorBloques() {
@@ -57,15 +54,14 @@ public class ContenedorPrincipal extends Contenedor {
         return new HBox(contenedorBotones, contenedorAlgoritmo);
     }
 
-    private VBox nuevoContenedorPizzarra(Personaje personaje, BloquePersonalizado bloquesPersonalizados) {
+    private VBox nuevoContenedorPizzarra(Personaje personaje) {
 
         Button botonBorrar = new Button("Borrar Ultimo Bloque");
         Button botonGuardarAlgoritmo = new Button("Guardar algoritmo");
         Button botonEjecutar = new Button("Ejecutar");
 
         botonBorrar.setOnMouseClicked(new BotonBorrarEventHandler(algoritmo, this));
-        botonGuardarAlgoritmo.setOnMouseClicked(new BotonGuardarAlgoritmoEventHandler(algoritmo,
-                bloquesPersonalizados, contenedorBotones));
+        botonGuardarAlgoritmo.setOnMouseClicked(new BotonGuardarAlgoritmoEventHandler(algoritmo, contenedorBotones));
         botonEjecutar.setOnMouseClicked(new BotonEjecutarEventHandler(algoritmo, personaje, vistaPizarra));
 
         HBox contenedorBotonesPizarra = new HBox(botonBorrar, botonGuardarAlgoritmo, botonEjecutar);

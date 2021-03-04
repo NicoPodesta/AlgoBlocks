@@ -14,15 +14,18 @@ public class AlgoBlocks extends Application{
     @Override
     public void start(Stage stage) {
         stage.setTitle("AlgoBlocks");
+
         Personaje personaje = new Personaje();
         ConjuntoBloques algoritmo = new ConjuntoBloques();
-        BloquePersonalizado bloquePersonalizado = null;
+
         VistaPizarra vistaPizarra = new VistaPizarra(personaje.obtenerPizarra());
-        ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(algoritmo, personaje, bloquePersonalizado,
+
+        ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(algoritmo, personaje,
                 vistaPizarra);
 
         VistaPersonaje vistaPersonaje = new VistaPersonaje(personaje, vistaPizarra);
         personaje.addObserver(vistaPersonaje);
+
         personaje.agregarObserverALaPizarra(vistaPizarra);
 
         VistaAlgoritmo vistaAlgoritmo = new VistaAlgoritmo(algoritmo, contenedorPrincipal);

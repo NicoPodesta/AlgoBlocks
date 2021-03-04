@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.controlador;
 
+import edu.fiuba.algo3.modelo.AlgoritmoVacioException;
 import edu.fiuba.algo3.modelo.BloquePersonalizado;
 import edu.fiuba.algo3.modelo.ConjuntoBloques;
 import edu.fiuba.algo3.vista.ContenedorBotones;
@@ -16,25 +17,22 @@ public class BotonAgregarEventHandler implements EventHandler<MouseEvent> {
     private ConjuntoBloques algoritmo;
     private BloquePersonalizado bloquePersonalizado;
     private TextField texto;
-    private Stage stage;
     private ContenedorBotones contenedorBotones;
 
-    public BotonAgregarEventHandler(ConjuntoBloques algoritmo, BloquePersonalizado bloquePersonalizado,
-                                    TextField texto, Stage stage, ContenedorBotones contenedorBotones) {
+    public BotonAgregarEventHandler(ConjuntoBloques algoritmo ,
+                                    TextField texto, ContenedorBotones contenedorBotones) {
         this.algoritmo = algoritmo;
-        this.bloquePersonalizado = bloquePersonalizado;
         this.texto = texto;
-        this.stage = stage;
         this.contenedorBotones = contenedorBotones;
     }
 
     @Override
     public void handle(MouseEvent event) {
-        if (!texto.getText().isEmpty()) {
-            bloquePersonalizado = new BloquePersonalizado(texto.getText(), algoritmo);
-            contenedorBotones.habilitarBLoquePersonalizado(texto.getText());
-            stage.close();
-        } else {
+        bloquePersonalizado = new BloquePersonalizado(texto.getText());
+        contenedorBotones.habilitarBLoquePersonalizado(texto.getText(), bloquePersonalizado, algoritmo);
+        try {
+            bloquePersonalizado.agregarAlgoritmo(algoritmo);
+        } catch (AlgoritmoVacioException o){
             Alert a = new Alert(Alert.AlertType.ERROR);
             a.setContentText("Debe ingresar un nombre");
             a.show();

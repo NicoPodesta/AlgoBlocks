@@ -3,7 +3,6 @@ package edu.fiuba.algo3.vista;
 import edu.fiuba.algo3.controlador.BotonBorrarEventHandler;
 import edu.fiuba.algo3.controlador.BotonTerminadoEventHandler;
 import edu.fiuba.algo3.modelo.Bloque;
-import edu.fiuba.algo3.modelo.BloquePersonalizado;
 import edu.fiuba.algo3.modelo.ConjuntoBloques;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
@@ -11,16 +10,14 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
 
 public class ContenedorConjuntoBloques extends Contenedor {
 
     private ContenedorBotones contenedorBotones;
     private ContenedorAlgoritmo contenedorAlgoritmos;
 
-    public ContenedorConjuntoBloques(ConjuntoBloques algoritmo, ConjuntoBloques conjunto,
-                                     BloquePersonalizado bloquePersonalizado, Stage stage){
-        contenedorBotones = new ContenedorBotones(conjunto, bloquePersonalizado);
+    public ContenedorConjuntoBloques(ConjuntoBloques algoritmo, ConjuntoBloques conjunto, Stage stage){
+        contenedorBotones = new ContenedorBotones(conjunto, this);
         Label labelConjunto = new Label(conjunto.obtenerNombre());
         labelConjunto.setStyle("-fx-font-weight:bold");
         contenedorAlgoritmos = new ContenedorAlgoritmo(labelConjunto);

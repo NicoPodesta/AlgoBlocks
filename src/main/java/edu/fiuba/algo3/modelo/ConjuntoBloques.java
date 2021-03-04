@@ -20,6 +20,14 @@ public class ConjuntoBloques implements Bloque, Observable {
         notifyObserver();
     }
 
+    public void clonar(ConjuntoBloques nuevo){
+
+        for (Bloque bloque: bloques ) {
+            nuevo.agregarBloque(bloque);
+        }
+
+    }
+
     @Override
     public Pizarra ejecutar(Personaje personaje) {
         Pizarra pizarra = new Pizarra();

@@ -7,11 +7,8 @@ import java.util.ArrayList;
 
 public abstract class BotonConjuntoBloquesEventHandler extends BotonBloqueEventHandler {
 
-    protected final BloquePersonalizado bloquePersonalizado;
 
-    public BotonConjuntoBloquesEventHandler(ConjuntoBloques algoritmo,
-                                            BloquePersonalizado bloquePersonalizado) {
+    public BotonConjuntoBloquesEventHandler(ConjuntoBloques algoritmo) {
         super(algoritmo);
-        this.bloquePersonalizado = bloquePersonalizado;
     }
 }
