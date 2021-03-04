@@ -11,8 +11,7 @@ import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 
-import java.util.Timer;
-import java.util.concurrent.TimeUnit;
+import java.util.ArrayList;
 
 public class VistaPizarra implements Observer {
 
@@ -23,14 +22,13 @@ public class VistaPizarra implements Observer {
 
     private Pizarra pizarra;
 
-    private ImageView playerView;
-
     public Path recorrido;
     public Pane root;
+    private ArrayList<Circle> circulos;
 
     public VistaPizarra(Pizarra pizarra){
         //Group grupo = new Group(path); Ejemplos de google dicen que hay que agregar el recorrido a un objeto de
-        // tipo grupo pero no veo cambio alguno, lo dejo por las dudas
+        //tipo grupo pero no veo cambio alguno, lo dejo por las dudas
         this.pizarra = pizarra;
         recorrido = new Path();
         root = new Pane(this.recorrido);
@@ -43,6 +41,7 @@ public class VistaPizarra implements Observer {
         recorrido.setStrokeWidth(4.5);
         root.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY,
                 new BorderWidths(2))));
+        this.circulos = new ArrayList<>();
     }
 
     public Pane getPane(){
@@ -66,8 +65,9 @@ public class VistaPizarra implements Observer {
 
     public void clear() {
         recorrido.getElements().clear();
-        //root.getChildren().clear();
-        //root.getChildren().add(playerView);
+        for (Circle circulo:circulos) {
+            root.getChildren().remove(circulo);
+        }
     }
 
     public void setPlayerView(ImageView playerView) {
@@ -78,6 +78,7 @@ public class VistaPizarra implements Observer {
     private void dibujarCirculo(int x, int y){
         Circle circulo = new Circle(x, y,4);
         circulo.setFill(Color.BLACK);
+        circulos.add(circulo);
         root.getChildren().add(circulo);
     }
 }
