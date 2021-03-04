@@ -38,6 +38,10 @@ public class Trazo {
     }
 
     public boolean estaDesfasado() {
-        return (posicionA.getX() - posicionB.getX() == 0) || (posicionA.getY() - posicionB.getY() == 0);
+        boolean xDesfasado = (posicionA.getX() + posicionB.getX() == 0) && (Math.abs(posicionA.getX()) == 5) &&
+                (Math.abs(posicionB.getX()) == 5);
+        boolean yDesfasado = (posicionA.getY() + posicionB.getY() == 0) && (Math.abs(posicionA.getY()) == 5) &&
+                (Math.abs(posicionB.getY()) == 5);
+        return xDesfasado || yDesfasado;
     }
 }
