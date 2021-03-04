@@ -29,7 +29,7 @@ public class BotonGuardarAlgoritmoEventHandler extends BotonConjuntoBloquesEvent
             a.show();
         }else {
             Stage stage = new Stage();
-            stage.setScene(new Scene(new ContenedorGuardarAlgoritmo(algoritmo, contenedorBotones),
+            stage.setScene(new Scene(new ContenedorGuardarAlgoritmo(algoritmo, contenedorBotones, stage),
                     520, 120));
             stage.setTitle("Guardar algoritmo personalizado");
             stage.show();

@@ -7,11 +7,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 
 public class ContenedorGuardarAlgoritmo extends GridPane {
-
-    public ContenedorGuardarAlgoritmo(ConjuntoBloques algoritmo, ContenedorBotones contenedorBotones ) {
+    public ContenedorGuardarAlgoritmo(ConjuntoBloques algoritmo, ContenedorBotones contenedorBotones, Stage stage) {
         setHgap(10);
         setVgap(10);
         add(new Text("Agregar Nombre del Algoritmo"),0,0);
@@ -19,7 +19,7 @@ public class ContenedorGuardarAlgoritmo extends GridPane {
         add(texto, 1,0);
         Button agregar = new Button("Agregar");
         agregar.setOnMouseClicked(new BotonAgregarEventHandler(algoritmo,
-                texto, contenedorBotones));
+                texto, contenedorBotones, stage));
         add(agregar, 1, 1);
         setAlignment(Pos.CENTER);
     }
