@@ -38,6 +38,11 @@ public class Pizarra implements Observable {
     public HashSet<Trazo> obtenerTrazos(){
         return trazosPintados;
     }
+
+    public void eliminarTrazos() {
+        trazosPintados.clear();
+    }
+
     @Override
     public void addObserver(Observer observer) {
         observers.add(observer);

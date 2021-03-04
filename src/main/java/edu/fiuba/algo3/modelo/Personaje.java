@@ -14,13 +14,14 @@ public class Personaje implements Observable {
 
     public Personaje() {
         observers = new ArrayList<>();
+        pizarra = new Pizarra();
         reiniciar();
     }
 
     public void reiniciar() {
-        this.levantarLapiz();
-        this.posicion = new Posicion(0,0);
-        this.pizarra = new Pizarra();
+        levantarLapiz();
+        posicion = new Posicion(0,0);
+        pizarra.eliminarTrazos();
     }
 
     public Pizarra levantarLapiz() {
