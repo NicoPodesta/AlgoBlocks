@@ -31,7 +31,7 @@ public class VistaPizarra implements Observer {
     public VistaPizarra(Pizarra pizarra){
         //Group grupo = new Group(path); Ejemplos de google dicen que hay que agregar el recorrido a un objeto de
         // tipo grupo pero no veo cambio alguno, lo dejo por las dudas
-        pizarra = pizarra;
+        this.pizarra = pizarra;
         recorrido = new Path();
         root = new Pane(this.recorrido);
         root.setPrefSize(n * TAM_LINEA, n * TAM_LINEA);
