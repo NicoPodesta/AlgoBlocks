@@ -35,14 +35,15 @@ public class Pizarra implements Observable {
         notifyObserver();
     }
 
-    public HashSet<Trazo> obtenerTrazos(){
-        return trazosPintados;
-    }
-
     public void eliminarTrazos() {
         trazosPintados.clear();
         notifyObserver();
     }
+
+    public HashSet<Trazo> obtenerTrazos(){
+        return trazosPintados;
+    }
+
 
     @Override
     public void addObserver(Observer observer) {

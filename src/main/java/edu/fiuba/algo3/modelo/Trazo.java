@@ -4,6 +4,8 @@ import java.util.Objects;
 
 public class Trazo {
 
+    private final int BORDE = 5;
+
     private Posicion posicionA;
     private Posicion posicionB;
 
@@ -38,10 +40,10 @@ public class Trazo {
     }
 
     public boolean estaDesfasado() {
-        boolean xDesfasado = (posicionA.getX() + posicionB.getX() == 0) && (Math.abs(posicionA.getX()) == 5) &&
-                (Math.abs(posicionB.getX()) == 5);
-        boolean yDesfasado = (posicionA.getY() + posicionB.getY() == 0) && (Math.abs(posicionA.getY()) == 5) &&
-                (Math.abs(posicionB.getY()) == 5);
+        boolean xDesfasado = (posicionA.getX() + posicionB.getX() == 0) && (Math.abs(posicionA.getX()) == BORDE) &&
+                (Math.abs(posicionB.getX()) == BORDE);
+        boolean yDesfasado = (posicionA.getY() + posicionB.getY() == 0) && (Math.abs(posicionA.getY()) == BORDE) &&
+                (Math.abs(posicionB.getY()) == BORDE);
         return xDesfasado || yDesfasado;
     }
 }

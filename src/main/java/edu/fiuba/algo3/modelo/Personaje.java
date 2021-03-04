@@ -18,12 +18,6 @@ public class Personaje implements Observable {
         reiniciar();
     }
 
-    public void reiniciar() {
-        levantarLapiz();
-        posicion = new Posicion(0,0);
-        pizarra.eliminarTrazos();
-        notifyObserver();
-    }
 
     public Pizarra levantarLapiz() {
         lapiz = new LapizLevantado();
@@ -68,12 +62,15 @@ public class Personaje implements Observable {
         return pizarra;
     }
 
-    public Pizarra obtenerPizarra(){
-        return pizarra;
+    public void reiniciar() {
+        levantarLapiz();
+        posicion = new Posicion(0,0);
+        pizarra.eliminarTrazos();
+        notifyObserver();
     }
 
-    public void agregarObserverALaPizarra(Observer observer){
-        pizarra.addObserver(observer);
+    public Pizarra obtenerPizarra(){
+        return pizarra;
     }
 
     public Posicion posicionActual() {
@@ -86,6 +83,10 @@ public class Personaje implements Observable {
 
     public int getY() {
         return this.posicion.getY();
+    }
+
+    public void agregarObserverALaPizarra(Observer observer){
+        pizarra.addObserver(observer);
     }
 
     @Override

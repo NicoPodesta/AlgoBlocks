@@ -20,13 +20,24 @@ public class ConjuntoBloques implements Bloque, Observable {
         notifyObserver();
     }
 
-    public void clonar(ConjuntoBloques nuevo){
-
-        for (Bloque bloque: bloques ) {
-            nuevo.agregarBloque(bloque);
+    public void removerUltimoBloque() throws AlgoritmoVacioException{
+        if (bloques.isEmpty()){
+            throw new AlgoritmoVacioException();
         }
-
+        else {
+            bloques.remove(bloques.size()-1);
+        }
     }
+
+    public Bloque obtenerUltimoBloque() throws AlgoritmoVacioException{
+        if(bloques.isEmpty()){
+            throw new AlgoritmoVacioException();
+        }
+        else{
+            return bloques.get(bloques.size()-1);
+        }
+    }
+
 
     @Override
     public Pizarra ejecutar(Personaje personaje) {
@@ -46,17 +57,14 @@ public class ConjuntoBloques implements Bloque, Observable {
         return pizarra;
     }
 
-    public boolean estaVacio() {
-        return bloques.isEmpty();
+    public void clonar(ConjuntoBloques nuevo){
+        for (Bloque bloque: bloques ) {
+            nuevo.agregarBloque(bloque);
+        }
     }
 
-    public Bloque obtenerUltimoBloque() throws AlgoritmoVacioException{
-        if(bloques.isEmpty()){
-            throw new AlgoritmoVacioException();
-        }
-        else{
-            return bloques.get(bloques.size()-1);
-        }
+    public boolean estaVacio() {
+        return bloques.isEmpty();
     }
 
     @Override
@@ -64,14 +72,6 @@ public class ConjuntoBloques implements Bloque, Observable {
         return "Conjunto Bloques";
     }
 
-    public void removerUltimoBloque() throws AlgoritmoVacioException{
-        if (bloques.isEmpty()){
-            throw new AlgoritmoVacioException();
-        }
-        else {
-            bloques.remove(bloques.size()-1);
-        }
-    }
 
     @Override
     public void addObserver(Observer observer) {
