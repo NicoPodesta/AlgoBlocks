@@ -14,18 +14,12 @@ import java.util.ArrayList;
 
 public class ContenedorGuardarAlgoritmo extends GridPane {
 
-    ConjuntoBloques algoritmo;
-    ArrayList<BloquePersonalizado> bloquePersonalizados;
-    TextField texto;
-
     public ContenedorGuardarAlgoritmo(ConjuntoBloques algoritmo,
                                       ArrayList<BloquePersonalizado> bloquesPersonalizados, Stage stage) {
-        algoritmo = algoritmo;
-        bloquePersonalizados = bloquesPersonalizados;
         setHgap(10);
         setVgap(10);
         add(new Text("Agregar Nobre del Algoritmo"),0,0);
-        texto = crearTextField();
+        TextField texto = crearTextField();
         add(texto, 1,0);
         Button agregar = new Button("Agregar");
         agregar.setOnMouseClicked(new BotonAgregarEventHandler(algoritmo, bloquesPersonalizados,
@@ -38,9 +32,5 @@ public class ContenedorGuardarAlgoritmo extends GridPane {
         TextField texto = new TextField();
         texto.setPrefColumnCount(20);
         return texto;
-    }
-
-    public String nombreBloque(){
-        return texto.getText();
     }
 }
