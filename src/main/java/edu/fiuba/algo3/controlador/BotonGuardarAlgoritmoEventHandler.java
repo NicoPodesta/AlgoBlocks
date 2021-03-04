@@ -2,6 +2,8 @@ package edu.fiuba.algo3.controlador;
 
 import edu.fiuba.algo3.modelo.BloquePersonalizado;
 import edu.fiuba.algo3.modelo.ConjuntoBloques;
+import edu.fiuba.algo3.vista.Contenedor;
+import edu.fiuba.algo3.vista.ContenedorAlgoritmo;
 import edu.fiuba.algo3.vista.ContenedorBotones;
 import edu.fiuba.algo3.vista.ContenedorGuardarAlgoritmo;
 import javafx.scene.Scene;
@@ -13,12 +15,12 @@ import java.util.ArrayList;
 
 public class BotonGuardarAlgoritmoEventHandler extends BotonConjuntoBloquesEventHandler {
 
-    ContenedorBotones contenedorBotones;
-
-    public BotonGuardarAlgoritmoEventHandler(ConjuntoBloques algoritmo, ContenedorBotones contenedor) {
-
+    private ContenedorBotones contenedorBotones;
+    private ContenedorAlgoritmo contenedorAlgoritmo;
+    public BotonGuardarAlgoritmoEventHandler(ConjuntoBloques algoritmo, ContenedorBotones contenedor, ContenedorAlgoritmo contenedorAlgoritmo) {
         super(algoritmo);
         contenedorBotones = contenedor;
+        this.contenedorAlgoritmo = contenedorAlgoritmo;
     }
 
     @Override
@@ -29,7 +31,7 @@ public class BotonGuardarAlgoritmoEventHandler extends BotonConjuntoBloquesEvent
             a.show();
         }else {
             Stage stage = new Stage();
-            stage.setScene(new Scene(new ContenedorGuardarAlgoritmo(algoritmo, contenedorBotones, stage),
+            stage.setScene(new Scene(new ContenedorGuardarAlgoritmo(algoritmo, contenedorBotones, stage, contenedorAlgoritmo),
                     520, 120));
             stage.setTitle("Guardar algoritmo personalizado");
             stage.show();
