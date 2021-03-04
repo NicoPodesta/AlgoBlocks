@@ -4,8 +4,6 @@ import edu.fiuba.algo3.modelo.Personaje;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-import java.util.concurrent.TimeUnit;
-
 public class VistaPersonaje implements Observer {
 
     private Personaje personaje;

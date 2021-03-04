@@ -28,7 +28,9 @@ public class ContenedorPrincipal extends Contenedor {
         this.vistaPizarra = vistaPizarra;
         this.algoritmo = algoritmo;
         this.contenedorBotones = new ContenedorBotones(algoritmo, bloquesPersonalizados);
-        this.contenedorAlgoritmo = new ContenedorAlgoritmo();
+        Label labelAlgoritmo = new Label("Algoritmo Actual");
+        labelAlgoritmo.setStyle("-fx-font-weight:bold");
+        this.contenedorAlgoritmo = new ContenedorAlgoritmo(labelAlgoritmo);
         this.setLeft(nuevoContenedorBloques());
         this.setCenter(nuevoContenedorPizzarra(personaje, bloquesPersonalizados));
     }

@@ -16,6 +16,7 @@ public class ContenedorBotones extends VBox {
     public ContenedorBotones(ConjuntoBloques algoritmo, ArrayList<BloquePersonalizado> bloquesPersonalizados) {
 
         Label tituloBloques = new Label("Bloques disponibles");
+        tituloBloques.setStyle("-fx-font-weight:bold");
 
         Button bloqueArriba = new Button("Arriba");
         Button bloqueAbajo = new Button("Abajo");

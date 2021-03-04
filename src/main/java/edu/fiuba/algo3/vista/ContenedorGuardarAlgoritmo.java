@@ -18,7 +18,7 @@ public class ContenedorGuardarAlgoritmo extends GridPane {
                                       ArrayList<BloquePersonalizado> bloquesPersonalizados, Stage stage) {
         setHgap(10);
         setVgap(10);
-        add(new Text("Agregar Nobre del Algoritmo"),0,0);
+        add(new Text("Agregar Nombre del Algoritmo"),0,0);
         TextField texto = crearTextField();
         add(texto, 1,0);
         Button agregar = new Button("Agregar");
