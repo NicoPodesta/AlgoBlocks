@@ -41,6 +41,7 @@ public class Pizarra implements Observable {
 
     public void eliminarTrazos() {
         trazosPintados.clear();
+        notifyObserver();
     }
 
     @Override

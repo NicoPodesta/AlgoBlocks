@@ -22,6 +22,7 @@ public class Personaje implements Observable {
         levantarLapiz();
         posicion = new Posicion(0,0);
         pizarra.eliminarTrazos();
+        notifyObserver();
     }
 
     public Pizarra levantarLapiz() {
@@ -79,8 +80,13 @@ public class Personaje implements Observable {
         return posicion;
     }
 
-    public int getX(){return this.posicion.getX();}
-    public int getY(){return this.posicion.getY();}
+    public int getX() {
+        return this.posicion.getX();
+    }
+
+    public int getY() {
+        return this.posicion.getY();
+    }
 
     @Override
     public void addObserver(Observer observer) {

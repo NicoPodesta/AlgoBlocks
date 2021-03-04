@@ -4,6 +4,8 @@ import edu.fiuba.algo3.modelo.Personaje;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.util.concurrent.TimeUnit;
+
 public class VistaPersonaje implements Observer {
 
     private Personaje personaje;
@@ -24,7 +26,7 @@ public class VistaPersonaje implements Observer {
         playerImage.setX(posInicialX);
         playerImage.setY(posInicialY);
         playerImage.setImage(new Image("file:src/main/java/edu/fiuba/algo3/vista/Imagenes/playerTransparente.png"));
-        vistaPizarra.addImageView(playerImage);
+        vistaPizarra.setPlayerView(playerImage);
     }
 
     @Override
