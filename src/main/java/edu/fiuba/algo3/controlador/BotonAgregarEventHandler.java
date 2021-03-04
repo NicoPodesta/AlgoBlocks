@@ -30,12 +30,9 @@ public class BotonAgregarEventHandler implements EventHandler<MouseEvent> {
     public void handle(MouseEvent event) {
         bloquePersonalizado = new BloquePersonalizado(texto.getText());
         contenedorBotones.habilitarBLoquePersonalizado(texto.getText(), bloquePersonalizado, algoritmo);
+        contenedorBotones.agregarVista(bloquePersonalizado);
         try {
             bloquePersonalizado.agregarAlgoritmo(algoritmo);
-        } catch (AlgoritmoVacioException o){
-            Alert a = new Alert(Alert.AlertType.ERROR);
-            a.setContentText("Debe ingresar un nombre");
-            a.show();
-        }
+        } catch (AlgoritmoVacioException o){}
     }
 }

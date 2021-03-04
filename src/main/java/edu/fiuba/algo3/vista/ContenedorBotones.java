@@ -8,9 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
 
-import java.util.ArrayList;
 
 public class ContenedorBotones extends VBox {
 
@@ -33,7 +31,8 @@ public class ContenedorBotones extends VBox {
         Button bloqueRepetirX2 = new Button("RepetirX2");
         Button bloqueRepetirX3 = new Button("RepetirX3");
         Button bloqueInvertir = new Button("Invertir Comportamiento");
-        bloquePersonalizado = new Button("Personalizado");
+        bloquePersonalizado = new Button();
+
 
         bloqueArriba.setOnMouseClicked(new BotonArribaEventHandler(algoritmo));
         bloqueAbajo.setOnMouseClicked(new BotonAbajoEventHandler(algoritmo));
@@ -63,11 +62,14 @@ public class ContenedorBotones extends VBox {
 
     public void habilitarBLoquePersonalizado(String nombre, BloquePersonalizado bloque, ConjuntoBloques algoritmo){
 
-        VistaAlgoritmo vistaAlgoritmo = new VistaAlgoritmo(bloque.obtenerAlgoritmo(), contenedor);
-        bloque.agregarObserver(vistaAlgoritmo);
         bloquePersonalizado.setOnMouseClicked(new BotonPersonalizadoEventHandler(algoritmo, bloque));
         bloquePersonalizado.setVisible(true);
         bloquePersonalizado.setDisable(false);
         bloquePersonalizado.setText(nombre);
+    }
+
+    public void agregarVista(BloquePersonalizado bloque){
+        VistaAlgoritmo vistaAlgoritmo = new VistaAlgoritmo(bloque.obtenerAlgoritmo(), contenedor);
+        bloque.agregarObserver(vistaAlgoritmo);
     }
 }
