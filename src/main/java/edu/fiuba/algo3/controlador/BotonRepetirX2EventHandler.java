@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.BloquePersonalizado;
 import edu.fiuba.algo3.modelo.BloqueRepetir;
 import edu.fiuba.algo3.modelo.ConjuntoBloques;
 import edu.fiuba.algo3.vista.ContenedorConjuntoBloques;
+import edu.fiuba.algo3.vista.VistaAlgoritmo;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -20,8 +21,12 @@ public class BotonRepetirX2EventHandler extends BotonConjuntoBloquesEventHandler
     public void handle(MouseEvent event) {
         BloqueRepetir bloqueRepetir = new BloqueRepetir(2);
         Stage stage = new Stage();
-        stage.setScene(new Scene(new ContenedorConjuntoBloques(algoritmo, bloqueRepetir, bloquesPersonalizados, stage),
-                1024,668));
+
+        ContenedorConjuntoBloques contenedor = new ContenedorConjuntoBloques(algoritmo, bloqueRepetir, bloquesPersonalizados, stage);
+        VistaAlgoritmo vistaAlgoritmo = new VistaAlgoritmo(bloqueRepetir, contenedor);
+        bloqueRepetir.addObserver(vistaAlgoritmo);
+        
+        stage.setScene(new Scene(contenedor,1024,668));
         stage.show();
     }
 }
