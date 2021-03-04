@@ -6,9 +6,9 @@ import edu.fiuba.algo3.modelo.ConjuntoBloques;
 public class VistaAlgoritmo implements Observer{
 
     private ConjuntoBloques algoritmo;
-    private ContenedorPrincipal contenedor;
+    private Contenedor contenedor;
 
-    public VistaAlgoritmo(ConjuntoBloques algoritmo, ContenedorPrincipal contenedor){
+    public VistaAlgoritmo(ConjuntoBloques algoritmo, Contenedor contenedor){
         this.algoritmo = algoritmo;
         this.contenedor = contenedor;
     }

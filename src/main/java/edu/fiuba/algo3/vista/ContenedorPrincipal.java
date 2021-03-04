@@ -10,14 +10,13 @@ import edu.fiuba.algo3.modelo.Personaje;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
 
 
-public class ContenedorPrincipal extends BorderPane {
+public class ContenedorPrincipal extends Contenedor {
 
     final private VistaPizarra vistaPizarra;
     final private ConjuntoBloques algoritmo;
