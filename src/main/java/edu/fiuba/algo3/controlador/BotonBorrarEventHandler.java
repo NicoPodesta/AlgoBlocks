@@ -2,17 +2,17 @@ package edu.fiuba.algo3.controlador;
 
 import edu.fiuba.algo3.modelo.AlgoritmoVacioException;
 import edu.fiuba.algo3.modelo.ConjuntoBloques;
-import edu.fiuba.algo3.vista.ContenedorPrincipal;
+import edu.fiuba.algo3.vista.Contenedor;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
 public class BotonBorrarEventHandler implements EventHandler<MouseEvent> {
 
     protected ConjuntoBloques algoritmo;
-    protected ContenedorPrincipal contenedor;
+    protected Contenedor contenedor;
 
 
-    public BotonBorrarEventHandler(ConjuntoBloques algoritmo, ContenedorPrincipal contenedor) {
+    public BotonBorrarEventHandler(ConjuntoBloques algoritmo, Contenedor contenedor) {
         this.algoritmo = algoritmo;
         this.contenedor = contenedor;
     }

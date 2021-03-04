@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.vista;
 
+import edu.fiuba.algo3.controlador.BotonBorrarEventHandler;
 import edu.fiuba.algo3.controlador.BotonTerminadoEventHandler;
 import edu.fiuba.algo3.modelo.Bloque;
 import edu.fiuba.algo3.modelo.BloquePersonalizado;
@@ -21,11 +22,26 @@ public class ContenedorConjuntoBloques extends Contenedor {
                                      ArrayList<BloquePersonalizado> bloquesPersonalizados, Stage stage){
         contenedorBotones = new ContenedorBotones(conjunto, bloquesPersonalizados);
         contenedorAlgoritmos = new ContenedorAlgoritmo();
+
         agregarBotones(); //ver para los dos de setear el tamaño correcto
         agregarAlgoritmo(contenedorAlgoritmos);
+        agregarBotonera(algoritmo, conjunto, stage);
+
+    }
+    private void agregarBotonera(ConjuntoBloques algoritmo, ConjuntoBloques conjunto, Stage stage ){
+
         Button botonTerminado = new Button("Terminado");
         botonTerminado.setOnMouseClicked(new BotonTerminadoEventHandler(algoritmo, conjunto, stage));
-        setRight(botonTerminado);
+        Button botonBorrar = new Button("Borrar Ultimo Bloque");
+        botonBorrar.setOnMouseClicked(new BotonBorrarEventHandler(conjunto, this));
+
+        VBox botonera = new VBox(new Label(""),botonBorrar, botonTerminado);
+
+        botonera.setSpacing(100);
+        botonera.setPrefWidth(230);
+        botonera.setPadding(new Insets(15 , 0,0,60));
+        botonera.setStyle("-fx-border-color: black;-fx-border-width: 2;");
+        setRight(botonera);
     }
 
     private void agregarBotones(){
@@ -41,17 +57,17 @@ public class ContenedorConjuntoBloques extends Contenedor {
 
         contenedorAlgoritmo.setPrefWidth(256);
         contenedorAlgoritmo.setSpacing(10);
-        contenedorAlgoritmo.setPadding(new Insets(15 , 0,0,85));
+        contenedorAlgoritmo.setPadding(new Insets(15 , 0,0,60));
         contenedorAlgoritmo.setStyle("-fx-border-color: black;-fx-border-width: 2 1");
 
         setCenter(contenedorAlgoritmo);
     }
 
     public void agregarNombreBloque(Bloque bloque){
-        contenedorAlgoritmos.agregar(new Label(bloque.obtenerNombre()));
+        this.contenedorAlgoritmos.agregar(new Label(bloque.obtenerNombre()));
     }
 
     public void eliminarUltimoNombreBloque(){
-        contenedorAlgoritmos.removerUltimo();
+        this.contenedorAlgoritmos.removerUltimo();
     }
 }
