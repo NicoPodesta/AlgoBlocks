@@ -61,7 +61,7 @@ public class ContenedorPrincipal extends Contenedor {
         Button botonEjecutar = new Button("Ejecutar");
 
         botonBorrar.setOnMouseClicked(new BotonBorrarEventHandler(algoritmo, this));
-        botonGuardarAlgoritmo.setOnMouseClicked(new BotonGuardarAlgoritmoEventHandler(algoritmo, contenedorBotones));
+        botonGuardarAlgoritmo.setOnMouseClicked(new BotonGuardarAlgoritmoEventHandler(algoritmo, contenedorBotones, contenedorAlgoritmo));
         botonEjecutar.setOnMouseClicked(new BotonEjecutarEventHandler(algoritmo, personaje, vistaPizarra));
 
         HBox contenedorBotonesPizarra = new HBox(botonBorrar, botonGuardarAlgoritmo, botonEjecutar);

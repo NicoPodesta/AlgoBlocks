@@ -72,6 +72,9 @@ public class ConjuntoBloques implements Bloque, Observable {
             bloques.remove(bloques.size()-1);
         }
     }
+    public void removerAlgoritmo(){
+        bloques.clear();
+    }
 
     @Override
     public void addObserver(Observer observer) {

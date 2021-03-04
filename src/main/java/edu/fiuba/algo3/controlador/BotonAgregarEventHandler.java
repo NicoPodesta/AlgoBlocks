@@ -3,6 +3,7 @@ package edu.fiuba.algo3.controlador;
 import edu.fiuba.algo3.modelo.AlgoritmoVacioException;
 import edu.fiuba.algo3.modelo.BloquePersonalizado;
 import edu.fiuba.algo3.modelo.ConjuntoBloques;
+import edu.fiuba.algo3.vista.ContenedorAlgoritmo;
 import edu.fiuba.algo3.vista.ContenedorBotones;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
@@ -17,13 +18,14 @@ public class BotonAgregarEventHandler implements EventHandler<MouseEvent> {
     private TextField texto;
     private ContenedorBotones contenedorBotones;
     private Stage stage;
-
+    private ContenedorAlgoritmo contenedorAlgoritmo;
     public BotonAgregarEventHandler(ConjuntoBloques algoritmo,
-                                    TextField texto, ContenedorBotones contenedorBotones, Stage stage) {
+                                    TextField texto, ContenedorBotones contenedorBotones, Stage stage, ContenedorAlgoritmo contenedorAlgoritmo) {
         this.algoritmo = algoritmo;
         this.texto = texto;
         this.contenedorBotones = contenedorBotones;
         this.stage = stage;
+        this.contenedorAlgoritmo = contenedorAlgoritmo;
     }
 
     @Override
@@ -31,10 +33,11 @@ public class BotonAgregarEventHandler implements EventHandler<MouseEvent> {
         if (!texto.getText().isEmpty()){
             bloquePersonalizado = new BloquePersonalizado(texto.getText());
             contenedorBotones.habilitarBLoquePersonalizado(texto.getText(), bloquePersonalizado, algoritmo);
-            contenedorBotones.agregarVista(bloquePersonalizado);
+            contenedorAlgoritmo.removerTodo();
             try {
                 bloquePersonalizado.agregarAlgoritmo(algoritmo);
             } catch (AlgoritmoVacioException o){ }
+            algoritmo.removerAlgoritmo();
             stage.close();
         }else {
             Alert a = new Alert(Alert.AlertType.ERROR);

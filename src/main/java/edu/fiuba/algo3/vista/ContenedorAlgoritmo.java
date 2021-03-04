@@ -18,4 +18,10 @@ public class ContenedorAlgoritmo extends VBox {
             this.getChildren().remove(this.getChildren().size()-1);
         }
     }
+
+    public void removerTodo(){
+        if (this.getChildren().size() > 1) {
+            this.getChildren().subList(1, this.getChildren().size()).clear();
+        }
+    }
 }
