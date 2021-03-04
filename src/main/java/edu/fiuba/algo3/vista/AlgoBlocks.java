@@ -16,9 +16,9 @@ public class AlgoBlocks extends Application{
         stage.setTitle("AlgoBlocks");
         Personaje personaje = new Personaje();
         ConjuntoBloques algoritmo = new ConjuntoBloques();
-        ArrayList<BloquePersonalizado> bloquesPersonalizados = new ArrayList<>();
+        BloquePersonalizado bloquePersonalizado = null;
         VistaPizarra vistaPizarra = new VistaPizarra(personaje.obtenerPizarra());
-        ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(algoritmo, personaje, bloquesPersonalizados,
+        ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(algoritmo, personaje, bloquePersonalizado,
                 vistaPizarra);
 
         VistaPersonaje vistaPersonaje = new VistaPersonaje(personaje, vistaPizarra);
@@ -30,6 +30,7 @@ public class AlgoBlocks extends Application{
 
         Scene escenaPrincipal = new Scene(contenedorPrincipal, 1024, 668);
         stage.setScene(escenaPrincipal);
+        stage.setResizable(false);
         stage.show();
     }
 

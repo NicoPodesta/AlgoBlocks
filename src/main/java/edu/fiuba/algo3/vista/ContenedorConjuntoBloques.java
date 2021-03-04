@@ -19,8 +19,8 @@ public class ContenedorConjuntoBloques extends Contenedor {
     private ContenedorAlgoritmo contenedorAlgoritmos;
 
     public ContenedorConjuntoBloques(ConjuntoBloques algoritmo, ConjuntoBloques conjunto,
-                                     ArrayList<BloquePersonalizado> bloquesPersonalizados, Stage stage){
-        contenedorBotones = new ContenedorBotones(conjunto, bloquesPersonalizados);
+                                     BloquePersonalizado bloquePersonalizado, Stage stage){
+        contenedorBotones = new ContenedorBotones(conjunto, bloquePersonalizado);
         Label labelConjunto = new Label(conjunto.obtenerNombre());
         labelConjunto.setStyle("-fx-font-weight:bold");
         contenedorAlgoritmos = new ContenedorAlgoritmo(labelConjunto);

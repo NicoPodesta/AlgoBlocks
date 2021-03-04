@@ -2,6 +2,7 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.modelo.Pizarra;
 import edu.fiuba.algo3.modelo.Trazo;
+import javafx.geometry.Insets;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
@@ -35,7 +36,7 @@ public class VistaPizarra implements Observer {
         root.setPrefSize(n * TAM_LINEA, n * TAM_LINEA);
         BackgroundImage miBackground= new BackgroundImage(new Image("file:src/main/java/edu/fiuba/algo3/vista/Imagenes/fondo_dibujador.png",
                 n * TAM_LINEA,n * TAM_LINEA,false,false),
-                BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+                BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT);
         root.setBackground(new Background(miBackground));
         recorrido.setStrokeWidth(4.5);

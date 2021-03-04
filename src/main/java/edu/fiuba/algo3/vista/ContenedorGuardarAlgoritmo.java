@@ -15,15 +15,15 @@ import java.util.ArrayList;
 public class ContenedorGuardarAlgoritmo extends GridPane {
 
     public ContenedorGuardarAlgoritmo(ConjuntoBloques algoritmo,
-                                      ArrayList<BloquePersonalizado> bloquesPersonalizados, Stage stage) {
+                                      BloquePersonalizado bloquePersonalizado, Stage stage, ContenedorBotones contenedorBotones) {
         setHgap(10);
         setVgap(10);
         add(new Text("Agregar Nombre del Algoritmo"),0,0);
         TextField texto = crearTextField();
         add(texto, 1,0);
         Button agregar = new Button("Agregar");
-        agregar.setOnMouseClicked(new BotonAgregarEventHandler(algoritmo, bloquesPersonalizados,
-                texto, stage));
+        agregar.setOnMouseClicked(new BotonAgregarEventHandler(algoritmo, bloquePersonalizado,
+                texto, stage, contenedorBotones));
         add(agregar, 1, 1);
         setAlignment(Pos.CENTER);
     }

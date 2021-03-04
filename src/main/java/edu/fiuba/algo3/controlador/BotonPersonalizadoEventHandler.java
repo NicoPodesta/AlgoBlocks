@@ -11,19 +11,16 @@ import java.util.ArrayList;
 
 public class BotonPersonalizadoEventHandler extends BotonBloqueEventHandler {
 
-    private ArrayList<BloquePersonalizado> bloquesPersonalizados;
+    private BloquePersonalizado bloquePersonalizado;
 
     public BotonPersonalizadoEventHandler(ConjuntoBloques algoritmo,
-                                          ArrayList<BloquePersonalizado> bloquesPersonalizados) {
+                                          BloquePersonalizado bloquePersonalizado) {
         super(algoritmo);
-        this.bloquesPersonalizados = bloquesPersonalizados;
+        this.bloquePersonalizado = bloquePersonalizado;
     }
 
     @Override
     public void handle(MouseEvent event) {
-        Stage stage = new Stage();
-        stage.setScene(new Scene(new ContenedorBloquePersonalizado(algoritmo, bloquesPersonalizados, stage),
-                1024,668));
-        stage.show();
+        algoritmo.agregarBloque(bloquePersonalizado);
     }
 }

@@ -13,7 +13,9 @@ import java.util.ArrayList;
 
 public class ContenedorBotones extends VBox {
 
-    public ContenedorBotones(ConjuntoBloques algoritmo, ArrayList<BloquePersonalizado> bloquesPersonalizados) {
+    private Button bloquePersonalizado;
+
+    public ContenedorBotones(ConjuntoBloques algoritmo, BloquePersonalizado bloquePersonalizado) {
 
         Label tituloBloques = new Label("Bloques disponibles");
         tituloBloques.setStyle("-fx-font-weight:bold");
@@ -27,7 +29,7 @@ public class ContenedorBotones extends VBox {
         Button bloqueRepetirX2 = new Button("RepetirX2");
         Button bloqueRepetirX3 = new Button("RepetirX3");
         Button bloqueInvertir = new Button("Invertir Comportamiento");
-        Button bloquePersonalizado = new Button("Personalizado");
+        this.bloquePersonalizado = new Button("Personalizado");
 
         bloqueArriba.setOnMouseClicked(new BotonArribaEventHandler(algoritmo));
         bloqueAbajo.setOnMouseClicked(new BotonAbajoEventHandler(algoritmo));
@@ -35,10 +37,12 @@ public class ContenedorBotones extends VBox {
         bloqueIzquierda.setOnMouseClicked(new BotonIzquierdaEventHandler(algoritmo));
         bloqueLevantarLapiz.setOnMouseClicked(new BotonLapizLevantadoEventHandler(algoritmo));
         bloqueApoyarLapiz.setOnMouseClicked(new BotonLapizApoyadoEventHandler(algoritmo));
-        bloqueRepetirX2.setOnMouseClicked(new BotonRepetirX2EventHandler(algoritmo, bloquesPersonalizados));
-        bloqueRepetirX3.setOnMouseClicked(new BotonRepetirX3EventHandler(algoritmo, bloquesPersonalizados));
-        bloqueInvertir.setOnMouseClicked(new BotonInvertirEventHandler(algoritmo, bloquesPersonalizados));
-        bloquePersonalizado.setOnMouseClicked(new BotonPersonalizadoEventHandler(algoritmo, bloquesPersonalizados));
+        bloqueRepetirX2.setOnMouseClicked(new BotonRepetirX2EventHandler(algoritmo, bloquePersonalizado));
+        bloqueRepetirX3.setOnMouseClicked(new BotonRepetirX3EventHandler(algoritmo, bloquePersonalizado));
+        bloqueInvertir.setOnMouseClicked(new BotonInvertirEventHandler(algoritmo, bloquePersonalizado));
+        this.bloquePersonalizado.setOnMouseClicked(new BotonPersonalizadoEventHandler(algoritmo, bloquePersonalizado));
+        this.bloquePersonalizado.setVisible(false);
+        this.bloquePersonalizado.setDisable(true);
 
         ObservableList<Node> nodos = this.getChildren();
         nodos.add(tituloBloques);
@@ -51,6 +55,12 @@ public class ContenedorBotones extends VBox {
         nodos.add(bloqueRepetirX2);
         nodos.add(bloqueRepetirX3);
         nodos.add(bloqueInvertir);
-        nodos.add(bloquePersonalizado);
+        nodos.add(this.bloquePersonalizado);
+    }
+
+    public void habilitarBLoquePersonalizado(String nombre){
+        bloquePersonalizado.setVisible(true);
+        bloquePersonalizado.setDisable(false);
+        bloquePersonalizado.setText(nombre);
     }
 }

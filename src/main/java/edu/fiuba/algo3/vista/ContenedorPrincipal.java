@@ -24,15 +24,15 @@ public class ContenedorPrincipal extends Contenedor {
     private ContenedorAlgoritmo contenedorAlgoritmo;
 
     public ContenedorPrincipal(ConjuntoBloques algoritmo, Personaje personaje,
-                               ArrayList<BloquePersonalizado> bloquesPersonalizados, VistaPizarra vistaPizarra) {
+                               BloquePersonalizado bloquePersonalizado, VistaPizarra vistaPizarra) {
         this.vistaPizarra = vistaPizarra;
         this.algoritmo = algoritmo;
-        this.contenedorBotones = new ContenedorBotones(algoritmo, bloquesPersonalizados);
+        this.contenedorBotones = new ContenedorBotones(algoritmo, bloquePersonalizado);
         Label labelAlgoritmo = new Label("Algoritmo Actual");
         labelAlgoritmo.setStyle("-fx-font-weight:bold");
         this.contenedorAlgoritmo = new ContenedorAlgoritmo(labelAlgoritmo);
         this.setLeft(nuevoContenedorBloques());
-        this.setCenter(nuevoContenedorPizzarra(personaje, bloquesPersonalizados));
+        this.setCenter(nuevoContenedorPizzarra(personaje, bloquePersonalizado));
     }
 
     private HBox nuevoContenedorBloques() {
@@ -50,7 +50,7 @@ public class ContenedorPrincipal extends Contenedor {
         return new HBox(contenedorBotones, contenedorAlgoritmo);
     }
 
-    private VBox nuevoContenedorPizzarra(Personaje personaje, ArrayList<BloquePersonalizado> bloquesPersonalizados) {
+    private VBox nuevoContenedorPizzarra(Personaje personaje, BloquePersonalizado bloquesPersonalizados) {
 
         Button botonBorrar = new Button("Borrar Ultimo Bloque");
         Button botonGuardarAlgoritmo = new Button("Guardar algoritmo");
@@ -58,15 +58,14 @@ public class ContenedorPrincipal extends Contenedor {
 
         botonBorrar.setOnMouseClicked(new BotonBorrarEventHandler(algoritmo, this));
         botonGuardarAlgoritmo.setOnMouseClicked(new BotonGuardarAlgoritmoEventHandler(algoritmo,
-                bloquesPersonalizados));
+                bloquesPersonalizados, contenedorBotones));
         botonEjecutar.setOnMouseClicked(new BotonEjecutarEventHandler(algoritmo, personaje, vistaPizarra));
 
         HBox contenedorBotonesPizarra = new HBox(botonBorrar, botonGuardarAlgoritmo, botonEjecutar);
 
-        VBox contenedorPizarra = new VBox(contenedorBotonesPizarra, vistaPizarra.getPane());
-        contenedorPizarra.setMinWidth(512);
-        contenedorPizarra.setStyle("-fx-border-color: black;-fx-border-width: 2");
-        contenedorBotonesPizarra.setPadding(new Insets(30 , 0,50,85));
+        VBox contenedorPizarra = new VBox(vistaPizarra.getPane(), contenedorBotonesPizarra);
+        contenedorPizarra.setStyle("-fx-border-color: black;-fx-border-width: 2; -fx-padding: 20;");
+        contenedorBotonesPizarra.setPadding(new Insets(50 , 0,50,30));
         contenedorBotonesPizarra.setSpacing(50);
 
         return contenedorPizarra;

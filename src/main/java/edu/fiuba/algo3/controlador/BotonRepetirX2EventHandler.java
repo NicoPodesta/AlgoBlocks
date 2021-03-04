@@ -13,8 +13,8 @@ import java.util.ArrayList;
 
 public class BotonRepetirX2EventHandler extends BotonConjuntoBloquesEventHandler {
 
-    public BotonRepetirX2EventHandler(ConjuntoBloques algoritmo, ArrayList<BloquePersonalizado> bloquesPersonalizados) {
-        super(algoritmo, bloquesPersonalizados);
+    public BotonRepetirX2EventHandler(ConjuntoBloques algoritmo, BloquePersonalizado bloquePersonalizado) {
+        super(algoritmo, bloquePersonalizado);
     }
 
     @Override
@@ -22,11 +22,12 @@ public class BotonRepetirX2EventHandler extends BotonConjuntoBloquesEventHandler
         BloqueRepetir bloqueRepetir = new BloqueRepetir(2);
         Stage stage = new Stage();
 
-        ContenedorConjuntoBloques contenedor = new ContenedorConjuntoBloques(algoritmo, bloqueRepetir, bloquesPersonalizados, stage);
+        ContenedorConjuntoBloques contenedor = new ContenedorConjuntoBloques(algoritmo, bloqueRepetir, bloquePersonalizado, stage);
         VistaAlgoritmo vistaAlgoritmo = new VistaAlgoritmo(bloqueRepetir, contenedor);
         bloqueRepetir.addObserver(vistaAlgoritmo);
         
-        stage.setScene(new Scene(contenedor,1024,668));
+        stage.setScene(new Scene(contenedor,720,668));
+        stage.setResizable(false);
         stage.show();
     }
 }

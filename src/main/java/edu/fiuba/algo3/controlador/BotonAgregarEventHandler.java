@@ -2,6 +2,7 @@ package edu.fiuba.algo3.controlador;
 
 import edu.fiuba.algo3.modelo.BloquePersonalizado;
 import edu.fiuba.algo3.modelo.ConjuntoBloques;
+import edu.fiuba.algo3.vista.ContenedorBotones;
 import javafx.event.EventHandler;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -12,21 +13,24 @@ import java.util.ArrayList;
 public class BotonAgregarEventHandler implements EventHandler<MouseEvent> {
 
     private ConjuntoBloques algoritmo;
-    private ArrayList<BloquePersonalizado> bloquesPersonalizados;
+    private BloquePersonalizado bloquePersonalizado;
     private TextField texto;
     private Stage stage;
+    private ContenedorBotones contenedorBotones;
 
-    public BotonAgregarEventHandler(ConjuntoBloques algoritmo, ArrayList<BloquePersonalizado> bloquesPersonalizados,
-                                    TextField texto, Stage stage) {
+    public BotonAgregarEventHandler(ConjuntoBloques algoritmo, BloquePersonalizado bloquePersonalizado,
+                                    TextField texto, Stage stage, ContenedorBotones contenedorBotones) {
         this.algoritmo = algoritmo;
-        this.bloquesPersonalizados = bloquesPersonalizados;
+        this.bloquePersonalizado = bloquePersonalizado;
         this.texto = texto;
         this.stage = stage;
+        this.contenedorBotones = contenedorBotones;
     }
 
     @Override
     public void handle(MouseEvent event) {
-        bloquesPersonalizados.add(new BloquePersonalizado(texto.getText(), algoritmo));
+        bloquePersonalizado = new BloquePersonalizado(texto.getText(), algoritmo);
+        contenedorBotones.habilitarBLoquePersonalizado(texto.getText());
         stage.close();
     }
 }
