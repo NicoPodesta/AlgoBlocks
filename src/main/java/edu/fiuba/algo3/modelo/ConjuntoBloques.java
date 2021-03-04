@@ -20,12 +20,34 @@ public class ConjuntoBloques implements Bloque, Observable {
         notifyObserver();
     }
 
+    public Bloque obtenerUltimoBloque() throws AlgoritmoVacioException{
+        if(bloques.isEmpty()){
+            throw new AlgoritmoVacioException();
+        }
+        else{
+            return bloques.get(bloques.size()-1);
+        }
+    }
+
+    public void removerUltimoBloque() throws AlgoritmoVacioException{
+        if (bloques.isEmpty()){
+            throw new AlgoritmoVacioException();
+        }
+        else {
+            bloques.remove(bloques.size()-1);
+        }
+    }
+
     public void clonar(ConjuntoBloques nuevo){
 
         for (Bloque bloque: bloques ) {
             nuevo.agregarBloque(bloque);
         }
 
+    }
+
+    public boolean estaVacio() {
+        return bloques.isEmpty();
     }
 
     @Override
@@ -46,31 +68,10 @@ public class ConjuntoBloques implements Bloque, Observable {
         return pizarra;
     }
 
-    public boolean estaVacio() {
-        return bloques.isEmpty();
-    }
-
-    public Bloque obtenerUltimoBloque() throws AlgoritmoVacioException{
-        if(bloques.isEmpty()){
-            throw new AlgoritmoVacioException();
-        }
-        else{
-            return bloques.get(bloques.size()-1);
-        }
-    }
 
     @Override
     public String obtenerNombre() {
         return "Conjunto Bloques";
-    }
-
-    public void removerUltimoBloque() throws AlgoritmoVacioException{
-        if (bloques.isEmpty()){
-            throw new AlgoritmoVacioException();
-        }
-        else {
-            bloques.remove(bloques.size()-1);
-        }
     }
 
     @Override

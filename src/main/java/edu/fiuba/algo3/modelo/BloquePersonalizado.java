@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.vista.Observer;
 
-public class BloquePersonalizado extends ConjuntoBloques{
+public class BloquePersonalizado implements Bloque{
 
     private String nombre;
     private ConjuntoBloques algoritmo;
@@ -19,9 +19,6 @@ public class BloquePersonalizado extends ConjuntoBloques{
         algoritmoNuevo.clonar(algoritmo);
     }
 
-    public String obtenerNombre() {
-        return nombre;
-    }
 
     public void agregarObserver(Observer observer){
         algoritmo.addObserver(observer);
@@ -31,7 +28,18 @@ public class BloquePersonalizado extends ConjuntoBloques{
         return algoritmo;
     }
 
+    @Override
     public Pizarra ejecutar(Personaje personaje){
         return algoritmo.ejecutar(personaje);
+    }
+
+    @Override
+    public Pizarra ejecutarInvertido(Personaje personaje){
+        return algoritmo.ejecutarInvertido(personaje);
+    }
+
+    @Override
+    public String obtenerNombre() {
+        return nombre;
     }
 }
