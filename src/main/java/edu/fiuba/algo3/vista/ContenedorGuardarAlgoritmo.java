@@ -23,7 +23,7 @@ public class ContenedorGuardarAlgoritmo extends GridPane {
         add(texto, 1,0);
         Button agregar = new Button("Agregar");
         agregar.setOnMouseClicked(new BotonAgregarEventHandler(algoritmo, bloquesPersonalizados,
-                texto.getText(), stage));
+                texto, stage));
         add(agregar, 1, 1);
         setAlignment(Pos.CENTER);
     }
