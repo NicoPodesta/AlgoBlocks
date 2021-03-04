@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.vista;
 
+import edu.fiuba.algo3.controlador.BotonAgregarEventHandler;
 import edu.fiuba.algo3.modelo.BloquePersonalizado;
 import edu.fiuba.algo3.modelo.ConjuntoBloques;
 import javafx.geometry.Pos;
@@ -21,26 +22,27 @@ public class ContenedorGuardarAlgoritmo extends GridPane {
 
     public ContenedorGuardarAlgoritmo(ConjuntoBloques algoritmo,
                                       ArrayList<BloquePersonalizado> bloquesPersonalizados, Stage stage) {
-        this.algoritmo = algoritmo;
-        this.bloquePersonalizados = bloquesPersonalizados;
-        this.setHgap(10);
-        this.setVgap(10);
-        this.add(new Text("Agregar Nobre del Algoritmo"),0,0);
-        this.texto = crearTextField();
-        this.add(texto, 1,0);
+        algoritmo = algoritmo;
+        bloquePersonalizados = bloquesPersonalizados;
+        String nombre = null;
+        setHgap(10);
+        setVgap(10);
+        add(new Text("Agregar Nobre del Algoritmo"),0,0);
+        texto = crearTextField(nombre);
+        add(texto, 1,0);
         Button agregar = new Button("Agregar");
-        //agregar handler del boton.
-        this.add(agregar, 1, 1);
-        this.setAlignment(Pos.CENTER);
+        agregar.setOnMouseClicked(new BotonAgregarEventHandler(algoritmo, bloquesPersonalizados, nombre, stage));
+        add(agregar, 1, 1);
+        setAlignment(Pos.CENTER);
     }
 
-    private TextField crearTextField(){
+    private TextField crearTextField(String nombre){
         TextField texto = new TextField();
         texto.setPrefColumnCount(20);
         return texto;
     }
 
     public String nombreBloque(){
-        return this.texto.getText();
+        return texto.getText();
     }
 }
