@@ -26,8 +26,9 @@ public class BotonRepetirX3EventHandler extends BotonConjuntoBloquesEventHandler
         VistaAlgoritmo vistaAlgoritmo = new VistaAlgoritmo(bloqueRepetir, contenedor);
         bloqueRepetir.addObserver(vistaAlgoritmo);
 
-        stage.setScene(new Scene(contenedor,1024,668));
+        stage.setScene(new Scene(contenedor,720,420));
         stage.setResizable(false);
+        stage.setTitle("Creación bloque repetir tres veces");
         stage.show();
     }
 }

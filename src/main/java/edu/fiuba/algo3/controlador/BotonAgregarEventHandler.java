@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.BloquePersonalizado;
 import edu.fiuba.algo3.modelo.ConjuntoBloques;
 import edu.fiuba.algo3.vista.ContenedorBotones;
 import javafx.event.EventHandler;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -29,8 +30,14 @@ public class BotonAgregarEventHandler implements EventHandler<MouseEvent> {
 
     @Override
     public void handle(MouseEvent event) {
-        bloquePersonalizado = new BloquePersonalizado(texto.getText(), algoritmo);
-        contenedorBotones.habilitarBLoquePersonalizado(texto.getText());
-        stage.close();
+        if (!texto.getText().isEmpty()) {
+            bloquePersonalizado = new BloquePersonalizado(texto.getText(), algoritmo);
+            contenedorBotones.habilitarBLoquePersonalizado(texto.getText());
+            stage.close();
+        } else {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText("Debe ingresar un nombre");
+            a.show();
+        }
     }
 }

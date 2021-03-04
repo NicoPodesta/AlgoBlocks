@@ -5,7 +5,7 @@ import javafx.scene.layout.VBox;
 
 public class ContenedorAlgoritmo extends VBox {
 
-    public ContenedorAlgoritmo(Label label){
+    public  ContenedorAlgoritmo(Label label){
         super(label);
     }
 

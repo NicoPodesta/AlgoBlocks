@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 
 import java.util.ArrayList;
 
@@ -18,7 +19,7 @@ public class ContenedorBotones extends VBox {
     public ContenedorBotones(ConjuntoBloques algoritmo, BloquePersonalizado bloquePersonalizado) {
 
         Label tituloBloques = new Label("Bloques disponibles");
-        tituloBloques.setStyle("-fx-font-weight:bold");
+        tituloBloques.setStyle("-fx-font-weight:bold;-fx-font-size: 20;");
 
         Button bloqueArriba = new Button("Arriba");
         Button bloqueAbajo = new Button("Abajo");

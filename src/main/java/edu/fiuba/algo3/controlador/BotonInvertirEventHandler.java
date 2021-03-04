@@ -27,8 +27,9 @@ public class BotonInvertirEventHandler extends BotonConjuntoBloquesEventHandler 
         VistaAlgoritmo vistaAlgoritmo = new VistaAlgoritmo(bloqueinvertir, contenedor);
         bloqueinvertir.addObserver(vistaAlgoritmo);
 
-        stage.setScene(new Scene(contenedor,1024,668));
+        stage.setScene(new Scene(contenedor,720,420));
         stage.setResizable(false);
+        stage.setTitle("Creación bloque Invertir");
         stage.show();
     }
 }

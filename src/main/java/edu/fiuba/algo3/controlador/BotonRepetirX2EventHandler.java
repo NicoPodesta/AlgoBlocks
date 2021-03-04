@@ -26,8 +26,9 @@ public class BotonRepetirX2EventHandler extends BotonConjuntoBloquesEventHandler
         VistaAlgoritmo vistaAlgoritmo = new VistaAlgoritmo(bloqueRepetir, contenedor);
         bloqueRepetir.addObserver(vistaAlgoritmo);
         
-        stage.setScene(new Scene(contenedor,720,668));
+        stage.setScene(new Scene(contenedor,720,420));
         stage.setResizable(false);
+        stage.setTitle("Creación bloque repetir dos veces");
         stage.show();
     }
 }

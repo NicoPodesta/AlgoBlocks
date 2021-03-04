@@ -31,7 +31,7 @@ public class VistaPersonaje implements Observer {
     public void update() {
         int xActual = personaje.getX();
         int yActual = personaje.getY();
-        playerImage.setX(posInicialX + TAM_LINEA*xActual);
-        playerImage.setY(posInicialY + TAM_LINEA*yActual);
+        playerImage.setX(posInicialX + 10 + TAM_LINEA*xActual);
+        playerImage.setY(posInicialY + 6 + TAM_LINEA*yActual);
     }
 }

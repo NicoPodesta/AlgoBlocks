@@ -25,7 +25,8 @@ public class BotonGuardarAlgoritmoEventHandler extends BotonConjuntoBloquesEvent
     public void handle(MouseEvent event) {
         Stage stage = new Stage();
         stage.setScene(new Scene(new ContenedorGuardarAlgoritmo(algoritmo, bloquePersonalizado, stage, contenedorBotones),
-                1024,668));
+                520,120));
+        stage.setTitle("Guardar algoritmo personalizado");
         stage.show();
     }
 }

@@ -34,7 +34,8 @@ public class VistaPizarra implements Observer {
         recorrido = new Path();
         root = new Pane(this.recorrido);
         root.setPrefSize(n * TAM_LINEA, n * TAM_LINEA);
-        BackgroundImage miBackground= new BackgroundImage(new Image("file:src/main/java/edu/fiuba/algo3/vista/Imagenes/fondo_dibujador.png",
+        root.setPadding(new Insets(85,0,0,0));
+        BackgroundImage miBackground= new BackgroundImage(new Image("file:src/main/java/edu/fiuba/algo3/vista/Imagenes/fondo-pizarra.jpg",
                 n * TAM_LINEA,n * TAM_LINEA,false,false),
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT);
@@ -75,7 +76,6 @@ public class VistaPizarra implements Observer {
 
     public void setPlayerView(ImageView playerView) {
         root.getChildren().add(playerView);
-        playerView = playerView;
     }
 
     private void dibujarCirculo(int x, int y){
