@@ -82,4 +82,8 @@ public class ConjuntoBloques implements Bloque, Observable {
     public void notifyObserver() {
         observers.forEach(Observer::update);
     }
+
+    public void removerAlgoritmo() {
+        bloques.clear();
+    }
 }
